@@ -429,6 +429,20 @@ The answers I typed during this step are not copied here, because they include t
 
 ### Follow-up prompt
 
-None.
+> I just learned that Canvas does not let you submit a url and files.  You have to choose one or the other.  I choose files. So here is what you submit:
+>
+> 1) HTML of report - put your github repo url in the report so we can clone it
+>
+> 2) HTML of slides - put your github repo url in the report so we can clone it
+>
+> 3) A video of you testing your app (optional)
+>
+> 4) Nothing else - any other files you include will annoy me and be penalized
+>
+> If your github repo is not in your report and slide files, we cannot clone it and grade it, so do not forget.
+>
+> Also, if your repo is private, please mention this in your report and slides.
+
+**What was missing after the first prompt:** The instructor updated the submission rules to allow an optional video of the app being tested; the report and slides already contained the public repository link.
 
 ---
