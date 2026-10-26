@@ -1,0 +1,6 @@
+{
+  "about": "Links shown in the report's title section and on the first slide. Fill in, then rebuild: .venv/bin/python scripts/build_report.py",
+  "repo": "https://github.com/madinamuratova/biovalue-ai",
+  "app": null,
+  "video": null
+}

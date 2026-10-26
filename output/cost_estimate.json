@@ -1,0 +1,108 @@
+{
+  "model": "gpt-6-luna",
+  "pricing": {
+    "status": "verified price",
+    "price_model": "gpt-6-luna",
+    "source": "Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11)",
+    "rates_per_1m_usd": {
+      "input": 0.1,
+      "cached_input": 0.01,
+      "output": 0.5
+    }
+  },
+  "assumptions": {
+    "assessments_per_user_per_month": 4,
+    "reason": "Assumption: a strategist screens about one feedstock stream or scenario per week. Change this to match real use.",
+    "user_counts": [
+      100,
+      10000
+    ]
+  },
+  "model_costs": {
+    "baseline": {
+      "runs_measured": 3,
+      "cases": [
+        "demo",
+        "injection_screened",
+        "missing_ash"
+      ],
+      "tokens_per_assessment": {
+        "input_tokens": 81739,
+        "cache_read_tokens": 46384,
+        "output_tokens": 13675
+      },
+      "latency_seconds_per_assessment": 89.6,
+      "cost_per_assessment_usd": 0.010837,
+      "monthly": [
+        {
+          "users": 100,
+          "assessments_per_month": 400,
+          "tokens": {
+            "input_tokens": 32695600,
+            "cache_read_tokens": 18553600,
+            "output_tokens": 5470000
+          },
+          "model_cost_usd": 4.33,
+          "price_model": "gpt-6-luna"
+        },
+        {
+          "users": 10000,
+          "assessments_per_month": 40000,
+          "tokens": {
+            "input_tokens": 3269560000,
+            "cache_read_tokens": 1855360000,
+            "output_tokens": 547000000
+          },
+          "model_cost_usd": 433.47,
+          "price_model": "gpt-6-luna"
+        }
+      ]
+    },
+    "optimized": {
+      "runs_measured": 3,
+      "cases": [
+        "demo",
+        "injection_screened",
+        "missing_ash"
+      ],
+      "tokens_per_assessment": {
+        "input_tokens": 47771,
+        "cache_read_tokens": 25293,
+        "output_tokens": 10731
+      },
+      "latency_seconds_per_assessment": 77.7,
+      "cost_per_assessment_usd": 0.007866,
+      "monthly": [
+        {
+          "users": 100,
+          "assessments_per_month": 400,
+          "tokens": {
+            "input_tokens": 19108400,
+            "cache_read_tokens": 10117200,
+            "output_tokens": 4292400
+          },
+          "model_cost_usd": 3.15,
+          "price_model": "gpt-6-luna"
+        },
+        {
+          "users": 10000,
+          "assessments_per_month": 40000,
+          "tokens": {
+            "input_tokens": 1910840000,
+            "cache_read_tokens": 1011720000,
+            "output_tokens": 429240000
+          },
+          "model_cost_usd": 314.65,
+          "price_model": "gpt-6-luna"
+        }
+      ]
+    }
+  },
+  "other_costs": {
+    "hosting_usd_per_month": null,
+    "portkey_plan_usd_per_month": null,
+    "storage_and_logging_usd_per_month": null,
+    "engineering_and_support_usd_per_month": null,
+    "note": "Not estimated: no verified quotes. These are separate from model costs and must be filled in from provider quotes."
+  }
+}

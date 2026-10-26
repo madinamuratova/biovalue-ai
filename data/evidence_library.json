@@ -1,0 +1,672 @@
+{
+  "about": "Evidence library for BioValue AI's three product pathways. Schema: backend/evidence.py. Every URL was opened on 2026-10-24 and every 'supported' claim was checked against the source text; the 'support' field quotes the passage and its location. Claims that a source only partly supported were reworded to match what the source says. Sources that couldn't be verified were left out. No prices, yields, or thresholds were added beyond what the sources state.",
+  "quality_labels": {
+    "high": "Peer-reviewed article or review, or a government or national-laboratory report. The URL was opened and every supported claim was checked against the text.",
+    "moderate": "Company publication, a project's own report, or a peer-reviewed source where only the abstract could be read. The URL was opened and claims were checked against the text that could be read.",
+    "low": "Trade press or a market-research summary. The URL was opened, but the source is secondary or promotional.",
+    "unverified": "The source or its URL could not be checked. Nothing from it is used for scoring."
+  },
+  "pathways": [
+    {
+      "id": "phenolic_resins",
+      "code": "PF",
+      "name": "Phenolic resins and adhesives",
+      "description": "Lignin as a partial replacement for phenol in phenol-formaldehyde (PF) resins, used mainly as adhesives for plywood and other wood-based panels.",
+      "example_products": [
+        "Lignin-phenol-formaldehyde (LPF) resin for plywood",
+        "Wood-panel adhesives"
+      ],
+      "incumbent_materials": [
+        "Phenol in phenol-formaldehyde resins"
+      ]
+    },
+    {
+      "id": "polyurethanes",
+      "code": "PU",
+      "name": "Polyurethane materials and foams",
+      "description": "Lignin as a partial replacement for petroleum-based polyols in polyurethane foams and other polyurethane materials.",
+      "example_products": [
+        "Rigid insulation foam (PUR/PIR)",
+        "Flexible foam"
+      ],
+      "incumbent_materials": [
+        "Petroleum-based polyols"
+      ]
+    },
+    {
+      "id": "carbon_materials",
+      "code": "CM",
+      "name": "Lignin-derived carbon materials",
+      "description": "Lignin as a carbon precursor for carbon fiber, hard carbon for battery anodes, and activated carbon. The three products have very different quality requirements.",
+      "example_products": [
+        "Carbon fiber",
+        "Hard carbon for battery anodes",
+        "Activated carbon"
+      ],
+      "incumbent_materials": [
+        "PAN-based carbon fiber",
+        "Hard carbon from fossil precursors such as anthracite or pitch",
+        "Conventional activated carbon"
+      ]
+    }
+  ],
+  "records": [
+    {
+      "id": "EV-PF-01",
+      "pathway": "phenolic_resins",
+      "title": "Sustainable lignin valorization: Technical lignin, processes and market development",
+      "publisher": "IEA Bioenergy, Task 42 (copy hosted by Wageningen University & Research eDepot)",
+      "authors": "Mastrolitti S., Borsella E., Giuliano A., Petrone M.T., De Bari I., Gosselink R., van Erven G., Annevelink E., Triantafyllidis K.S., Stichnothe H.",
+      "published": "2021-10",
+      "url": "https://edepot.wur.nl/558093",
+      "url_verified_on": "2026-10-24",
+      "source_type": "government_or_lab_report",
+      "quality": "high",
+      "claims": [
+        {
+          "text": "For kraft lignin in phenol-formaldehyde (PF) resins, the typical replacement of phenol is up to 50%, using a two-step process with depolymerized lignin (Mw 800-1,700 g/mol).",
+          "status": "supported",
+          "support": "Table 3.6, Kraft lignin row, printed p. 91: \"Typical repl. up to 50% Two steps process: (1) depolymerized lignin Mw 800–1700 g/mol, phenol, NaOH sol., and methanol at 60 °C\""
+        },
+        {
+          "text": "Kraft lignin needs an activation or depolymerization step before use in PF resins.",
+          "status": "supported",
+          "support": "Table 3.6, Kraft lignin row, 'Disadvantage' column, printed p. 91: \"Activation or depolymer. process needed\""
+        },
+        {
+          "text": "A 2018 report cited by the IEA estimates the technology readiness level (TRL) for producing biobased phenolic resins at 8.",
+          "status": "supported",
+          "support": "Section 3.1.3.1, printed p. 95: \"The 2018 report estimates that the TRL for the production of biobased phenolic resins is 8 and that their prices could be competitive with those of fossil resins (approximately USD 2,000/t).\""
+        },
+        {
+          "text": "Global PF resin production was expected to reach about 10 Mt (valued at about USD 13.36 billion in 2019), and more than 50% of these resins are used to make adhesives for wood-based panels.",
+          "status": "supported",
+          "support": "Section 3.1.3.1, printed p. 95: \"The global production of phenol-formaldehyde (PF) resins is expected to reach 10 Mt with an estimated value of approximately $13.36 billion in 2019 [85]. More than 50% of these resins are used to produce adhesives for wood-based panels.\""
+        }
+      ],
+      "technical_requirements": [
+        {
+          "parameter": "Pre-treatment of kraft lignin",
+          "requirement": "Activation or depolymerization is needed before kraft lignin is used in PF resins.",
+          "status": "supported",
+          "support": "Table 3.6, Kraft lignin row, printed p. 91: \"Activation or depolymer. process needed\""
+        }
+      ],
+      "limitations": [
+        "The TRL of 8 comes from a 2018 report the IEA cites, and covers biobased phenolic resins in general, not kraft lignin specifically.",
+        "The replacement levels summarise published studies in a review table; they are not results from a single commercial plant.",
+        "The 10 Mt production figure is a forecast with no year attached, and the market value is from 2019.",
+        "The Mw range describes the depolymerized lignin used in the process, not a requirement for lignin as delivered by a mill."
+      ]
+    },
+    {
+      "id": "EV-PF-02",
+      "pathway": "phenolic_resins",
+      "title": "Lignin-phenol-formaldehyde resin in plywood",
+      "publisher": "UPM Biochemicals",
+      "authors": "",
+      "published": "2024-01",
+      "url": "https://www.upmbiochemicals.com/siteassets/documents/lignin/lignin-phenol-formaldehyde_resin_in_plywood.pdf",
+      "url_verified_on": "2026-10-24",
+      "source_type": "company_publication",
+      "quality": "moderate",
+      "claims": [
+        {
+          "text": "UPM states that its lignin can replace up to 80% of the phenol in lignin-phenol-formaldehyde (LPF) resin.",
+          "status": "supported",
+          "support": "p. 1: \"With a replacement level of phenol by lignin at up to 80%, LPF resin can be tailored for any customer purpose.\""
+        },
+        {
+          "text": "UPM states that LPF resin is industrially proven and meets EN 314-2 Bonding Class 3 for veneer plywood.",
+          "status": "supported",
+          "support": "p. 1: \"The performance of LPF resin has been industrially proven. It meets the requirements of Bonding Class 3 (non-covered exterior) of veneer plywood specified by EN 314-2 standard.\""
+        },
+        {
+          "text": "UPM reports formaldehyde emissions (EN 717-2) of 0.230 mg/m²/h for 12 mm spruce, 0.148 for 12 mm birch, and 0.170 for 12 mm combi panels made with LPF resin.",
+          "status": "supported",
+          "support": "p. 2: \"For example, formaldehyde emissions (EN 717-2) for 12mm spruce panels 0.230mg/m2/h, or for 12mm birch panels 0.148mg/m2/h, or 12mm combi panels 0.170mg/m²/h.\""
+        },
+        {
+          "text": "Using average 2010-2020 prices and UPM's resin technology, UPM calculates that replacing 65% of phenol with its lignin could save up to 10% of resin raw-material cost.",
+          "status": "supported",
+          "support": "p. 2: \"by replacing 65% of phenol with UPM BioPiva TM lignin and using UPM´s resin technology the cost savings potential is up to 10% in a raw material basis, compared to a comparable PF resin system during the time period from 2010 to 2020.\""
+        }
+      ],
+      "technical_requirements": [],
+      "limitations": [
+        "Vendor technical literature: the performance and cost claims are the manufacturer's own and no test report is cited.",
+        "The lignin is UPM BioPiva; the document doesn't state that it is kraft lignin or give its composition.",
+        "The cost saving is a past calculation at average 2010-2020 prices (phenol at 1,000 EUR/t), not a current or general figure."
+      ]
+    },
+    {
+      "id": "EV-PF-03",
+      "pathway": "phenolic_resins",
+      "title": "Kraft Lignin: A Valuable, Sustainable Resource, Opportunities and Challenges",
+      "publisher": "ChemSusChem (Wiley-VCH); open-access copy from the Ca' Foscari University of Venice repository",
+      "authors": "Argyropoulos D.D.S., Crestini C., Dahlstrand C., Furusjö E., Gioia C., et al.",
+      "published": "2023",
+      "url": "https://iris.unive.it/retrieve/3d0a9951-8264-40b0-993e-81e0aeba2dda/ChemSusChem%20-%202023%20-%20Argyropoulos.pdf",
+      "url_verified_on": "2026-10-24",
+      "source_type": "review_article",
+      "quality": "high",
+      "claims": [
+        {
+          "text": "A techno-economic comparison lists LignoBoost extraction combined with phenol substitution in resins ('LB+Resin') at TRL 9.",
+          "status": "supported",
+          "support": "Section 7, Table 4 'TEA of different technologies', row \"LB+Resin 80 120–240 300 800 9 780–900\" (TRL column = 9), article p. 27 of 34"
+        },
+        {
+          "text": "In the LignoBoost process, re-dispersing and acidifying the filter cake reduces the lignin's ash content to below 1 wt%.",
+          "status": "supported",
+          "support": "Section 4.1, article p. 10 of 34: \"The resulting filter cake is then re-dispersed and acidified with sulphuric acid to protonate the lignin and to reduce its ash content to below 1 wt%.\""
+        },
+        {
+          "text": "With phenol at around 1,000 USD per tonne, substituting part of the phenol in PF resins with lignin is estimated to add about 800 USD per marginal tonne of pulp (not per tonne of lignin); the additional operating costs are not known.",
+          "status": "supported",
+          "support": "Section 7, article p. 27 of 34: \"The market value of phenol is around 1000 USD per tonne, which would give an additional 800 USD per tonne pulp produced (Table 4). However, additional OpEx costs are not known.\""
+        }
+      ],
+      "technical_requirements": [],
+      "limitations": [
+        "The 800 USD figure is per marginal tonne of pulp, based on about 800 kg of lignin per marginal tonne of pulp; it is not a lignin price.",
+        "The additional operating costs of the resin route are stated to be unknown.",
+        "'LB' is not defined in Table 4; the surrounding text indicates LignoBoost."
+      ]
+    },
+    {
+      "id": "EV-PF-04",
+      "pathway": "phenolic_resins",
+      "title": "Oxidative Depolymerizaton of Kraft Lignin and its Application in the Synthesis of Lignin-phenol-formaldehyde Resin",
+      "publisher": "BioResources 13(1), 1223-1234 (NC State University)",
+      "authors": "Ma C., Mei X., Fan Y., Zhang Z.",
+      "published": "2018-01-03",
+      "url": "https://bioresources.cnr.ncsu.edu/wp-content/uploads/2018/01/BioRes_13_1_1223_Ma_MFZ_Oxidative_Depolymeriz_Kraft-Lignin_Appl_Synth_HCHO_Resin_11673.pdf",
+      "url_verified_on": "2026-10-24",
+      "source_type": "peer_reviewed_article",
+      "quality": "high",
+      "claims": [
+        {
+          "text": "Oxidative depolymerization (hydrogen peroxide with a copper sulfate catalyst) raised the phenolic hydroxyl content of kraft lignin from 1.55 to 2.66 mmol/g.",
+          "status": "supported",
+          "support": "Abstract, p. 1223: \"The content of phenolic hydroxyl groups increased from 1.55 to 2.66 mmol/g.\""
+        },
+        {
+          "text": "With the depolymerized lignin making up 50% of the phenolic component, the resin's viscosity, bonding strength, and free formaldehyde met the Chinese wood-adhesive standard used in the study.",
+          "status": "supported",
+          "support": "p. 1231: \"when DL accounted for 50% of the total weight of the phenolic substance, the viscosity, bonding strength, and free formaldehyde content of the resin fulfilled the GB/T 14704-2006 standard.\""
+        }
+      ],
+      "technical_requirements": [],
+      "limitations": [
+        "Laboratory study with poplar plywood samples.",
+        "The paper names the standard inconsistently (GB/T 14704-2006 in the text, GB/T 14732-2006 in the methods and Table 4).",
+        "The comparison resin made with untreated kraft lignin also met the Table 4 requirements; the treatment mainly raised bonding strength (1.21 vs 0.81 MPa)."
+      ]
+    },
+    {
+      "id": "EV-PU-01",
+      "pathway": "polyurethanes",
+      "title": "Studying the Suitability of Nineteen Lignins as Partial Polyol Replacement in Rigid Polyurethane/Polyisocyanurate Foam",
+      "publisher": "Molecules 27(8):2535 (MDPI); PubMed Central copy",
+      "authors": "Henry C., Gondaliya A., Thies M., Nejad M.",
+      "published": "2022-04-14",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9030922/",
+      "url_verified_on": "2026-10-24",
+      "source_type": "peer_reviewed_article",
+      "quality": "high",
+      "claims": [
+        {
+          "text": "Replacing 30 wt% of the petroleum-based polyol with unmodified lignin, 16 of the 19 lignins tested gave rigid PUR/PIR foams that passed all measured ASTM C1029-15 type 1 specifications.",
+          "status": "supported",
+          "support": "Abstract: \"were used to replace 30 wt.% of petroleum-based polyol in rigid polyurethane/polyisocyanurate (PUR/PIR) foam formulations\" ... \"Lignin-based foams passed all measured standard specifications required by ASTM International C1029-15 for type 1 rigid insulation foams, except for three foams.\""
+        },
+        {
+          "text": "Two of the three foams that failed were made with kraft lignin; they failed the compressive strength and/or closed-cell content requirements.",
+          "status": "supported",
+          "support": "Section 2.2: \"All but three lignin-based foams (3-SW-O, 7-HW-K, and 11-SW-K) met or exceeded the 104 kPa minimum compressive strength requirement for type 1 rigid foams\"; Figure 3 caption: \"Samples 3-SW-O, 7-HW-K, and 11-SW-K failed the compression strength and/or closed-cell content tests.\" (K = kraft, Table 1)"
+        },
+        {
+          "text": "Adding lignin generally lowered compressive strength compared with the lignin-free control foam.",
+          "status": "supported",
+          "support": "Section 2.2: \"In general, the addition of lignin into PUR/PIR foams decreased compression strength compared to the control foam with no lignin.\""
+        },
+        {
+          "text": "Lignin-based foams were 2-50% darker than the control foam.",
+          "status": "supported",
+          "support": "Section 2.2: \"Lignin-based foams were 2–50% darker than the control foam with no lignin (measured by spectrophotometer) shown in Table 3.\""
+        }
+      ],
+      "technical_requirements": [
+        {
+          "parameter": "Total hydroxyl value of the lignin",
+          "requirement": "Above 200 mg KOH/g (3.56 mmol/g total OH) is cited as the acceptable range for rigid polyurethane foam production. This is total OH, not phenolic OH, so it is not checked against the feedstock's phenolic OH figure.",
+          "status": "supported",
+          "support": "Section 2.1: \"All lignins were within the acceptable hydroxyl value range (>200 mg KOH/g or equal to 3.56 Total OH content in mmol/g) [1,7] for rigid polyurethane foam production (Table 2).\""
+        }
+      ],
+      "limitations": [
+        "Covers 19 lignins of five types, not kraft lignin only. The paper doesn't state a kraft-only pass rate; counting the kraft-labelled lignins in Table 1, 7 of 9 kraft foams passed.",
+        "Laboratory cup-test foams; the best performer was an enzymatic hydrolysis lignin, not a kraft lignin.",
+        "Lignin was substituted by weight, not by hydroxyl equivalence, and the authors note the 3.56 mmol/g minimum ignores hydroxyl group types.",
+        "Only the three failed foams had significantly larger cells; foams that passed had cell sizes comparable to the control."
+      ]
+    },
+    {
+      "id": "EV-PU-02",
+      "pathway": "polyurethanes",
+      "title": "Effect of replacing polyol by organosolv and kraft lignin on the property and structure of rigid polyurethane foam",
+      "publisher": "Biotechnology for Biofuels 6:12 (BioMed Central); PubMed Central copy",
+      "authors": "Pan X., Saddler J.N.",
+      "published": "2013-01-28",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3564865/",
+      "url_verified_on": "2026-10-24",
+      "source_type": "peer_reviewed_article",
+      "quality": "high",
+      "claims": [
+        {
+          "text": "Rigid foams containing 19-23% (w/w) hardwood kraft lignin, or 25-30% (w/w) organosolv lignin, kept comparable structure and strength.",
+          "status": "supported",
+          "support": "Abstract: \"The lignin-containing foams had comparable structure and strength up to 25-30% (w/w) HEL or 19-23% (w/w) HKL addition.\""
+        },
+        {
+          "text": "Replacing 25% of the polyol with lignin cut compressive strength by 40% compared with lignin-free foam; raising lignin from 25% to 60% caused no further drop.",
+          "status": "supported",
+          "support": "Results: \"Replacing the polyol with 25% lignin reduced the compressive strength of the foam by 40%, compared to pure polyurethane foam without lignin\" ... \"Further increasing lignin content from 25% to 60% did not result in additional drop of the strength\""
+        },
+        {
+          "text": "The hardwood kraft lignin was insoluble in alcohols and only suspended in the polyol, which raised viscosity.",
+          "status": "supported",
+          "support": "Results: \"HKL produced from kraft pulping was insoluble in alcohols and was just suspended in the polyol, which resulted in a high viscosity.\""
+        }
+      ],
+      "technical_requirements": [],
+      "limitations": [
+        "The 19-23% (w/w) is the lignin content of the finished foam, which corresponds to replacing 50-60% of the polyol on a hydroxyl-molar basis (Table 2); it is not the share of polyol replaced by weight.",
+        "Laboratory study of high-density rigid foam; organosolv lignin performed better than kraft lignin.",
+        "Published 2013."
+      ]
+    },
+    {
+      "id": "EV-PU-03",
+      "pathway": "polyurethanes",
+      "title": "Lignin as a Partial Polyol Replacement in Polyurethane Flexible Foam",
+      "publisher": "Molecules 26(8):2302 (MDPI); PubMed Central copy",
+      "authors": "Gondaliya A., Nejad M.",
+      "published": "2021-04-15",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8071504/",
+      "url_verified_on": "2026-10-24",
+      "source_type": "peer_reviewed_article",
+      "quality": "high",
+      "claims": [
+        {
+          "text": "Fifteen unmodified lignins (ten kraft, five organosolv) were tested as a replacement for 20 wt% of the petroleum-based polyol in flexible polyurethane foam.",
+          "status": "supported",
+          "support": "Abstract: \"This study was focused on evaluating the suitability of a wide range of lignins ... in replacing 20 wt.% of petroleum-based polyol in the formulation of PU flexible foams.\" (Table 1 lists 10 kraft and 5 organosolv lignins)"
+        },
+        {
+          "text": "Unmodified lignin reduced foam resiliency: compression set rose to 7-32% against 6% for the control, though it stayed within the standard's limit of below 60%.",
+          "status": "supported",
+          "support": "Section 2.5: \"partially substituting the polyol with unmodified lignin reduced foam resiliency, resulting in a higher compression set. The lignin-containing PU flexible foams had higher compression sets (7–32%) than the control foam (6%) without lignin.\"; compression sets were \"well within the required standard limit (below 60%)\""
+        },
+        {
+          "text": "Organosolv lignins were the most suitable for automotive flexible foam; kraft lignins gave denser, stiffer foams that the authors suggest may suit heavy-duty foams.",
+          "status": "supported",
+          "support": "Conclusions: kraft lignin foams were \"possibly more suitable for heavy-duty foam formulations.\""
+        },
+        {
+          "text": "Sulfur odor is a known drawback of some softwood kraft lignins.",
+          "status": "supported",
+          "support": "Introduction: \"unpleasant odor due to sulfur, which is mainly noticeable in some kraft softwood lignins\""
+        }
+      ],
+      "technical_requirements": [],
+      "limitations": [
+        "Laboratory one-pot foams compared against automotive OEM requirements.",
+        "Odor was named as a drawback in the introduction but was not measured in this study.",
+        "Lignin also lowered ultimate elongation (37-83% against 123% for the control)."
+      ]
+    },
+    {
+      "id": "EV-PU-04",
+      "pathway": "polyurethanes",
+      "title": "Sustainable lignin valorization: Technical lignin, processes and market development",
+      "publisher": "IEA Bioenergy, Task 42 (copy hosted by Wageningen University & Research eDepot)",
+      "authors": "Mastrolitti S., Borsella E., Giuliano A., Petrone M.T., De Bari I., Gosselink R., van Erven G., Annevelink E., Triantafyllidis K.S., Stichnothe H.",
+      "published": "2021-10",
+      "url": "https://edepot.wur.nl/558093",
+      "url_verified_on": "2026-10-24",
+      "source_type": "government_or_lab_report",
+      "quality": "high",
+      "claims": [
+        {
+          "text": "The IEA rates polyurethane uses of lignin (foams, panels, coatings, rubber replacement; kraft, organosolv, and soda lignin) at TRL 6.",
+          "status": "supported",
+          "support": "Table 3.1, printed p. 76: \"Polyurethane | Foam [Building, Furnishings, Automotive] / Panels / Coatings / Rubber replacing | Kraft, Organosolv, Soda | ... | 6\""
+        },
+        {
+          "text": "In cited studies, kraft lignin replaced up to about 20% of polyol after oxypropylation, up to 50% when depolymerized and oxypropylated, and up to 100% when liquefied in a bio-based polyol.",
+          "status": "supported",
+          "support": "Table 3.10, printed p. 102: \"Kraft | Low market price | Lignin oxypropylation is necessary | Maximum repl. 20%\" ... \"Lignin modification by liquefaction is necessary in a bio-based polyol (sucrose or glycerol) | Replaced up to 100%\" ... \"Depolymerized kraft lignin in alkaline solution | Lignin oxypropylation is necessary | Bio-replacement up to 50%\""
+        },
+        {
+          "text": "Bio-based polyurethanes, including the small lignin-based share, hold less than 1% of the polyurethane market.",
+          "status": "supported",
+          "support": "Section 3.1.4.1, printed p. 103: \"It appears that their market share is less than 1%, which also contains the small part related to lignin-based PU.\""
+        },
+        {
+          "text": "The global polyurethane market was valued at USD 65 billion in 2019 and was expected to reach USD 80 billion in 2023.",
+          "status": "supported",
+          "support": "Section 3.1.4.1, printed p. 103: \"The global polyurethane market was valued at $65 billion in 2019 and is expected to reach $80 billion in 2023 [133].\""
+        }
+      ],
+      "technical_requirements": [
+        {
+          "parameter": "Modification of kraft lignin",
+          "requirement": "Kraft lignin needs significant treatment (for example oxypropylation, depolymerization, or liquefaction) to reach target properties for polyurethanes.",
+          "status": "supported",
+          "support": "Section 3.1.3, printed p. 100: \"Despite Kraft lignin is less expensive and more readily available than organosolv lignin, its employment is limited as ite requires a significant lignin treatment to ensure the target properties.\" (typos as in the source)"
+        }
+      ],
+      "limitations": [
+        "TRL 6 applies to the whole polyurethane row (foams, panels, coatings, rubber replacement), not to kraft lignin foams specifically.",
+        "Each replacement level in Table 3.10 comes from a single cited study and is not a general limit.",
+        "The market figures are from 2019, with a 2023 forecast."
+      ]
+    },
+    {
+      "id": "EV-PU-05",
+      "pathway": "polyurethanes",
+      "title": "Challenges and Perspectives in Lignin-Derived Polyurethane Foam Synthesis",
+      "publisher": "Advanced Sustainable Systems 9(5):2401054 (Wiley); abstract on OSTI.gov (DOE PAGES)",
+      "authors": "Zhang M., Jia L., Li M., Yoo C.G., Peng H., Arvelli S., Zhao J.",
+      "published": "2025-02-23",
+      "url": "https://www.osti.gov/pages/biblio/2530459",
+      "url_verified_on": "2026-10-24",
+      "source_type": "review_article",
+      "quality": "moderate",
+      "claims": [
+        {
+          "text": "Commercialization of lignin-based polyurethane foams remains limited by low product consistency, poor technical performance, and high production costs.",
+          "status": "supported",
+          "support": "Abstract: \"While efforts have been made to produce and apply various lignin‐based polyurethane foams (LPUFs), their commercialization remains limited by challenges such as low product consistency, poor technical performances, and high production costs.\""
+        },
+        {
+          "text": "The review points to lignin fractionation, modification, and co-solvent assistance as ways to address these challenges.",
+          "status": "supported",
+          "support": "Abstract: \"lignin fractionation, modification, and co‐solvent assistance\""
+        }
+      ],
+      "technical_requirements": [],
+      "limitations": [
+        "Only the abstract could be read; the full text was blocked, so the label is moderate rather than high.",
+        "Covers lignin-based polyurethane foams, not polyurethane materials in general."
+      ]
+    },
+    {
+      "id": "EV-CM-01",
+      "pathway": "carbon_materials",
+      "title": "Lignin recovered from the near-neutral hemicellulose extraction process as a precursor for carbon fiber",
+      "publisher": "BioResources 6(4), 4566-4593 (NC State University)",
+      "authors": "Luo J., Genco J., Cole B., Fort R.",
+      "published": "2011-09-23",
+      "url": "https://bioresources.cnr.ncsu.edu/BioRes_06/BioRes_06_4_4566_Luo_GCF_Lignin_Based_Carbon_Fiber_1219.pdf",
+      "url_verified_on": "2026-10-24",
+      "source_type": "peer_reviewed_article",
+      "quality": "high",
+      "claims": [
+        {
+          "text": "Oak Ridge National Laboratory (ORNL) specifications for lignin as a carbon fiber precursor (Baker et al. 2005) set lignin content at 99%, ash below 0.1%, volatiles below 5% at 250 °C, and full removal of particulates larger than 1 µm.",
+          "status": "supported",
+          "support": "Table 1 'ORNL Specifications for Lignin as a Precursor Material for the Production of Carbon Fiber (Baker et al. 2005)', p. 4568: \"Lignin Content (w %) 99%\"; \"Ash Content (w %) < 0.1%\"; \"Volatile Material (w %) < 5% (at 250°C)\"; \"Particulate Matter (w %) 100% Removal of particulate matter > 1 μm in diameter\""
+        },
+        {
+          "text": "A fifth precursor specification was later added: residual carbohydrates below 500 ppm (Baker 2011).",
+          "status": "supported",
+          "support": "p. 4568, text above Table 1: \"Recently, a fifth specification for precursor lignin has been added, namely that the residual carbohydrates have to be less than 500 ppm (Baker 2011).\""
+        },
+        {
+          "text": "None of the lignin samples in the study met the ORNL volatiles specification.",
+          "status": "supported",
+          "support": "p. 4579: \"none of the lignin samples investigated met the ORNL specification\""
+        }
+      ],
+      "technical_requirements": [
+        {
+          "parameter": "Lignin content",
+          "requirement": "Greater than 99% (ORNL precursor specification).",
+          "applies_to": "carbon fiber precursor",
+          "property": "lignin_pct",
+          "min": 99,
+          "status": "supported",
+          "support": "Table 1, p. 4568: \"Lignin Content (w %) 99%\"; p. 4579: lignin content \"was required to be greater than 99% (Table 1)\""
+        },
+        {
+          "parameter": "Ash content",
+          "requirement": "Below 0.1% by weight (ORNL precursor specification).",
+          "applies_to": "carbon fiber precursor",
+          "property": "ash_pct",
+          "max": 0.1,
+          "status": "supported",
+          "support": "Table 1, p. 4568: \"Ash Content (w %) < 0.1%\""
+        },
+        {
+          "parameter": "Residual carbohydrates",
+          "requirement": "Below 500 ppm (Baker 2011). Not mapped to the feedstock's carbohydrate percentage, because the source doesn't state the basis of the ppm figure.",
+          "applies_to": "carbon fiber precursor",
+          "status": "supported",
+          "support": "p. 4568: \"the residual carbohydrates have to be less than 500 ppm (Baker 2011)\""
+        },
+        {
+          "parameter": "Volatile material",
+          "requirement": "Below 5% at 250 °C. The feedstock profile has no volatiles field, so this is not checked.",
+          "applies_to": "carbon fiber precursor",
+          "status": "supported",
+          "support": "Table 1, p. 4568: \"Volatile Material (w %) < 5% (at 250°C)\""
+        },
+        {
+          "parameter": "Particulate matter",
+          "requirement": "100% removal of particulates larger than 1 µm in diameter.",
+          "applies_to": "carbon fiber precursor",
+          "status": "supported",
+          "support": "Table 1, p. 4568: \"100% Removal of particulate matter > 1 μm in diameter\""
+        }
+      ],
+      "limitations": [
+        "The specifications are for carbon fiber precursors, the most demanding carbon material; they don't apply to hard carbon or activated carbon.",
+        "The specifications are cited secondhand from ORNL work (Baker et al. 2005; Baker 2011).",
+        "The study's own lignin came from a near-neutral hemicellulose extraction process, not standard kraft pulping.",
+        "Table 1 prints the lignin content as 99% without an inequality sign; the text says 'greater than 99%'."
+      ]
+    },
+    {
+      "id": "EV-CM-02",
+      "pathway": "carbon_materials",
+      "title": "Low-Cost Carbon Fiber from Renewable Resources (Chapter 7.A, FY 2009 Progress Report for Lightweighting Materials)",
+      "publisher": "U.S. Department of Energy, Vehicle Technologies Program (Oak Ridge National Laboratory project)",
+      "authors": "Baker F.S., Gallego N.C., Baker D.A.",
+      "published": null,
+      "url": "https://www.energy.gov/sites/prod/files/2014/04/f14/7_low-cost_carbon_fiber.pdf",
+      "url_verified_on": "2026-10-24",
+      "source_type": "government_or_lab_report",
+      "quality": "high",
+      "claims": [
+        {
+          "text": "DOE's goal was to cut industrial-grade carbon fiber cost from about $20/lb to a target of $5-7/lb, with mechanical properties suitable for automotive use (250 ksi tensile strength, 25 Msi modulus).",
+          "status": "supported",
+          "support": "p. 7-4: \"a large reduction in cost of industrial grade carbon fiber from about $20/lb to the DOE target range of $5-7/lb; ... to manufacture carbon fiber with mechanical properties appropriate for automotive use (tensile strength, 250 Ksi; modulus, 25 Msi).\""
+        },
+        {
+          "text": "The precursor accounts for about 50% of carbon fiber manufacturing cost.",
+          "status": "supported",
+          "support": "p. 7-1: \"The cost of the precursor material currently accounts for about 50% of carbon fiber manufacturing cost;\""
+        },
+        {
+          "text": "Softwood lignin gives high carbon yields (55% or more) but is not readily melt-spinnable without a plasticizing agent; hardwood lignin is the reverse, with slightly lower yield (50-55%).",
+          "status": "supported",
+          "support": "p. 7-7: \"The chemistry of softwood lignin favors stabilization of lignin-based fibers and subsequent processing into carbon fiber with high yields (55% +), but softwood lignins are not readily melt spinnable and require the addition of a plasticizing (alloying) agent. The converse is the case for hardwood lignin, with slightly lower carbon yield (50-55%).\""
+        },
+        {
+          "text": "Mechanical properties of lignin-based carbon fibers were about 50% of the target in this work.",
+          "status": "supported",
+          "support": "p. 7-7: \"Mechanical properties of lignin-based carbon fibers are currently about 50% of target.\""
+        }
+      ],
+      "technical_requirements": [
+        {
+          "parameter": "Purification of kraft lignin",
+          "requirement": "The kraft lignin examined needed purification before it could be used for carbon fiber.",
+          "applies_to": "carbon fiber precursor",
+          "status": "supported",
+          "support": "p. 7-4: MeadWestvaco kraft lignin \"is not suitable for carbon fiber production and requires purification before it can be properly used for this purpose\""
+        },
+        {
+          "parameter": "Melt spinnability of softwood lignin",
+          "requirement": "A plasticizing (alloying) agent is needed to melt-spin softwood lignin.",
+          "applies_to": "carbon fiber precursor",
+          "status": "supported",
+          "support": "p. 7-7: \"softwood lignins are not readily melt spinnable and require the addition of a plasticizing (alloying) agent.\""
+        }
+      ],
+      "limitations": [
+        "No publication date is printed in the chapter; it is part of the FY2009 progress report, so the findings are from 2009.",
+        "The $5-7/lb, 250 ksi, and 25 Msi figures are targets for the carbon fiber product, not precursor specifications.",
+        "The melt-spinning statements are about softwood lignin in general, not kraft lignin specifically."
+      ]
+    },
+    {
+      "id": "EV-CM-03",
+      "pathway": "carbon_materials",
+      "title": "Periodic Reporting for period 3 - GreenLight (Cost effective lignin-based carbon fibres for innovative light-weight applications)",
+      "publisher": "CORDIS, European Commission (Horizon 2020 grant 667501)",
+      "authors": "GreenLight consortium, coordinated by RISE INNVENTIA AB",
+      "published": null,
+      "url": "https://cordis.europa.eu/project/id/667501/reporting",
+      "url_verified_on": "2026-10-24",
+      "source_type": "government_or_lab_report",
+      "quality": "moderate",
+      "claims": [
+        {
+          "text": "The GreenLight project raised the TRL of lignin precursor fiber production from 2-3 (proof of concept) to 5 (validated in an industrially relevant environment).",
+          "status": "supported",
+          "support": "'Progress beyond the state of the art': \"Overall the project succeeded in increasing the TRL level of precursor fiber production from 2-3 (Proof of concept) to TRL 5: the technology of precursor fiber production was validated in an industrially relevant environment.\""
+        },
+        {
+          "text": "The modelled production cost of GreenLight lignin-based carbon fiber was EUR 12.6/kg, against about EUR 16/kg estimated for PAN-based fiber; cooperation with existing melt-spinning and carbon fiber plants could lower it to EUR 6.5-7.1/kg.",
+          "status": "supported",
+          "support": "'Techno-economic evaluation': \"The estimated production cost of the GreenLight carbon fibre (CF) was 12.6 EUR/kg (to be compared with cost estimates of PAN-based CF of ~16 EUR/kg). A sensitivity analysis showed a reduction in production cost, down to 6.5-7.1 EUR/kg, through cooperation with existing melt spinning and carbon fibre plants.\""
+        }
+      ],
+      "technical_requirements": [],
+      "limitations": [
+        "The project's own summary of its results on the EU's CORDIS site, not an independent review; labelled moderate for that reason.",
+        "TRL 5 applies to precursor fiber production (spinning), not to the whole lignin-to-carbon-fiber chain.",
+        "The costs are modelled for an up-scaled process, not measured.",
+        "No publication date is given; the report covers July 2018 to June 2019."
+      ]
+    },
+    {
+      "id": "EV-CM-04",
+      "pathway": "carbon_materials",
+      "title": "Advances and Prospects of Lignin-Derived Hard Carbons for Next-Generation Sodium-Ion Batteries",
+      "publisher": "Polymers 17(20):2801 (MDPI); PubMed Central copy",
+      "authors": "Kitchamsetti N., Mhin S.",
+      "published": "2025-10-20",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12567209/",
+      "url_verified_on": "2026-10-24",
+      "source_type": "review_article",
+      "quality": "high",
+      "claims": [
+        {
+          "text": "A feedstock comparison for sodium-ion battery hard carbon lists lignin at about 300 $/t with a carbon yield above 40%, against anthracite (50-200 $/t, about 90%) and cellulose (1,000 $/t, below 10%).",
+          "status": "supported",
+          "support": "Table 1 'Comparative analysis of various feedstocks for SIBs': \"Anthracite | 50–200 | ∼90\" ... \"Cellulose | 1000 | <10\" ... \"Lignin | 300 | >40 | Easy\" (columns: Cost ($/t), C Yield (%))"
+        },
+        {
+          "text": "Hard carbons from kraft lignin (carbonized at 1,200 °C) had higher initial coulombic efficiency than those from sulfonated lignin, which the review attributes to lower ash content.",
+          "status": "supported",
+          "support": "Section 4.2.1: \"Ghimbeu and colleagues [89] compared kraft and sulfonated lignins carbonized at 1200 °C, finding that kraft-based HCs had lower SSA and P v but higher ICE due to reduced ash content\""
+        }
+      ],
+      "technical_requirements": [],
+      "limitations": [
+        "A review: Table 1 and the kraft vs. sulfonated comparison summarise other studies.",
+        "Covers sodium-ion batteries only.",
+        "The cost column's currency and basis are not specified beyond '$/t'."
+      ]
+    },
+    {
+      "id": "EV-CM-05",
+      "pathway": "carbon_materials",
+      "title": "The Role of Lignin Molecular Weight on Activated Carbon Pore Structure",
+      "publisher": "Molecules 29(16):3879 (MDPI); PubMed Central copy",
+      "authors": "Wu C., Ding J., Tindall G.W., Pittman Z.A., Thies M.C., Roberts M.E.",
+      "published": "2024-08-16",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11357568/",
+      "url_verified_on": "2026-10-24",
+      "source_type": "peer_reviewed_article",
+      "quality": "high",
+      "claims": [
+        {
+          "text": "Activated carbon has no strict limitations on precursor quality, so lignin too impure for other uses can be converted into it.",
+          "status": "supported",
+          "support": "Section 1: \"Since AC does not have strict limitations on its precursor quality, theoretically, any lignin can be carbonized and activated. Lignin with a high impurity content and varying molecular weight, which cannot be utilized in other applications, can be converted into AC.\""
+        },
+        {
+          "text": "Fractionating Domtar's BioChoice kraft lignin with the ALPHA process cut its ash from 2.8% to below 0.6% and its metals to below 1,200 ppm.",
+          "status": "supported",
+          "support": "Section 2.1: \"After the ALPHA process, nearly 90% of the metals are reduced, resulting in LL, LM, and LH all exhibiting very low metal contents lower than 1200 ppm. ... Compared to the ash content of 2.8% in LF, all of the ash contents in the three ALPHA-processed lignin samples are lower than 0.6%.\""
+        },
+        {
+          "text": "Higher ash in the lignin lowered activated carbon yield and carbon conversion.",
+          "status": "supported",
+          "support": "Section 2.2: \"Considering that the LF has a high ash content (2.7%), the lower overall AC yield and carbon fractional conversion indicate that ash negatively impacts the conversion from lignin to AC.\""
+        }
+      ],
+      "technical_requirements": [
+        {
+          "parameter": "Precursor quality",
+          "requirement": "No strict limitations on precursor quality; lower ash improves yield.",
+          "applies_to": "activated carbon",
+          "status": "supported",
+          "support": "Section 1: \"AC does not have strict limitations on its precursor quality\"; Section 2.2: \"ash negatively impacts the conversion from lignin to AC\""
+        }
+      ],
+      "limitations": [
+        "Laboratory study using zinc chloride activation.",
+        "The paper gives the starting lignin's ash as 2.8% in one section and 2.7% in another.",
+        "The as-received metal content is shown only in a figure, not stated in the text."
+      ]
+    },
+    {
+      "id": "EV-CM-06",
+      "pathway": "carbon_materials",
+      "title": "Lignode - Making batteries out of trees: Using lignin-based hard carbon to make lithium-ion batteries more sustainable",
+      "publisher": "Stora Enso (investor relations)",
+      "authors": "",
+      "published": "2021",
+      "url": "https://www.storaenso.com/-/media/documents/download-center/documents/investor-relations/2021/lignode-making-batteries-out-of-trees-web-version.pdf",
+      "url_verified_on": "2026-10-24",
+      "source_type": "company_publication",
+      "quality": "moderate",
+      "claims": [
+        {
+          "text": "Stora Enso states that qualification with battery manufacturers and carmakers can take 3 years, and that partnering helps shorten this.",
+          "status": "supported",
+          "support": "Slide 23: \"Qualification processes with battery manufacturers and OEMs can take 3 years, partnering plays a very important role to reduce these timelines\""
+        },
+        {
+          "text": "Stora Enso announced a EUR 10 million pilot production line for lignin-based anode material, operational in 2021, with scale-up planned in standardized 20 kton manufacturing units.",
+          "status": "supported",
+          "support": "Slides 20 and 23: \"EUR 10 million investment into pilot production line for anode production, operational in 2021. ... Scale-up is built on standardized 20kton manufacturing units\""
+        }
+      ],
+      "technical_requirements": [],
+      "limitations": [
+        "Company investor material with forward-looking statements; the deck's own disclaimer says so.",
+        "Plans as of 2021; their later status was not verified for this library.",
+        "Covers lithium-ion batteries; no lignin quality specifications are given."
+      ]
+    }
+  ]
+}

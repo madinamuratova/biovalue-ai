@@ -1,0 +1,714 @@
+[
+  {
+    "timestamp": "2026-10-24T12:08:56-04:00",
+    "run_id": "run-20261024-120723-79c5c3",
+    "source": "biovalue_workflow",
+    "model": "gpt-5.6-luna",
+    "agents": {
+      "feedstock": {
+        "requests": 4,
+        "tool_calls": 5,
+        "input_tokens": 10460,
+        "output_tokens": 842,
+        "cache_read_tokens": 5329
+      },
+      "market": {
+        "requests": 3,
+        "tool_calls": 5,
+        "input_tokens": 12878,
+        "output_tokens": 3040,
+        "cache_read_tokens": 4378
+      },
+      "commercialization": {
+        "requests": 4,
+        "tool_calls": 17,
+        "input_tokens": 49391,
+        "output_tokens": 7287,
+        "cache_read_tokens": 31429
+      },
+      "decision": {
+        "requests": 3,
+        "tool_calls": 1,
+        "input_tokens": 15503,
+        "output_tokens": 3204,
+        "cache_read_tokens": 8055
+      }
+    },
+    "total": {
+      "requests": 14,
+      "tool_calls": 28,
+      "input_tokens": 88232,
+      "output_tokens": 14373,
+      "cache_read_tokens": 49191
+    },
+    "cost": {
+      "status": "not_calculated",
+      "usd": null,
+      "note": "No verified price for gpt-5.6-luna in data/model_prices.json; token counts are reported instead."
+    }
+  },
+  {
+    "timestamp": "2026-10-24T12:33:50-04:00",
+    "run_id": "run-20261024-123208-2311ee",
+    "source": "biovalue_workflow",
+    "model": "gpt-5.6-luna",
+    "agents": {
+      "feedstock": {
+        "requests": 4,
+        "tool_calls": 5,
+        "input_tokens": 10524,
+        "output_tokens": 886,
+        "cache_read_tokens": 5338
+      },
+      "market": {
+        "requests": 3,
+        "tool_calls": 5,
+        "input_tokens": 12848,
+        "output_tokens": 3185,
+        "cache_read_tokens": 5771
+      },
+      "commercialization": {
+        "requests": 4,
+        "tool_calls": 17,
+        "input_tokens": 51152,
+        "output_tokens": 7377,
+        "cache_read_tokens": 34108
+      },
+      "decision": {
+        "requests": 2,
+        "tool_calls": 1,
+        "input_tokens": 8106,
+        "output_tokens": 1802,
+        "cache_read_tokens": 3078
+      }
+    },
+    "total": {
+      "requests": 13,
+      "tool_calls": 28,
+      "input_tokens": 82630,
+      "output_tokens": 13250,
+      "cache_read_tokens": 48295
+    },
+    "cost": {
+      "status": "not_calculated",
+      "usd": null,
+      "note": "No verified price for gpt-5.6-luna in data/model_prices.json; token counts are reported instead."
+    }
+  },
+  {
+    "timestamp": "2026-10-24T23:11:49-04:00",
+    "run_id": "run-20261024-230950-1e1c37",
+    "source": "biovalue_workflow",
+    "model": "gpt-5.6-luna",
+    "agents": {
+      "feedstock": {
+        "requests": 4,
+        "tool_calls": 5,
+        "input_tokens": 10602,
+        "output_tokens": 832,
+        "cache_read_tokens": 5402
+      },
+      "market": {
+        "requests": 3,
+        "tool_calls": 5,
+        "input_tokens": 12827,
+        "output_tokens": 3144,
+        "cache_read_tokens": 4354
+      },
+      "commercialization": {
+        "requests": 7,
+        "tool_calls": 20,
+        "input_tokens": 123108,
+        "output_tokens": 9160,
+        "cache_read_tokens": 94802
+      },
+      "decision": {
+        "requests": 2,
+        "tool_calls": 1,
+        "input_tokens": 7383,
+        "output_tokens": 1908,
+        "cache_read_tokens": 2791
+      }
+    },
+    "total": {
+      "requests": 16,
+      "tool_calls": 31,
+      "input_tokens": 153920,
+      "output_tokens": 15044,
+      "cache_read_tokens": 107349
+    },
+    "cost": {
+      "status": "not_calculated",
+      "usd": null,
+      "note": "No verified price for gpt-5.6-luna in data/model_prices.json; token counts are reported instead."
+    }
+  },
+  {
+    "timestamp": "2026-10-24T23:16:55-04:00",
+    "run_id": "run-20261024-231408-fcce23",
+    "source": "biovalue_workflow",
+    "model": "gpt-5.6-luna",
+    "agents": {
+      "feedstock": {
+        "requests": 3,
+        "tool_calls": 5,
+        "input_tokens": 7530,
+        "output_tokens": 763,
+        "cache_read_tokens": 2504
+      },
+      "market": {
+        "requests": 4,
+        "tool_calls": 5,
+        "input_tokens": 24375,
+        "output_tokens": 5879,
+        "cache_read_tokens": 12632
+      },
+      "commercialization": {
+        "requests": 4,
+        "tool_calls": 13,
+        "input_tokens": 43938,
+        "output_tokens": 5240,
+        "cache_read_tokens": 27714
+      },
+      "decision": {
+        "requests": 2,
+        "tool_calls": 1,
+        "input_tokens": 8125,
+        "output_tokens": 1846,
+        "cache_read_tokens": 3072
+      }
+    },
+    "total": {
+      "requests": 13,
+      "tool_calls": 24,
+      "input_tokens": 83968,
+      "output_tokens": 13728,
+      "cache_read_tokens": 45922
+    },
+    "cost": {
+      "status": "not_calculated",
+      "usd": null,
+      "note": "No verified price for gpt-5.6-luna in data/model_prices.json; token counts are reported instead."
+    }
+  },
+  {
+    "timestamp": "2026-10-25T00:15:42-04:00",
+    "run_id": "run-20261025-001357-10d8b9",
+    "source": "biovalue_workflow",
+    "model": "gpt-5.6-luna",
+    "config": "optimized",
+    "status": "complete",
+    "usage_source": "provider usage metadata (OpenAI Responses API through Portkey), aggregated by PydanticAI",
+    "agents": {
+      "feedstock": {
+        "model": "gpt-5.6-luna",
+        "status": "ok",
+        "requests": 3,
+        "tool_calls": 5,
+        "input_tokens": 7747,
+        "cached_input_tokens": 5188,
+        "uncached_input_tokens": 2559,
+        "output_tokens": 675,
+        "reasoning_tokens": 99,
+        "latency_seconds": 7.96,
+        "cost": {
+          "status": "not_calculated",
+          "usd": null,
+          "note": "No verified price for gpt-5.6-luna in data/model_prices.json; token counts are measured.",
+          "proxy_usd": 0.000645,
+          "proxy_note": "Estimate only: priced as gpt-6-luna (Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11)), not the price of gpt-5.6-luna."
+        }
+      },
+      "market": {
+        "model": "gpt-5.6-luna",
+        "status": "ok",
+        "requests": 3,
+        "tool_calls": 5,
+        "input_tokens": 11973,
+        "cached_input_tokens": 5584,
+        "uncached_input_tokens": 6389,
+        "output_tokens": 2469,
+        "reasoning_tokens": 261,
+        "latency_seconds": 30.12,
+        "cost": {
+          "status": "not_calculated",
+          "usd": null,
+          "note": "No verified price for gpt-5.6-luna in data/model_prices.json; token counts are measured.",
+          "proxy_usd": 0.001929,
+          "proxy_note": "Estimate only: priced as gpt-6-luna (Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11)), not the price of gpt-5.6-luna."
+        }
+      },
+      "commercialization": {
+        "model": "gpt-5.6-luna",
+        "status": "ok",
+        "requests": 4,
+        "tool_calls": 16,
+        "input_tokens": 29163,
+        "cached_input_tokens": 19536,
+        "uncached_input_tokens": 9627,
+        "output_tokens": 7341,
+        "reasoning_tokens": 697,
+        "latency_seconds": 54.64,
+        "cost": {
+          "status": "not_calculated",
+          "usd": null,
+          "note": "No verified price for gpt-5.6-luna in data/model_prices.json; token counts are measured.",
+          "proxy_usd": 0.004829,
+          "proxy_note": "Estimate only: priced as gpt-6-luna (Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11)), not the price of gpt-5.6-luna."
+        }
+      },
+      "decision": {
+        "model": "gpt-5.6-luna",
+        "status": "ok",
+        "requests": 2,
+        "tool_calls": 1,
+        "input_tokens": 6846,
+        "cached_input_tokens": 2497,
+        "uncached_input_tokens": 4349,
+        "output_tokens": 1882,
+        "reasoning_tokens": 75,
+        "latency_seconds": 12.48,
+        "cost": {
+          "status": "not_calculated",
+          "usd": null,
+          "note": "No verified price for gpt-5.6-luna in data/model_prices.json; token counts are measured.",
+          "proxy_usd": 0.001401,
+          "proxy_note": "Estimate only: priced as gpt-6-luna (Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11)), not the price of gpt-5.6-luna."
+        }
+      }
+    },
+    "total": {
+      "requests": 12,
+      "tool_calls": 27,
+      "input_tokens": 55729,
+      "cached_input_tokens": 32805,
+      "uncached_input_tokens": 22924,
+      "output_tokens": 12367,
+      "reasoning_tokens": 1132,
+      "latency_seconds": 105.2
+    },
+    "cost": {
+      "status": "not_calculated",
+      "usd": null,
+      "note": "No verified price for gpt-5.6-luna in data/model_prices.json; token counts are measured.",
+      "proxy_usd": 0.008804,
+      "proxy_note": "Estimate only: priced as gpt-6-luna (Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11)), not the price of gpt-5.6-luna."
+    }
+  },
+  {
+    "timestamp": "2026-10-25T00:18:03-04:00",
+    "run_id": "run-20261025-001643-e98604",
+    "source": "biovalue_workflow",
+    "model": "gpt-5.6-luna",
+    "config": "optimized",
+    "status": "complete",
+    "usage_source": "provider usage metadata (OpenAI Responses API through Portkey), aggregated by PydanticAI",
+    "agents": {
+      "feedstock": {
+        "model": "gpt-5.6-luna",
+        "status": "ok",
+        "requests": 3,
+        "tool_calls": 5,
+        "input_tokens": 7804,
+        "cached_input_tokens": 5226,
+        "uncached_input_tokens": 2578,
+        "output_tokens": 760,
+        "reasoning_tokens": 174,
+        "latency_seconds": 27.95,
+        "cost": {
+          "status": "not_calculated",
+          "usd": null,
+          "note": "No verified price for gpt-5.6-luna in data/model_prices.json; token counts are measured.",
+          "proxy_usd": 0.00069,
+          "proxy_note": "Estimate only: priced as gpt-6-luna (Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11)), not the price of gpt-5.6-luna."
+        }
+      },
+      "market": {
+        "model": "gpt-5.6-luna",
+        "status": "ok",
+        "requests": 3,
+        "tool_calls": 5,
+        "input_tokens": 12020,
+        "cached_input_tokens": 5611,
+        "uncached_input_tokens": 6409,
+        "output_tokens": 2846,
+        "reasoning_tokens": 408,
+        "latency_seconds": 17.25,
+        "cost": {
+          "status": "not_calculated",
+          "usd": null,
+          "note": "No verified price for gpt-5.6-luna in data/model_prices.json; token counts are measured.",
+          "proxy_usd": 0.00212,
+          "proxy_note": "Estimate only: priced as gpt-6-luna (Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11)), not the price of gpt-5.6-luna."
+        }
+      },
+      "commercialization": {
+        "model": "gpt-5.6-luna",
+        "status": "ok",
+        "requests": 3,
+        "tool_calls": 16,
+        "input_tokens": 18578,
+        "cached_input_tokens": 12671,
+        "uncached_input_tokens": 5907,
+        "output_tokens": 4214,
+        "reasoning_tokens": 593,
+        "latency_seconds": 23.49,
+        "cost": {
+          "status": "not_calculated",
+          "usd": null,
+          "note": "No verified price for gpt-5.6-luna in data/model_prices.json; token counts are measured.",
+          "proxy_usd": 0.002824,
+          "proxy_note": "Estimate only: priced as gpt-6-luna (Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11)), not the price of gpt-5.6-luna."
+        }
+      },
+      "decision": {
+        "model": "gpt-5.6-luna",
+        "status": "ok",
+        "requests": 2,
+        "tool_calls": 1,
+        "input_tokens": 7071,
+        "cached_input_tokens": 2588,
+        "uncached_input_tokens": 4483,
+        "output_tokens": 1606,
+        "reasoning_tokens": 43,
+        "latency_seconds": 11.84,
+        "cost": {
+          "status": "not_calculated",
+          "usd": null,
+          "note": "No verified price for gpt-5.6-luna in data/model_prices.json; token counts are measured.",
+          "proxy_usd": 0.001277,
+          "proxy_note": "Estimate only: priced as gpt-6-luna (Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11)), not the price of gpt-5.6-luna."
+        }
+      }
+    },
+    "total": {
+      "requests": 11,
+      "tool_calls": 27,
+      "input_tokens": 45473,
+      "cached_input_tokens": 26096,
+      "uncached_input_tokens": 19377,
+      "output_tokens": 9426,
+      "reasoning_tokens": 1218,
+      "latency_seconds": 80.53
+    },
+    "cost": {
+      "status": "not_calculated",
+      "usd": null,
+      "note": "No verified price for gpt-5.6-luna in data/model_prices.json; token counts are measured.",
+      "proxy_usd": 0.006912,
+      "proxy_note": "Estimate only: priced as gpt-6-luna (Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11)), not the price of gpt-5.6-luna."
+    }
+  },
+  {
+    "timestamp": "2026-10-25T15:24:03-04:00",
+    "run_id": "run-20261025-152253-148acc",
+    "source": "biovalue_workflow",
+    "model": "gpt-5.6-luna",
+    "config": "optimized",
+    "status": "complete",
+    "usage_source": "provider usage metadata (OpenAI Responses API through Portkey), aggregated by PydanticAI",
+    "agents": {
+      "feedstock": {
+        "model": "gpt-5.6-luna",
+        "status": "ok",
+        "requests": 3,
+        "tool_calls": 5,
+        "input_tokens": 7805,
+        "cached_input_tokens": 2614,
+        "uncached_input_tokens": 5191,
+        "output_tokens": 761,
+        "reasoning_tokens": 120,
+        "latency_seconds": 9.44,
+        "cost": {
+          "status": "not_calculated",
+          "usd": null,
+          "note": "No verified price for gpt-5.6-luna in data/model_prices.json; token counts are measured.",
+          "proxy_usd": 0.000926,
+          "proxy_note": "Estimate only: priced as gpt-6-luna (Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11)), not the price of gpt-5.6-luna."
+        }
+      },
+      "market": {
+        "model": "gpt-5.6-luna",
+        "status": "ok",
+        "requests": 3,
+        "tool_calls": 5,
+        "input_tokens": 12111,
+        "cached_input_tokens": 4150,
+        "uncached_input_tokens": 7961,
+        "output_tokens": 3228,
+        "reasoning_tokens": 458,
+        "latency_seconds": 21.03,
+        "cost": {
+          "status": "not_calculated",
+          "usd": null,
+          "note": "No verified price for gpt-5.6-luna in data/model_prices.json; token counts are measured.",
+          "proxy_usd": 0.002452,
+          "proxy_note": "Estimate only: priced as gpt-6-luna (Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11)), not the price of gpt-5.6-luna."
+        }
+      },
+      "commercialization": {
+        "model": "gpt-5.6-luna",
+        "status": "ok",
+        "requests": 3,
+        "tool_calls": 16,
+        "input_tokens": 19851,
+        "cached_input_tokens": 11742,
+        "uncached_input_tokens": 8109,
+        "output_tokens": 4762,
+        "reasoning_tokens": 915,
+        "latency_seconds": 26.67,
+        "cost": {
+          "status": "not_calculated",
+          "usd": null,
+          "note": "No verified price for gpt-5.6-luna in data/model_prices.json; token counts are measured.",
+          "proxy_usd": 0.003309,
+          "proxy_note": "Estimate only: priced as gpt-6-luna (Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11)), not the price of gpt-5.6-luna."
+        }
+      },
+      "decision": {
+        "model": "gpt-5.6-luna",
+        "status": "ok",
+        "requests": 2,
+        "tool_calls": 1,
+        "input_tokens": 7373,
+        "cached_input_tokens": 2728,
+        "uncached_input_tokens": 4645,
+        "output_tokens": 1790,
+        "reasoning_tokens": 67,
+        "latency_seconds": 12.73,
+        "cost": {
+          "status": "not_calculated",
+          "usd": null,
+          "note": "No verified price for gpt-5.6-luna in data/model_prices.json; token counts are measured.",
+          "proxy_usd": 0.001387,
+          "proxy_note": "Estimate only: priced as gpt-6-luna (Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11)), not the price of gpt-5.6-luna."
+        }
+      }
+    },
+    "total": {
+      "requests": 11,
+      "tool_calls": 27,
+      "input_tokens": 47140,
+      "cached_input_tokens": 21234,
+      "uncached_input_tokens": 25906,
+      "output_tokens": 10541,
+      "reasoning_tokens": 1560,
+      "latency_seconds": 69.87
+    },
+    "cost": {
+      "status": "not_calculated",
+      "usd": null,
+      "note": "No verified price for gpt-5.6-luna in data/model_prices.json; token counts are measured.",
+      "proxy_usd": 0.008073,
+      "proxy_note": "Estimate only: priced as gpt-6-luna (Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11)), not the price of gpt-5.6-luna."
+    }
+  },
+  {
+    "timestamp": "2026-10-25T19:58:31-04:00",
+    "run_id": "run-20261025-195712-7b13ef",
+    "source": "biovalue_workflow",
+    "model": "gpt-6-luna",
+    "config": "optimized",
+    "status": "complete",
+    "usage_source": "provider usage metadata (OpenAI Responses API through Portkey), aggregated by PydanticAI",
+    "agents": {
+      "feedstock": {
+        "model": "gpt-6-luna",
+        "status": "ok",
+        "requests": 3,
+        "tool_calls": 5,
+        "input_tokens": 7787,
+        "cached_input_tokens": 5180,
+        "uncached_input_tokens": 2607,
+        "output_tokens": 846,
+        "reasoning_tokens": 216,
+        "latency_seconds": 10.43,
+        "cost": {
+          "status": "calculated",
+          "usd": 0.000736,
+          "note": "At gpt-6-luna's price from Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11).",
+          "proxy_usd": 0.000736,
+          "proxy_note": "At gpt-6-luna's verified price."
+        }
+      },
+      "market": {
+        "model": "gpt-6-luna",
+        "status": "ok",
+        "requests": 3,
+        "tool_calls": 6,
+        "input_tokens": 12403,
+        "cached_input_tokens": 5594,
+        "uncached_input_tokens": 6809,
+        "output_tokens": 3466,
+        "reasoning_tokens": 845,
+        "latency_seconds": 26.36,
+        "cost": {
+          "status": "calculated",
+          "usd": 0.00247,
+          "note": "At gpt-6-luna's price from Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11).",
+          "proxy_usd": 0.00247,
+          "proxy_note": "At gpt-6-luna's verified price."
+        }
+      },
+      "commercialization": {
+        "model": "gpt-6-luna",
+        "status": "ok",
+        "requests": 3,
+        "tool_calls": 16,
+        "input_tokens": 19022,
+        "cached_input_tokens": 12935,
+        "uncached_input_tokens": 6087,
+        "output_tokens": 4303,
+        "reasoning_tokens": 1120,
+        "latency_seconds": 29.88,
+        "cost": {
+          "status": "calculated",
+          "usd": 0.00289,
+          "note": "At gpt-6-luna's price from Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11).",
+          "proxy_usd": 0.00289,
+          "proxy_note": "At gpt-6-luna's verified price."
+        }
+      },
+      "decision": {
+        "model": "gpt-6-luna",
+        "status": "ok",
+        "requests": 2,
+        "tool_calls": 1,
+        "input_tokens": 6815,
+        "cached_input_tokens": 2439,
+        "uncached_input_tokens": 4376,
+        "output_tokens": 1532,
+        "reasoning_tokens": 128,
+        "latency_seconds": 11.81,
+        "cost": {
+          "status": "calculated",
+          "usd": 0.001228,
+          "note": "At gpt-6-luna's price from Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11).",
+          "proxy_usd": 0.001228,
+          "proxy_note": "At gpt-6-luna's verified price."
+        }
+      }
+    },
+    "total": {
+      "requests": 11,
+      "tool_calls": 28,
+      "input_tokens": 46027,
+      "cached_input_tokens": 26148,
+      "uncached_input_tokens": 19879,
+      "output_tokens": 10147,
+      "reasoning_tokens": 2309,
+      "latency_seconds": 78.48
+    },
+    "cost": {
+      "status": "calculated",
+      "usd": 0.007323,
+      "note": "At gpt-6-luna's price from Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11).",
+      "proxy_usd": 0.007323,
+      "proxy_note": "At gpt-6-luna's verified price."
+    }
+  },
+  {
+    "timestamp": "2026-10-25T19:59:58-04:00",
+    "run_id": "run-20261025-195831-fda557",
+    "source": "biovalue_workflow",
+    "model": "gpt-6-luna",
+    "config": "optimized",
+    "status": "complete",
+    "usage_source": "provider usage metadata (OpenAI Responses API through Portkey), aggregated by PydanticAI",
+    "agents": {
+      "feedstock": {
+        "model": "gpt-6-luna",
+        "status": "ok",
+        "requests": 3,
+        "tool_calls": 5,
+        "input_tokens": 7778,
+        "cached_input_tokens": 6468,
+        "uncached_input_tokens": 1310,
+        "output_tokens": 739,
+        "reasoning_tokens": 177,
+        "latency_seconds": 12.0,
+        "cost": {
+          "status": "calculated",
+          "usd": 0.000565,
+          "note": "At gpt-6-luna's price from Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11).",
+          "proxy_usd": 0.000565,
+          "proxy_note": "At gpt-6-luna's verified price."
+        }
+      },
+      "market": {
+        "model": "gpt-6-luna",
+        "status": "ok",
+        "requests": 4,
+        "tool_calls": 5,
+        "input_tokens": 23094,
+        "cached_input_tokens": 13084,
+        "uncached_input_tokens": 10010,
+        "output_tokens": 6259,
+        "reasoning_tokens": 995,
+        "latency_seconds": 33.92,
+        "cost": {
+          "status": "calculated",
+          "usd": 0.004261,
+          "note": "At gpt-6-luna's price from Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11).",
+          "proxy_usd": 0.004261,
+          "proxy_note": "At gpt-6-luna's verified price."
+        }
+      },
+      "commercialization": {
+        "model": "gpt-6-luna",
+        "status": "ok",
+        "requests": 3,
+        "tool_calls": 17,
+        "input_tokens": 19478,
+        "cached_input_tokens": 13124,
+        "uncached_input_tokens": 6354,
+        "output_tokens": 4623,
+        "reasoning_tokens": 1256,
+        "latency_seconds": 27.34,
+        "cost": {
+          "status": "calculated",
+          "usd": 0.003078,
+          "note": "At gpt-6-luna's price from Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11).",
+          "proxy_usd": 0.003078,
+          "proxy_note": "At gpt-6-luna's verified price."
+        }
+      },
+      "decision": {
+        "model": "gpt-6-luna",
+        "status": "ok",
+        "requests": 2,
+        "tool_calls": 1,
+        "input_tokens": 6474,
+        "cached_input_tokens": 2299,
+        "uncached_input_tokens": 4175,
+        "output_tokens": 1714,
+        "reasoning_tokens": 264,
+        "latency_seconds": 13.2,
+        "cost": {
+          "status": "calculated",
+          "usd": 0.001297,
+          "note": "At gpt-6-luna's price from Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11).",
+          "proxy_usd": 0.001297,
+          "proxy_note": "At gpt-6-luna's verified price."
+        }
+      }
+    },
+    "total": {
+      "requests": 12,
+      "tool_calls": 28,
+      "input_tokens": 56824,
+      "cached_input_tokens": 34975,
+      "uncached_input_tokens": 21849,
+      "output_tokens": 13335,
+      "reasoning_tokens": 2692,
+      "latency_seconds": 86.46
+    },
+    "cost": {
+      "status": "calculated",
+      "usd": 0.009202,
+      "note": "At gpt-6-luna's price from Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11).",
+      "proxy_usd": 0.009202,
+      "proxy_note": "At gpt-6-luna's verified price."
+    }
+  }
+]

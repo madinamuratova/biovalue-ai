@@ -1,0 +1,12 @@
+{
+  "about": "Template for metric 4 (agreement with expert-reviewed rankings). Nothing here has been filled in: no expert review has taken place yet. To use it, copy this file to evals/expert_rankings.json, ask a reviewer with pulp, lignin, or materials-market experience to read each scenario's inputs (evals/scenarios.json) and put the three pathways in their own order, best first, without seeing BioValue AI's result. Then rerun `python -m evals.run_eval --tiers live`. The runner compares the reviewer's order with BioValue AI's order (ranked pathways first, then the insufficient-data ones in the order the scoring engine lists them) and reports top-choice agreement and pairwise agreement (share of pathway pairs put the same way round).",
+  "pathway_ids": ["phenolic_resins", "polyurethanes", "carbon_materials"],
+  "rankings": {
+    "S01": {"reviewer": "", "reviewed_on": "", "order": [], "notes": ""},
+    "S02": {"reviewer": "", "reviewed_on": "", "order": [], "notes": ""},
+    "S04": {"reviewer": "", "reviewed_on": "", "order": [], "notes": ""},
+    "S05": {"reviewer": "", "reviewed_on": "", "order": [], "notes": ""},
+    "S06": {"reviewer": "", "reviewed_on": "", "order": [], "notes": ""},
+    "S08": {"reviewer": "", "reviewed_on": "", "order": [], "notes": ""}
+  }
+}

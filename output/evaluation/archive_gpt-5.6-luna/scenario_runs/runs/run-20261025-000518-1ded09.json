@@ -1,0 +1,3348 @@
+{
+  "run_id": "run-20261025-000518-1ded09",
+  "created_at": "2026-10-25T00:06:35-04:00",
+  "model": "gpt-5.6-luna",
+  "config": "optimized",
+  "project_id": "dashboard",
+  "project_name": "Pinecrest Mill kraft lignin cake (fictional): dashboard assessment",
+  "status": "complete",
+  "disclaimers": [
+    "Fictional demo data: the Pinecrest Mill and this lignin stream are invented. All values are illustrative assumptions, not measurements from any real mill, and must be replaced with a mill's own lab data before any decision.",
+    "BioValue AI gives indicative decision support. It does not guarantee profitability, does not verify customer demand, and does not constitute engineering approval.",
+    "Gross margin, profitability, NPV, and IRR are not calculated. They need capital costs, fixed costs, a discount rate, a time horizon, and agreed definitions, none of which are available yet. Gross contribution excludes capital costs, fixed costs, and the value of the feedstock in its current use.",
+    "Scores use a 1-5 scale. A criterion that was not assessed lowers data completeness; it is never counted as a low score."
+  ],
+  "feedstock": {
+    "agent": {
+      "feedstock_id": "demo_pinecrest_kraft_lignin",
+      "is_fictional": true,
+      "wet_mass_t_per_yr": 40000.0,
+      "moisture_fraction": 0.35000000000000003,
+      "dry_mass_t_per_yr": 26000.0,
+      "missing_properties": [
+        "composition.mw_g_per_mol",
+        "composition.phenolic_oh_mmol_per_g",
+        "composition.other.sodium_pct"
+      ],
+      "inconsistencies": [],
+      "constraints": [
+        "The stream leaves the mill as wet cake and no lignin dryer is available, so buyers requiring dry powder would need drying before use.",
+        "The lignin is currently fired in the mill's boilers as internal fuel, so commercial diversion would affect the existing fuel route.",
+        "Solvent or membrane fractionation is not available, limiting uses that require molecular fractionation.",
+        "Chemical modification equipment is not available, limiting modified-lignin product pathways.",
+        "Moisture is uncertain, affecting dry-mass availability and the quantity that must be shipped.",
+        "Molecular weight, phenolic hydroxyl content, and sodium content are missing, so pathways with requirements for these properties cannot yet be screened reliably."
+      ],
+      "data_quality_notes": [
+        "This is fictional demo data, not measured data from a real mill; it must be replaced with mill laboratory data and production records before decisions are made.",
+        "The record's lignin-content analytical method is unclear and stated for illustration only.",
+        "Moisture is identified as uncertain and should be verified through operating-period sampling.",
+        "The recorded dry-matter balance and listed composition-total checks passed validation.",
+        "The missing molecular-weight, phenolic-hydroxyl, and sodium fields each have corresponding data-gap entries."
+      ],
+      "summary": "Validated fictional profile for a washed softwood kraft lignin filter cake: the recorded conversion and dry-matter balance pass, but commercial assessment remains provisional because the data are illustrative and several pathway-relevant properties are missing."
+    },
+    "normalized": {
+      "feedstock_id": "demo_pinecrest_kraft_lignin",
+      "is_fictional": true,
+      "wet_mass_t_per_yr": 40000.0,
+      "moisture_fraction": 0.35000000000000003,
+      "dry_mass_t_per_yr": 26000.0,
+      "dry_lignin_t_per_yr": 24440.0,
+      "composition": {
+        "lignin_pct": {
+          "value": 94.0,
+          "unit": "% of dry matter",
+          "basis": "fictional_assumption",
+          "low": 92.0,
+          "high": 96.0,
+          "method": "Acid-insoluble (Klason) plus acid-soluble lignin, as % of dry matter (method stated for illustration)"
+        },
+        "ash_pct": {
+          "value": 1.0,
+          "unit": "% of dry matter",
+          "basis": "fictional_assumption",
+          "low": 0.5,
+          "high": 2.0,
+          "method": "Residue after ignition (stated for illustration)"
+        },
+        "sulfur_pct": {
+          "value": 2.2,
+          "unit": "% of dry matter",
+          "basis": "fictional_assumption",
+          "low": 1.8,
+          "high": 2.8,
+          "method": "Total sulfur by elemental analysis (stated for illustration)"
+        },
+        "carbohydrates_pct": {
+          "value": 1.5,
+          "unit": "% of dry matter",
+          "basis": "fictional_assumption",
+          "low": 0.8,
+          "high": 2.5,
+          "method": "Total sugars after acid hydrolysis (stated for illustration)"
+        },
+        "mw_g_per_mol": {
+          "value": null,
+          "unit": "g/mol",
+          "basis": "fictional_assumption",
+          "low": null,
+          "high": null,
+          "method": ""
+        },
+        "phenolic_oh_mmol_per_g": {
+          "value": null,
+          "unit": "mmol/g",
+          "basis": "fictional_assumption",
+          "low": null,
+          "high": null,
+          "method": ""
+        }
+      },
+      "other_composition": {
+        "sodium_pct": {
+          "value": null,
+          "unit": "% of dry matter",
+          "basis": "fictional_assumption",
+          "low": null,
+          "high": null,
+          "method": ""
+        }
+      }
+    },
+    "checks": {
+      "schema_valid": true,
+      "checks": [
+        {
+          "check": "dry matter balance",
+          "passed": true,
+          "detail": "recorded dry matter 26,000 t/yr; wet quantity x (1 - moisture) = 26,000 t/yr"
+        },
+        {
+          "check": "composition total",
+          "passed": true,
+          "detail": "lignin + ash + carbohydrates = 96.5% of dry matter"
+        },
+        {
+          "check": "missing figures have data gaps",
+          "passed": true,
+          "detail": "3 missing figure(s), each with a data-gap entry"
+        }
+      ],
+      "inconsistencies": [],
+      "missing_fields": [
+        "composition.mw_g_per_mol",
+        "composition.phenolic_oh_mmol_per_g",
+        "composition.other.sodium_pct"
+      ],
+      "data_gaps": [
+        {
+          "field": "data_status",
+          "issue": "fictional",
+          "severity": "high",
+          "impact": "Every figure in this profile is invented for demonstration. Results based on it say nothing about a real mill.",
+          "next_step": "Replace the profile with the mill's own lab data and production records."
+        },
+        {
+          "field": "composition.mw_g_per_mol",
+          "issue": "missing",
+          "severity": "high",
+          "impact": "Molecular weight can't be compared with any pathway requirement until it is measured.",
+          "next_step": "Commission a lab analysis of molecular weight distribution, and record the method used."
+        },
+        {
+          "field": "composition.phenolic_oh_mmol_per_g",
+          "issue": "missing",
+          "severity": "high",
+          "impact": "Phenolic hydroxyl content can't be compared with any pathway requirement until it is measured.",
+          "next_step": "Commission a lab analysis of hydroxyl group content, and record the method used."
+        },
+        {
+          "field": "composition.other.sodium_pct",
+          "issue": "missing",
+          "severity": "medium",
+          "impact": "The make-up of the ash is unknown, so ash-related requirements can only be checked against total ash.",
+          "next_step": "Request an inorganic element analysis of the ash."
+        },
+        {
+          "field": "composition.lignin_pct",
+          "issue": "method_unclear",
+          "severity": "medium",
+          "impact": "Reported lignin content depends on what the analysis counts. The method here is stated for illustration only.",
+          "next_step": "Confirm the analytical method with the lab and use the same one when comparing with buyers' specifications."
+        },
+        {
+          "field": "moisture_pct",
+          "issue": "uncertain",
+          "severity": "medium",
+          "impact": "Moisture sets the dry tonnage (dry matter = wet quantity x (1 - moisture)) and the mass that has to be shipped.",
+          "next_step": "Log cake moisture for each shift over at least one month."
+        }
+      ],
+      "data_status": "fictional_demo",
+      "disclaimer": "Fictional demo data: the Pinecrest Mill and this lignin stream are invented. All values are illustrative assumptions, not measurements from any real mill, and must be replaced with a mill's own lab data before any decision.",
+      "infrastructure": {
+        "operating": [
+          "Acid-precipitation unit (lignin_precipitation)",
+          "Filter presses with cake washing (washing_and_filtration)",
+          "Covered cake storage (packaging_and_storage)",
+          "Rail siding (rail_or_port_access)",
+          "Mill steam and power (steam_and_power)"
+        ],
+        "planned": [],
+        "not_available": [
+          "Lignin dryer (drying)",
+          "Solvent or membrane fractionation (fractionation)",
+          "Chemical modification (chemical_modification)"
+        ]
+      },
+      "current_use": {
+        "route": "internal_fuel",
+        "description": "Fictional: the precipitated lignin is fired in the mill's own boilers in place of purchased fuel. The unit was built to relieve the recovery boiler, not to sell lignin."
+      },
+      "geographic_market": {
+        "mill_location": "Southeastern United States (fictional site)",
+        "target_markets": [
+          "North America",
+          "Western Europe (by sea)"
+        ],
+        "logistics": "Fictional: rail siding at the mill; the nearest deep-water port is assumed to be about 150 km away."
+      },
+      "ranges": {
+        "annual_wet_quantity": {
+          "low": 36000.0,
+          "high": 43000.0,
+          "unit": "t/yr"
+        },
+        "moisture_pct": {
+          "low": 30.0,
+          "high": 40.0,
+          "unit": "% of wet mass"
+        },
+        "dry_matter": {
+          "low": 21600.0,
+          "high": 30100.0,
+          "unit": "t/yr"
+        },
+        "composition.lignin_pct": {
+          "low": 92.0,
+          "high": 96.0,
+          "unit": "% of dry matter"
+        },
+        "composition.ash_pct": {
+          "low": 0.5,
+          "high": 2.0,
+          "unit": "% of dry matter"
+        },
+        "composition.sulfur_pct": {
+          "low": 1.8,
+          "high": 2.8,
+          "unit": "% of dry matter"
+        },
+        "composition.carbohydrates_pct": {
+          "low": 0.8,
+          "high": 2.5,
+          "unit": "% of dry matter"
+        }
+      }
+    }
+  },
+  "market": [
+    {
+      "pathway_id": "phenolic_resins",
+      "source_ids": [
+        "EV-PF-01",
+        "EV-PF-02",
+        "EV-PF-03",
+        "EV-PF-04"
+      ],
+      "supported_claims": {
+        "EV-PF-01#1": "For kraft lignin in phenol-formaldehyde (PF) resins, the typical replacement of phenol is up to 50%, using a two-step process with depolymerized lignin (Mw 800-1,700 g/mol).",
+        "EV-PF-01#4": "Global PF resin production was expected to reach about 10 Mt (valued at about USD 13.36 billion in 2019), and more than 50% of these resins are used to make adhesives for wood-based panels.",
+        "EV-PF-02#1": "UPM states that its lignin can replace up to 80% of the phenol in lignin-phenol-formaldehyde (LPF) resin.",
+        "EV-PF-02#2": "UPM states that LPF resin is industrially proven and meets EN 314-2 Bonding Class 3 for veneer plywood.",
+        "EV-PF-03#3": "With phenol at around 1,000 USD per tonne, substituting part of the phenol in PF resins with lignin is estimated to add about 800 USD per marginal tonne of pulp (not per tonne of lignin); the additional operating costs are not known.",
+        "EV-PF-01#2": "Kraft lignin needs an activation or depolymerization step before use in PF resins.",
+        "EV-PF-01#R1": "Pre-treatment of kraft lignin: Activation or depolymerization is needed before kraft lignin is used in PF resins.",
+        "EV-PF-02#3": "UPM reports formaldehyde emissions (EN 717-2) of 0.230 mg/m²/h for 12 mm spruce, 0.148 for 12 mm birch, and 0.170 for 12 mm combi panels made with LPF resin.",
+        "EV-PF-04#2": "With the depolymerized lignin making up 50% of the phenolic component, the resin's viscosity, bonding strength, and free formaldehyde met the Chinese wood-adhesive standard used in the study.",
+        "EV-PF-01#3": "A 2018 report cited by the IEA estimates the technology readiness level (TRL) for producing biobased phenolic resins at 8."
+      },
+      "findings": {
+        "pathway_id": "phenolic_resins",
+        "applications": [
+          {
+            "statement": "The evidence supports kraft lignin as a partial phenol replacement in phenol-formaldehyde resins for plywood and other wood-based panels.",
+            "evidence": [
+              "EV-PF-01#1",
+              "EV-PF-01#4"
+            ]
+          },
+          {
+            "statement": "Lignin-phenol-formaldehyde resin has been reported for veneer plywood at up to 80% phenol replacement in a vendor account.",
+            "evidence": [
+              "EV-PF-02#1"
+            ]
+          }
+        ],
+        "target_customers": [
+          {
+            "statement": "The relevant customer types are plywood producers and manufacturers of other wood-based panels that use PF adhesives.",
+            "evidence": [
+              "EV-PF-01#4",
+              "EV-PF-02#2"
+            ]
+          }
+        ],
+        "competing_materials": [
+          {
+            "statement": "The incumbent material is phenol used in phenol-formaldehyde resins.",
+            "evidence": [
+              "EV-PF-01#1",
+              "EV-PF-03#3"
+            ]
+          }
+        ],
+        "qualification_requirements": [
+          {
+            "statement": "Kraft lignin requires activation or depolymerization before use in PF resins.",
+            "evidence": [
+              "EV-PF-01#2",
+              "EV-PF-01#R1"
+            ]
+          },
+          {
+            "statement": "One industrial LPF resin account reports compliance with EN 314-2 Bonding Class 3 for veneer plywood and reports formaldehyde emissions using EN 717-2.",
+            "evidence": [
+              "EV-PF-02#2",
+              "EV-PF-02#3"
+            ]
+          },
+          {
+            "statement": "A laboratory study evaluated resin viscosity, bonding strength, and free formaldehyde against a Chinese wood-adhesive standard when depolymerized lignin supplied 50% of the phenolic component.",
+            "evidence": [
+              "EV-PF-04#2"
+            ]
+          }
+        ],
+        "limitations": [
+          "The strongest commercial-performance evidence is vendor technical literature, and its performance and cost claims lack a cited test report.",
+          "The reported TRL 8 applies to biobased phenolic resins generally, not specifically to kraft lignin; the reported TRL 9 is from a techno-economic comparison.",
+          "Several results are laboratory studies or review summaries rather than demonstrations using Pinecrest lignin."
+        ],
+        "missing_information": [
+          "No current lignin price, delivered price, demand volume, named buyer, contract terms, or regional market split is provided.",
+          "The evidence does not establish whether Pinecrest's wet cake can meet the required resin input condition; the feedstock profile states that no dryer or chemical-modification equipment is available (feedstock:constraints[0]; feedstock:constraints[3]).",
+          "Pinecrest lignin molecular weight, phenolic hydroxyl content, and sodium content are missing, limiting reliable screening of property-dependent resin routes (feedstock:missing_properties)."
+        ],
+        "market_evidence": {
+          "score": 3,
+          "rationale": "The evidence documents industrially proven LPF resin and wood-panel performance, but it does not document commercial sales by a lignin producer or several established buyers.",
+          "evidence": [
+            "EV-PF-02#2",
+            "EV-PF-01#3"
+          ]
+        }
+      }
+    },
+    {
+      "pathway_id": "polyurethanes",
+      "source_ids": [
+        "EV-PU-01",
+        "EV-PU-02",
+        "EV-PU-03",
+        "EV-PU-04",
+        "EV-PU-05"
+      ],
+      "supported_claims": {
+        "EV-PU-01#1": "Replacing 30 wt% of the petroleum-based polyol with unmodified lignin, 16 of the 19 lignins tested gave rigid PUR/PIR foams that passed all measured ASTM C1029-15 type 1 specifications.",
+        "EV-PU-02#1": "Rigid foams containing 19-23% (w/w) hardwood kraft lignin, or 25-30% (w/w) organosolv lignin, kept comparable structure and strength.",
+        "EV-PU-03#1": "Fifteen unmodified lignins (ten kraft, five organosolv) were tested as a replacement for 20 wt% of the petroleum-based polyol in flexible polyurethane foam.",
+        "EV-PU-03#3": "Organosolv lignins were the most suitable for automotive flexible foam; kraft lignins gave denser, stiffer foams that the authors suggest may suit heavy-duty foams.",
+        "EV-PU-04#1": "The IEA rates polyurethane uses of lignin (foams, panels, coatings, rubber replacement; kraft, organosolv, and soda lignin) at TRL 6.",
+        "EV-PU-04#2": "In cited studies, kraft lignin replaced up to about 20% of polyol after oxypropylation, up to 50% when depolymerized and oxypropylated, and up to 100% when liquefied in a bio-based polyol.",
+        "EV-PU-01#R1": "Total hydroxyl value of the lignin: Above 200 mg KOH/g (3.56 mmol/g total OH) is cited as the acceptable range for rigid polyurethane foam production. This is total OH, not phenolic OH, so it is not checked against the feedstock's phenolic OH figure.",
+        "EV-PU-04#R1": "Modification of kraft lignin: Kraft lignin needs significant treatment (for example oxypropylation, depolymerization, or liquefaction) to reach target properties for polyurethanes.",
+        "EV-PU-05#1": "Commercialization of lignin-based polyurethane foams remains limited by low product consistency, poor technical performance, and high production costs."
+      },
+      "findings": {
+        "pathway_id": "polyurethanes",
+        "applications": [
+          {
+            "statement": "The evidence supports kraft lignin as a partial replacement for petroleum-based polyols in rigid polyurethane/polyisocyanurate foam.",
+            "evidence": [
+              "EV-PU-01#1",
+              "EV-PU-02#1"
+            ]
+          },
+          {
+            "statement": "The evidence also supports unmodified lignin at 20 wt% petroleum-polyol replacement in laboratory flexible polyurethane foam, with kraft lignin suggested for denser, stiffer or heavy-duty foam applications.",
+            "evidence": [
+              "EV-PU-03#1",
+              "EV-PU-03#3"
+            ]
+          },
+          {
+            "statement": "The broader documented polyurethane pathway includes foams, panels, coatings, and rubber replacement.",
+            "evidence": [
+              "EV-PU-04#1"
+            ]
+          }
+        ],
+        "target_customers": [
+          {
+            "statement": "Relevant customer types include rigid insulation-foam manufacturers and flexible-foam manufacturers.",
+            "evidence": [
+              "EV-PU-01#1",
+              "EV-PU-03#3"
+            ]
+          },
+          {
+            "statement": "Automotive flexible-foam manufacturers or suppliers are a potential customer type, although the evidence indicates kraft lignin was less suitable for automotive flexible foam than organosolv lignin.",
+            "evidence": [
+              "EV-PU-03#3"
+            ]
+          }
+        ],
+        "competing_materials": [
+          {
+            "statement": "The incumbent material is petroleum-based polyol.",
+            "evidence": [
+              "EV-PU-01#1",
+              "EV-PU-03#1",
+              "EV-PU-04#2"
+            ]
+          }
+        ],
+        "qualification_requirements": [
+          {
+            "statement": "The cited acceptable range for rigid polyurethane foam production is total hydroxyl value above 200 mg KOH/g, or 3.56 mmol/g total hydroxyl groups.",
+            "evidence": [
+              "EV-PU-01#R1"
+            ]
+          },
+          {
+            "statement": "Rigid PUR/PIR foam performance was assessed against ASTM C1029-15 type 1 specifications.",
+            "evidence": [
+              "EV-PU-01#1"
+            ]
+          },
+          {
+            "statement": "Kraft lignin generally needs significant treatment such as oxypropylation, depolymerization, or liquefaction to reach target polyurethane properties.",
+            "evidence": [
+              "EV-PU-04#R1"
+            ]
+          }
+        ],
+        "limitations": [
+          "Most evidence is from laboratory foam studies, and the reported kraft-lignin results vary by lignin source and formulation.",
+          "The TRL 6 rating applies to a broad polyurethane row rather than specifically to kraft-lignin foam.",
+          "A review identifies low consistency, poor technical performance, and high production costs as continuing commercialization limitations; its full text was unavailable."
+        ],
+        "missing_information": [
+          "No current lignin or polyol price, market volume, named buyer, qualification contract, or regional demand estimate is provided.",
+          "Pinecrest's total hydroxyl value is not supplied, and its chemical-modification equipment is unavailable, creating a direct screening gap for the cited polyurethane routes (feedstock:missing_properties; feedstock:constraints[3]).",
+          "The wet-cake condition and lack of a dryer are not reconciled with the processing requirements of prospective polyurethane customers (feedstock:constraints[0])."
+        ],
+        "market_evidence": {
+          "score": 2,
+          "rationale": "The evidence shows research-scale foam trials and a broad TRL assessment, but it does not document commercial sales, established buyers, or a development pilot specifically for Pinecrest-type kraft lignin.",
+          "evidence": [
+            "EV-PU-01#1",
+            "EV-PU-04#1",
+            "EV-PU-05#1"
+          ]
+        }
+      }
+    },
+    {
+      "pathway_id": "carbon_materials",
+      "source_ids": [
+        "EV-CM-01",
+        "EV-CM-02",
+        "EV-CM-03",
+        "EV-CM-04",
+        "EV-CM-05",
+        "EV-CM-06"
+      ],
+      "supported_claims": {
+        "EV-CM-01#1": "Oak Ridge National Laboratory (ORNL) specifications for lignin as a carbon fiber precursor (Baker et al. 2005) set lignin content at 99%, ash below 0.1%, volatiles below 5% at 250 °C, and full removal of particulates larger than 1 µm.",
+        "EV-CM-02#1": "DOE's goal was to cut industrial-grade carbon fiber cost from about $20/lb to a target of $5-7/lb, with mechanical properties suitable for automotive use (250 ksi tensile strength, 25 Msi modulus).",
+        "EV-CM-02#4": "Mechanical properties of lignin-based carbon fibers were about 50% of the target in this work.",
+        "EV-CM-04#1": "A feedstock comparison for sodium-ion battery hard carbon lists lignin at about 300 $/t with a carbon yield above 40%, against anthracite (50-200 $/t, about 90%) and cellulose (1,000 $/t, below 10%).",
+        "EV-CM-04#2": "Hard carbons from kraft lignin (carbonized at 1,200 °C) had higher initial coulombic efficiency than those from sulfonated lignin, which the review attributes to lower ash content.",
+        "EV-CM-05#1": "Activated carbon has no strict limitations on precursor quality, so lignin too impure for other uses can be converted into it.",
+        "EV-CM-03#1": "The GreenLight project raised the TRL of lignin precursor fiber production from 2-3 (proof of concept) to 5 (validated in an industrially relevant environment).",
+        "EV-CM-06#1": "Stora Enso states that qualification with battery manufacturers and carmakers can take 3 years, and that partnering helps shorten this.",
+        "EV-CM-03#2": "The modelled production cost of GreenLight lignin-based carbon fiber was EUR 12.6/kg, against about EUR 16/kg estimated for PAN-based fiber; cooperation with existing melt-spinning and carbon fiber plants could lower it to EUR 6.5-7.1/kg.",
+        "EV-CM-01#R1": "Lignin content: Greater than 99% (ORNL precursor specification).",
+        "EV-CM-01#R2": "Ash content: Below 0.1% by weight (ORNL precursor specification).",
+        "EV-CM-01#R3": "Residual carbohydrates: Below 500 ppm (Baker 2011). Not mapped to the feedstock's carbohydrate percentage, because the source doesn't state the basis of the ppm figure.",
+        "EV-CM-01#R4": "Volatile material: Below 5% at 250 °C. The feedstock profile has no volatiles field, so this is not checked.",
+        "EV-CM-01#R5": "Particulate matter: 100% removal of particulates larger than 1 µm in diameter.",
+        "EV-CM-02#R1": "Purification of kraft lignin: The kraft lignin examined needed purification before it could be used for carbon fiber.",
+        "EV-CM-02#R2": "Melt spinnability of softwood lignin: A plasticizing (alloying) agent is needed to melt-spin softwood lignin.",
+        "EV-CM-05#R1": "Precursor quality: No strict limitations on precursor quality; lower ash improves yield.",
+        "EV-CM-06#2": "Stora Enso announced a EUR 10 million pilot production line for lignin-based anode material, operational in 2021, with scale-up planned in standardized 20 kton manufacturing units."
+      },
+      "findings": {
+        "pathway_id": "carbon_materials",
+        "applications": [
+          {
+            "statement": "The evidence supports lignin as a precursor for carbon fiber, although the cited carbon-fiber studies identify demanding purification and spinning challenges.",
+            "evidence": [
+              "EV-CM-01#1",
+              "EV-CM-02#1",
+              "EV-CM-02#4"
+            ]
+          },
+          {
+            "statement": "The evidence supports kraft lignin-derived hard carbon for sodium-ion battery anodes.",
+            "evidence": [
+              "EV-CM-04#1",
+              "EV-CM-04#2"
+            ]
+          },
+          {
+            "statement": "The evidence supports lignin conversion to activated carbon, including use of precursor lignin that is too impure for other carbon-material applications.",
+            "evidence": [
+              "EV-CM-05#1"
+            ]
+          }
+        ],
+        "target_customers": [
+          {
+            "statement": "Relevant customer types include carbon-fiber producers and industrial users seeking carbon fiber for automotive applications.",
+            "evidence": [
+              "EV-CM-02#1",
+              "EV-CM-03#1"
+            ]
+          },
+          {
+            "statement": "Relevant customer types include sodium-ion battery and battery-anode manufacturers.",
+            "evidence": [
+              "EV-CM-04#1"
+            ]
+          },
+          {
+            "statement": "Battery manufacturers and carmakers are named as qualification counterparts for lignin-based anode material.",
+            "evidence": [
+              "EV-CM-06#1"
+            ]
+          },
+          {
+            "statement": "Activated-carbon producers are an implied customer type because the evidence describes lignin conversion into activated carbon.",
+            "evidence": [
+              "EV-CM-05#1"
+            ]
+          }
+        ],
+        "competing_materials": [
+          {
+            "statement": "The incumbent carbon-fiber precursor is PAN-based fiber.",
+            "evidence": [
+              "EV-CM-02#1",
+              "EV-CM-03#2"
+            ]
+          },
+          {
+            "statement": "For sodium-ion battery hard carbon, anthracite and cellulose are listed as comparison feedstocks, with anthracite representing a fossil precursor option.",
+            "evidence": [
+              "EV-CM-04#1"
+            ]
+          },
+          {
+            "statement": "Conventional activated carbon is the competing material for the activated-carbon application.",
+            "evidence": [
+              "EV-CM-05#1"
+            ]
+          }
+        ],
+        "qualification_requirements": [
+          {
+            "statement": "The cited ORNL carbon-fiber precursor specification requires lignin content greater than 99%, ash below 0.1% by weight, volatiles below 5% at 250 °C, residual carbohydrates below 500 ppm, and removal of particulates larger than 1 µm.",
+            "evidence": [
+              "EV-CM-01#R1",
+              "EV-CM-01#R2",
+              "EV-CM-01#R3",
+              "EV-CM-01#R4",
+              "EV-CM-01#R5"
+            ]
+          },
+          {
+            "statement": "The cited kraft-lignin carbon-fiber work required purification, and softwood lignin requires a plasticizing agent for melt spinning.",
+            "evidence": [
+              "EV-CM-02#R1",
+              "EV-CM-02#R2"
+            ]
+          },
+          {
+            "statement": "Lignin-based anode material may require qualification with battery manufacturers and carmakers; one company states that this qualification can take 3 years.",
+            "evidence": [
+              "EV-CM-06#1"
+            ]
+          },
+          {
+            "statement": "Activated carbon has no strict precursor-quality limitation, although lower ash improves yield.",
+            "evidence": [
+              "EV-CM-05#R1"
+            ]
+          }
+        ],
+        "limitations": [
+          "The carbon-fiber precursor specifications are demanding, are cited secondhand, and were not met for volatiles by any lignin sample in the cited study.",
+          "The GreenLight evidence is a project summary with modelled costs; its TRL 5 applies to precursor-fiber production rather than the complete lignin-to-carbon-fiber chain.",
+          "The hard-carbon evidence is a review focused on sodium-ion batteries, while the battery-company evidence concerns lithium-ion batteries and provides no lignin quality specification.",
+          "The activated-carbon evidence is laboratory work using zinc chloride activation."
+        ],
+        "missing_information": [
+          "No current Pinecrest-specific price, product volume, named purchase order, buyer list, or regional demand estimate is provided.",
+          "No Pinecrest ash, lignin purity, volatiles, carbohydrate, particulate, or metal measurements are available, so carbon-fiber precursor compliance cannot be screened (feedstock:missing_properties).",
+          "The feedstock profile states that solvent or membrane fractionation is unavailable, while fractionation is relevant to some carbon-material processing routes (feedstock:constraints[2]).",
+          "The wet-cake condition and lack of a dryer may require additional preparation before downstream carbon processing, but the evidence does not quantify that requirement (feedstock:constraints[0])."
+        ],
+        "market_evidence": {
+          "score": 3,
+          "rationale": "The evidence documents an industrially relevant precursor-fiber development project and a pilot anode-material line with stated qualification partnerships, but it does not establish several producers selling to established buyers.",
+          "evidence": [
+            "EV-CM-03#1",
+            "EV-CM-06#1",
+            "EV-CM-06#2"
+          ]
+        }
+      }
+    }
+  ],
+  "commercialization": [
+    {
+      "pathway_id": "phenolic_resins",
+      "findings": {
+        "pathway_id": "phenolic_resins",
+        "processing_requirements": [
+          {
+            "statement": "The wet cake would need drying before any buyer requiring dry powder can use it.",
+            "evidence": [
+              "feedstock:constraints[0]"
+            ]
+          },
+          {
+            "statement": "Kraft lignin requires activation or depolymerization before use in phenol-formaldehyde resins.",
+            "evidence": [
+              "EV-PF-01#2",
+              "EV-PF-01#R1"
+            ]
+          },
+          {
+            "statement": "The resin route would require qualification for plywood or other wood-panel applications, including bonding and formaldehyde-emissions performance.",
+            "evidence": [
+              "EV-PF-02#2",
+              "EV-PF-02#3",
+              "EV-PF-04#2"
+            ]
+          }
+        ],
+        "technical_maturity": {
+          "statement": "A LignoBoost-plus-resin phenol-substitution route is reported at TRL 9, mapping to the highest technical-readiness score.",
+          "evidence": [
+            "EV-PF-03#1"
+          ]
+        },
+        "adoption_barriers": [
+          {
+            "statement": "Pinecrest lacks chemical-modification equipment, while the pathway requires activation or depolymerization.",
+            "evidence": [
+              "feedstock:constraints[3]",
+              "EV-PF-01#R1"
+            ]
+          },
+          {
+            "statement": "Pinecrest lacks a lignin dryer, and moisture is uncertain, so product conditioning and shipment specifications remain unresolved.",
+            "evidence": [
+              "feedstock:constraints[0]",
+              "feedstock:constraints[5]"
+            ]
+          },
+          {
+            "statement": "Molecular weight, phenolic hydroxyl content, and sodium content are missing, limiting property-dependent resin screening.",
+            "evidence": [
+              "feedstock:missing_properties[0]",
+              "feedstock:missing_properties[1]",
+              "feedstock:missing_properties[2]"
+            ]
+          },
+          {
+            "statement": "Commercial diversion would affect the mill's current boiler-fuel route, and a buyer, contract, demand volume, and delivered-price basis have not been identified.",
+            "evidence": [
+              "feedstock:constraints[1]"
+            ]
+          }
+        ],
+        "missing_inputs": [
+          "product yield",
+          "product price",
+          "variable costs",
+          "lignin molecular weight",
+          "phenolic hydroxyl content",
+          "sodium content",
+          "moisture measurement",
+          "drying method and cost",
+          "activation or depolymerization process and capital requirement",
+          "buyer qualification results and contract terms",
+          "the value of displaced boiler fuel"
+        ],
+        "assumptions": [
+          "The economics used fictional wet-feedstock masses of 36000.0 / 40000.0 / 43000.0 t/yr for conservative / base / optimistic cases.",
+          "The economics used fictional moisture assumptions of 40.0 / 35.0 / 30.0% of wet mass for conservative / base / optimistic cases.",
+          "The economics used fictional availability fractions of 40.0 / 50.0 / 60.0%.",
+          "No product output, revenue, variable cost, or gross contribution was calculated because product yield, product price, and variable costs were missing.",
+          "Commercial feasibility assumes Pinecrest would need a technology provider and resin customer to supply activation, drying, and qualification capabilities."
+        ],
+        "uncertainties": [
+          "Feedstock compatibility could not be scored because the evidence library supplied no numeric requirements for this pathway.",
+          "Indicative economics are unavailable: product output, revenue, variable cost, gross contribution, and contribution per tonne were not calculated.",
+          "The TRL 9 claim describes the LignoBoost-plus-resin configuration and does not establish that Pinecrest's wet cake and unmodified equipment can meet it.",
+          "The current fuel-route impact and drying, modification, qualification, and logistics costs could materially change the decision."
+        ],
+        "commercialization_feasibility": {
+          "score": 3,
+          "rationale": "This is feasible with significant investment or a partner: the resin application has a mature cited route and identifiable plywood and panel customers, but Pinecrest lacks drying and chemical-modification assets and still needs feedstock-property and customer qualification work.",
+          "evidence": [
+            "EV-PF-03#1",
+            "EV-PF-01#4",
+            "feedstock:constraints[0]",
+            "feedstock:constraints[3]"
+          ]
+        }
+      },
+      "feedstock_compatibility": {
+        "criterion": "feedstock_compatibility",
+        "score": null,
+        "method": "none",
+        "rationale": "The evidence library has no numeric requirements for this pathway to check against.",
+        "evidence_ids": [],
+        "inputs": []
+      },
+      "technical_readiness": {
+        "criterion": "technical_readiness",
+        "score": 5,
+        "method": "rule",
+        "rationale": "TRL 9 maps to 5. Stated in EV-PF-03#1.",
+        "evidence_ids": [
+          "EV-PF-03"
+        ],
+        "inputs": [
+          "TRL = 9"
+        ]
+      },
+      "indicative_economics": {
+        "criterion": "indicative_economics",
+        "score": null,
+        "method": "none",
+        "rationale": "Gross contribution per tonne could not be calculated. Missing inputs: product yield, product price, variable costs.",
+        "evidence_ids": [],
+        "inputs": []
+      },
+      "scenario_analysis": {
+        "pathway_id": "phenolic_resins",
+        "product": "Lignin for phenol substitution in PF resins",
+        "scenarios": {
+          "conservative": {
+            "scenario": "conservative",
+            "steps": {
+              "dry_mass": {
+                "key": "dry_mass",
+                "label": "Dry mass",
+                "status": "calculated",
+                "value": 21600.0,
+                "unit": "t/yr dry",
+                "formula": "wet mass x (1 - moisture)",
+                "inputs": [
+                  "wet mass = 36,000 t/yr",
+                  "moisture = 40 % of wet mass"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "usable_feedstock": {
+                "key": "usable_feedstock",
+                "label": "Usable feedstock",
+                "status": "calculated",
+                "value": 8640.0,
+                "unit": "t/yr usable dry feedstock",
+                "formula": "dry mass x availability fraction",
+                "inputs": [
+                  "dry mass = 21,600 t/yr",
+                  "availability = 40 %"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "product_output": {
+                "key": "product_output",
+                "label": "Product output",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "t/yr product",
+                "formula": "usable feedstock x yield",
+                "inputs": [],
+                "reason": "Not calculated: product yield not supplied.",
+                "warnings": []
+              },
+              "revenue": {
+                "key": "revenue",
+                "label": "Revenue",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "(currency unknown)/yr",
+                "formula": "product output x price",
+                "inputs": [],
+                "reason": "Not calculated: needs product output, which could not be calculated.",
+                "warnings": []
+              },
+              "variable_cost": {
+                "key": "variable_cost",
+                "label": "Variable processing cost",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "(currency unknown)/yr",
+                "formula": "sum of cost rate x tonnes it applies to",
+                "inputs": [],
+                "reason": "Not calculated: variable costs not supplied (no default is assumed).",
+                "warnings": []
+              },
+              "gross_contribution": {
+                "key": "gross_contribution",
+                "label": "Gross contribution",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "(currency unknown)/yr",
+                "formula": "revenue - variable processing cost",
+                "inputs": [],
+                "reason": "Not calculated: needs revenue and variable processing cost, which could not be calculated.",
+                "warnings": []
+              },
+              "contribution_per_t_feedstock": {
+                "key": "contribution_per_t_feedstock",
+                "label": "Gross contribution per tonne of usable feedstock",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "(currency unknown)/t usable dry feedstock",
+                "formula": "gross contribution / usable feedstock",
+                "inputs": [],
+                "reason": "Not calculated: needs gross contribution, which could not be calculated.",
+                "warnings": []
+              }
+            }
+          },
+          "base": {
+            "scenario": "base",
+            "steps": {
+              "dry_mass": {
+                "key": "dry_mass",
+                "label": "Dry mass",
+                "status": "calculated",
+                "value": 26000.0,
+                "unit": "t/yr dry",
+                "formula": "wet mass x (1 - moisture)",
+                "inputs": [
+                  "wet mass = 40,000 t/yr",
+                  "moisture = 35 % of wet mass"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "usable_feedstock": {
+                "key": "usable_feedstock",
+                "label": "Usable feedstock",
+                "status": "calculated",
+                "value": 13000.0,
+                "unit": "t/yr usable dry feedstock",
+                "formula": "dry mass x availability fraction",
+                "inputs": [
+                  "dry mass = 26,000 t/yr",
+                  "availability = 50 %"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "product_output": {
+                "key": "product_output",
+                "label": "Product output",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "t/yr product",
+                "formula": "usable feedstock x yield",
+                "inputs": [],
+                "reason": "Not calculated: product yield not supplied.",
+                "warnings": []
+              },
+              "revenue": {
+                "key": "revenue",
+                "label": "Revenue",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "(currency unknown)/yr",
+                "formula": "product output x price",
+                "inputs": [],
+                "reason": "Not calculated: needs product output, which could not be calculated.",
+                "warnings": []
+              },
+              "variable_cost": {
+                "key": "variable_cost",
+                "label": "Variable processing cost",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "(currency unknown)/yr",
+                "formula": "sum of cost rate x tonnes it applies to",
+                "inputs": [],
+                "reason": "Not calculated: variable costs not supplied (no default is assumed).",
+                "warnings": []
+              },
+              "gross_contribution": {
+                "key": "gross_contribution",
+                "label": "Gross contribution",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "(currency unknown)/yr",
+                "formula": "revenue - variable processing cost",
+                "inputs": [],
+                "reason": "Not calculated: needs revenue and variable processing cost, which could not be calculated.",
+                "warnings": []
+              },
+              "contribution_per_t_feedstock": {
+                "key": "contribution_per_t_feedstock",
+                "label": "Gross contribution per tonne of usable feedstock",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "(currency unknown)/t usable dry feedstock",
+                "formula": "gross contribution / usable feedstock",
+                "inputs": [],
+                "reason": "Not calculated: needs gross contribution, which could not be calculated.",
+                "warnings": []
+              }
+            }
+          },
+          "optimistic": {
+            "scenario": "optimistic",
+            "steps": {
+              "dry_mass": {
+                "key": "dry_mass",
+                "label": "Dry mass",
+                "status": "calculated",
+                "value": 30100.0,
+                "unit": "t/yr dry",
+                "formula": "wet mass x (1 - moisture)",
+                "inputs": [
+                  "wet mass = 43,000 t/yr",
+                  "moisture = 30 % of wet mass"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "usable_feedstock": {
+                "key": "usable_feedstock",
+                "label": "Usable feedstock",
+                "status": "calculated",
+                "value": 18060.0,
+                "unit": "t/yr usable dry feedstock",
+                "formula": "dry mass x availability fraction",
+                "inputs": [
+                  "dry mass = 30,100 t/yr",
+                  "availability = 60 %"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "product_output": {
+                "key": "product_output",
+                "label": "Product output",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "t/yr product",
+                "formula": "usable feedstock x yield",
+                "inputs": [],
+                "reason": "Not calculated: product yield not supplied.",
+                "warnings": []
+              },
+              "revenue": {
+                "key": "revenue",
+                "label": "Revenue",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "(currency unknown)/yr",
+                "formula": "product output x price",
+                "inputs": [],
+                "reason": "Not calculated: needs product output, which could not be calculated.",
+                "warnings": []
+              },
+              "variable_cost": {
+                "key": "variable_cost",
+                "label": "Variable processing cost",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "(currency unknown)/yr",
+                "formula": "sum of cost rate x tonnes it applies to",
+                "inputs": [],
+                "reason": "Not calculated: variable costs not supplied (no default is assumed).",
+                "warnings": []
+              },
+              "gross_contribution": {
+                "key": "gross_contribution",
+                "label": "Gross contribution",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "(currency unknown)/yr",
+                "formula": "revenue - variable processing cost",
+                "inputs": [],
+                "reason": "Not calculated: needs revenue and variable processing cost, which could not be calculated.",
+                "warnings": []
+              },
+              "contribution_per_t_feedstock": {
+                "key": "contribution_per_t_feedstock",
+                "label": "Gross contribution per tonne of usable feedstock",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "(currency unknown)/t usable dry feedstock",
+                "formula": "gross contribution / usable feedstock",
+                "inputs": [],
+                "reason": "Not calculated: needs gross contribution, which could not be calculated.",
+                "warnings": []
+              }
+            }
+          }
+        },
+        "assumptions": [
+          {
+            "input": "wet feedstock mass",
+            "conservative": 36000.0,
+            "base": 40000.0,
+            "optimistic": 43000.0,
+            "unit": "t/yr",
+            "held_constant": false,
+            "basis": "fictional_assumption",
+            "evidence_ids": [],
+            "note": "From feedstock profile demo_pinecrest_kraft_lignin (fictional assumption). Conservative and optimistic use the low and high ends of its range."
+          },
+          {
+            "input": "moisture",
+            "conservative": 40.0,
+            "base": 35.0,
+            "optimistic": 30.0,
+            "unit": "% of wet mass",
+            "held_constant": false,
+            "basis": "fictional_assumption",
+            "evidence_ids": [],
+            "note": "From feedstock profile demo_pinecrest_kraft_lignin (fictional assumption). Conservative and optimistic use the high and low ends of its range."
+          },
+          {
+            "input": "availability fraction",
+            "conservative": 40.0,
+            "base": 50.0,
+            "optimistic": 60.0,
+            "unit": "%",
+            "held_constant": false,
+            "basis": "fictional_assumption",
+            "evidence_ids": [],
+            "note": "Fictional assumption for the demo: the mill would commit this share of its dry lignin to the pathway. Conservative and optimistic are 40% and 60%."
+          }
+        ],
+        "missing_inputs": [
+          "product yield",
+          "product price",
+          "variable costs"
+        ],
+        "not_calculated_metrics": "Gross margin, profitability, NPV, and IRR are not calculated. They need capital costs, fixed costs, a discount rate, a time horizon, and agreed definitions, none of which are available yet. Gross contribution excludes capital costs, fixed costs, and the value of the feedstock in its current use."
+      }
+    },
+    {
+      "pathway_id": "polyurethanes",
+      "findings": {
+        "pathway_id": "polyurethanes",
+        "processing_requirements": [
+          {
+            "statement": "The rigid-foam route cites a total hydroxyl value above 200 mg KOH/g, equivalent to 3.56 mmol/g total hydroxyl groups.",
+            "evidence": [
+              "EV-PU-01#R1"
+            ]
+          },
+          {
+            "statement": "Kraft lignin generally requires significant treatment such as oxypropylation, depolymerization, or liquefaction to reach target polyurethane properties.",
+            "evidence": [
+              "EV-PU-04#R1"
+            ]
+          },
+          {
+            "statement": "The wet cake would need drying before use by customers requiring dry material, but Pinecrest has no dryer.",
+            "evidence": [
+              "feedstock:constraints[0]"
+            ]
+          },
+          {
+            "statement": "Rigid polyurethane or polyisocyanurate foam would require performance qualification against ASTM C1029-15 type 1 specifications.",
+            "evidence": [
+              "EV-PU-01#1"
+            ]
+          }
+        ],
+        "technical_maturity": {
+          "statement": "The broader documented lignin-polyurethane pathway is reported at TRL 6, mapping to a mid-level technical-readiness score.",
+          "evidence": [
+            "EV-PU-04#1"
+          ]
+        },
+        "adoption_barriers": [
+          {
+            "statement": "Pinecrest lacks chemical-modification equipment even though the cited kraft-lignin route requires substantial treatment.",
+            "evidence": [
+              "feedstock:constraints[3]",
+              "EV-PU-04#R1"
+            ]
+          },
+          {
+            "statement": "Total hydroxyl value is not supplied, so the cited rigid-foam threshold cannot be screened.",
+            "evidence": [
+              "feedstock:missing_properties[1]",
+              "EV-PU-01#R1"
+            ]
+          },
+          {
+            "statement": "Wet-cake moisture and the absence of a dryer are not reconciled with prospective polyurethane customer specifications.",
+            "evidence": [
+              "feedstock:constraints[0]",
+              "feedstock:constraints[5]"
+            ]
+          },
+          {
+            "statement": "The pathway faces incumbent petroleum-based polyols and requires product qualification with foam manufacturers.",
+            "evidence": [
+              "EV-PU-01#1",
+              "EV-PU-03#1",
+              "EV-PU-03#3"
+            ]
+          },
+          {
+            "statement": "Commercial diversion would affect the mill's current boiler-fuel route.",
+            "evidence": [
+              "feedstock:constraints[1]"
+            ]
+          }
+        ],
+        "missing_inputs": [
+          "none reported by the economics tool",
+          "total hydroxyl value",
+          "moisture measurement",
+          "drying method and cost",
+          "modification process, capital requirement, and operating cost",
+          "buyer qualification results and contract terms",
+          "current lignin and polyol prices",
+          "market volume and regional demand",
+          "the value of displaced boiler fuel"
+        ],
+        "assumptions": [
+          "The economics used fictional wet-feedstock masses of 36000.0 / 40000.0 / 43000.0 t/yr for conservative / base / optimistic cases.",
+          "The economics used fictional moisture assumptions of 40.0 / 35.0 / 30.0% of wet mass for conservative / base / optimistic cases.",
+          "The economics used availability fractions of 40.0 / 50.0 / 60.0% as analyst assumptions.",
+          "The economics assumed product yield of 1.0 / 1.0 / 1.0 t/t, product price of 1500.0 / 2000.0 / 2500.0 USD/t, and conversion variable cost of 200.0 / 150.0 / 120.0 USD/t product for conservative / base / optimistic cases.",
+          "The indicative economics exclude capital costs, fixed costs, and the feedstock's value in its current use.",
+          "Commercial feasibility assumes a modification-technology provider and polyurethane customer would be needed."
+        ],
+        "uncertainties": [
+          "The deterministic economics score of 5 is indicative only and rests on analyst-assumed yield, price, and conversion cost; it does not establish a bankable project case.",
+          "Feedstock compatibility could not be scored because no numeric requirement was checked against a supplied Pinecrest value.",
+          "The missing total hydroxyl value may prevent the rigid-foam route from meeting its cited requirement.",
+          "TRL 6 covers documented polyurethane uses broadly and does not prove commercial readiness for Pinecrest's specific wet cake.",
+          "Drying, chemical modification, foam qualification, customer acceptance, and boiler-fuel replacement costs remain unresolved."
+        ],
+        "commercialization_feasibility": {
+          "score": 2,
+          "rationale": "The pathway needs major new processing assets and partners that are not yet identified: chemical modification and drying are unavailable, hydroxyl suitability is unknown, and customer qualification remains necessary despite positive deterministic economics.",
+          "evidence": [
+            "EV-PU-04#1",
+            "EV-PU-04#R1",
+            "feedstock:constraints[0]",
+            "feedstock:constraints[3]",
+            "feedstock:missing_properties[1]"
+          ]
+        }
+      },
+      "feedstock_compatibility": {
+        "criterion": "feedstock_compatibility",
+        "score": null,
+        "method": "none",
+        "rationale": "The evidence library has no numeric requirements for this pathway to check against.",
+        "evidence_ids": [],
+        "inputs": []
+      },
+      "technical_readiness": {
+        "criterion": "technical_readiness",
+        "score": 3,
+        "method": "rule",
+        "rationale": "TRL 6 maps to 3. Stated in EV-PU-04#1.",
+        "evidence_ids": [
+          "EV-PU-04"
+        ],
+        "inputs": [
+          "TRL = 6"
+        ]
+      },
+      "indicative_economics": {
+        "criterion": "indicative_economics",
+        "score": 5,
+        "method": "rule",
+        "rationale": "Base-scenario gross contribution is 1,850.00 USD/t usable dry feedstock, which scores 5 (conservative 5, optimistic 5). Excludes capital costs, fixed costs, and the feedstock's value in its current use.",
+        "evidence_ids": [],
+        "inputs": [
+          "conservative: 1,300.00 USD/t usable dry feedstock (band score 5)",
+          "base: 1,850.00 USD/t usable dry feedstock (band score 5)",
+          "optimistic: 2,380.00 USD/t usable dry feedstock (band score 5)"
+        ]
+      },
+      "scenario_analysis": {
+        "pathway_id": "polyurethanes",
+        "product": "Lignin polyol (synthetic test assumptions)",
+        "scenarios": {
+          "conservative": {
+            "scenario": "conservative",
+            "steps": {
+              "dry_mass": {
+                "key": "dry_mass",
+                "label": "Dry mass",
+                "status": "calculated",
+                "value": 21600.0,
+                "unit": "t/yr dry",
+                "formula": "wet mass x (1 - moisture)",
+                "inputs": [
+                  "wet mass = 36,000 t/yr",
+                  "moisture = 40 % of wet mass"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "usable_feedstock": {
+                "key": "usable_feedstock",
+                "label": "Usable feedstock",
+                "status": "calculated",
+                "value": 8640.0,
+                "unit": "t/yr usable dry feedstock",
+                "formula": "dry mass x availability fraction",
+                "inputs": [
+                  "dry mass = 21,600 t/yr",
+                  "availability = 40 %"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "product_output": {
+                "key": "product_output",
+                "label": "Product output",
+                "status": "calculated",
+                "value": 8640.0,
+                "unit": "t/yr product",
+                "formula": "usable feedstock x yield",
+                "inputs": [
+                  "usable feedstock = 8,640 t/yr",
+                  "yield = 1 t/t"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "revenue": {
+                "key": "revenue",
+                "label": "Revenue",
+                "status": "calculated",
+                "value": 12960000.0,
+                "unit": "USD/yr",
+                "formula": "product output x price",
+                "inputs": [
+                  "product output = 8,640 t/yr",
+                  "price = 1,500 USD/t"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "variable_cost": {
+                "key": "variable_cost",
+                "label": "Variable processing cost",
+                "status": "calculated",
+                "value": 1728000.0,
+                "unit": "USD/yr",
+                "formula": "sum of cost rate x tonnes it applies to",
+                "inputs": [
+                  "Conversion = 200 USD/t per t product"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "gross_contribution": {
+                "key": "gross_contribution",
+                "label": "Gross contribution",
+                "status": "calculated",
+                "value": 11232000.0,
+                "unit": "USD/yr",
+                "formula": "revenue - variable processing cost",
+                "inputs": [
+                  "revenue = 12,960,000 USD/yr",
+                  "variable cost = 1,728,000 USD/yr"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "contribution_per_t_feedstock": {
+                "key": "contribution_per_t_feedstock",
+                "label": "Gross contribution per tonne of usable feedstock",
+                "status": "calculated",
+                "value": 1300.0,
+                "unit": "USD/t usable dry feedstock",
+                "formula": "gross contribution / usable feedstock",
+                "inputs": [
+                  "gross contribution = 11,232,000 USD/yr",
+                  "usable feedstock = 8,640 t/yr"
+                ],
+                "reason": "",
+                "warnings": []
+              }
+            }
+          },
+          "base": {
+            "scenario": "base",
+            "steps": {
+              "dry_mass": {
+                "key": "dry_mass",
+                "label": "Dry mass",
+                "status": "calculated",
+                "value": 26000.0,
+                "unit": "t/yr dry",
+                "formula": "wet mass x (1 - moisture)",
+                "inputs": [
+                  "wet mass = 40,000 t/yr",
+                  "moisture = 35 % of wet mass"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "usable_feedstock": {
+                "key": "usable_feedstock",
+                "label": "Usable feedstock",
+                "status": "calculated",
+                "value": 13000.0,
+                "unit": "t/yr usable dry feedstock",
+                "formula": "dry mass x availability fraction",
+                "inputs": [
+                  "dry mass = 26,000 t/yr",
+                  "availability = 50 %"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "product_output": {
+                "key": "product_output",
+                "label": "Product output",
+                "status": "calculated",
+                "value": 13000.0,
+                "unit": "t/yr product",
+                "formula": "usable feedstock x yield",
+                "inputs": [
+                  "usable feedstock = 13,000 t/yr",
+                  "yield = 1 t/t"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "revenue": {
+                "key": "revenue",
+                "label": "Revenue",
+                "status": "calculated",
+                "value": 26000000.0,
+                "unit": "USD/yr",
+                "formula": "product output x price",
+                "inputs": [
+                  "product output = 13,000 t/yr",
+                  "price = 2,000 USD/t"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "variable_cost": {
+                "key": "variable_cost",
+                "label": "Variable processing cost",
+                "status": "calculated",
+                "value": 1950000.0,
+                "unit": "USD/yr",
+                "formula": "sum of cost rate x tonnes it applies to",
+                "inputs": [
+                  "Conversion = 150 USD/t per t product"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "gross_contribution": {
+                "key": "gross_contribution",
+                "label": "Gross contribution",
+                "status": "calculated",
+                "value": 24050000.0,
+                "unit": "USD/yr",
+                "formula": "revenue - variable processing cost",
+                "inputs": [
+                  "revenue = 26,000,000 USD/yr",
+                  "variable cost = 1,950,000 USD/yr"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "contribution_per_t_feedstock": {
+                "key": "contribution_per_t_feedstock",
+                "label": "Gross contribution per tonne of usable feedstock",
+                "status": "calculated",
+                "value": 1850.0,
+                "unit": "USD/t usable dry feedstock",
+                "formula": "gross contribution / usable feedstock",
+                "inputs": [
+                  "gross contribution = 24,050,000 USD/yr",
+                  "usable feedstock = 13,000 t/yr"
+                ],
+                "reason": "",
+                "warnings": []
+              }
+            }
+          },
+          "optimistic": {
+            "scenario": "optimistic",
+            "steps": {
+              "dry_mass": {
+                "key": "dry_mass",
+                "label": "Dry mass",
+                "status": "calculated",
+                "value": 30100.0,
+                "unit": "t/yr dry",
+                "formula": "wet mass x (1 - moisture)",
+                "inputs": [
+                  "wet mass = 43,000 t/yr",
+                  "moisture = 30 % of wet mass"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "usable_feedstock": {
+                "key": "usable_feedstock",
+                "label": "Usable feedstock",
+                "status": "calculated",
+                "value": 18060.0,
+                "unit": "t/yr usable dry feedstock",
+                "formula": "dry mass x availability fraction",
+                "inputs": [
+                  "dry mass = 30,100 t/yr",
+                  "availability = 60 %"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "product_output": {
+                "key": "product_output",
+                "label": "Product output",
+                "status": "calculated",
+                "value": 18060.0,
+                "unit": "t/yr product",
+                "formula": "usable feedstock x yield",
+                "inputs": [
+                  "usable feedstock = 18,060 t/yr",
+                  "yield = 1 t/t"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "revenue": {
+                "key": "revenue",
+                "label": "Revenue",
+                "status": "calculated",
+                "value": 45150000.0,
+                "unit": "USD/yr",
+                "formula": "product output x price",
+                "inputs": [
+                  "product output = 18,060 t/yr",
+                  "price = 2,500 USD/t"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "variable_cost": {
+                "key": "variable_cost",
+                "label": "Variable processing cost",
+                "status": "calculated",
+                "value": 2167200.0,
+                "unit": "USD/yr",
+                "formula": "sum of cost rate x tonnes it applies to",
+                "inputs": [
+                  "Conversion = 120 USD/t per t product"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "gross_contribution": {
+                "key": "gross_contribution",
+                "label": "Gross contribution",
+                "status": "calculated",
+                "value": 42982800.0,
+                "unit": "USD/yr",
+                "formula": "revenue - variable processing cost",
+                "inputs": [
+                  "revenue = 45,150,000 USD/yr",
+                  "variable cost = 2,167,200 USD/yr"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "contribution_per_t_feedstock": {
+                "key": "contribution_per_t_feedstock",
+                "label": "Gross contribution per tonne of usable feedstock",
+                "status": "calculated",
+                "value": 2380.0,
+                "unit": "USD/t usable dry feedstock",
+                "formula": "gross contribution / usable feedstock",
+                "inputs": [
+                  "gross contribution = 42,982,800 USD/yr",
+                  "usable feedstock = 18,060 t/yr"
+                ],
+                "reason": "",
+                "warnings": []
+              }
+            }
+          }
+        },
+        "assumptions": [
+          {
+            "input": "wet feedstock mass",
+            "conservative": 36000.0,
+            "base": 40000.0,
+            "optimistic": 43000.0,
+            "unit": "t/yr",
+            "held_constant": false,
+            "basis": "fictional_assumption",
+            "evidence_ids": [],
+            "note": "From feedstock profile demo_pinecrest_kraft_lignin (fictional assumption). Conservative and optimistic use the low and high ends of its range."
+          },
+          {
+            "input": "moisture",
+            "conservative": 40.0,
+            "base": 35.0,
+            "optimistic": 30.0,
+            "unit": "% of wet mass",
+            "held_constant": false,
+            "basis": "fictional_assumption",
+            "evidence_ids": [],
+            "note": "From feedstock profile demo_pinecrest_kraft_lignin (fictional assumption). Conservative and optimistic use the high and low ends of its range."
+          },
+          {
+            "input": "availability fraction",
+            "conservative": 40.0,
+            "base": 50.0,
+            "optimistic": 60.0,
+            "unit": "%",
+            "held_constant": false,
+            "basis": "analyst_assumption",
+            "evidence_ids": [],
+            "note": "Synthetic test assumption."
+          },
+          {
+            "input": "product yield",
+            "conservative": null,
+            "base": 1.0,
+            "optimistic": null,
+            "unit": "t/t",
+            "held_constant": true,
+            "basis": "analyst_assumption",
+            "evidence_ids": [],
+            "note": "Synthetic test assumption."
+          },
+          {
+            "input": "product price",
+            "conservative": 1500.0,
+            "base": 2000.0,
+            "optimistic": 2500.0,
+            "unit": "USD/t",
+            "held_constant": false,
+            "basis": "analyst_assumption",
+            "evidence_ids": [],
+            "note": "Synthetic, deliberately attractive test assumption."
+          },
+          {
+            "input": "variable cost: Conversion (per t product)",
+            "conservative": 200.0,
+            "base": 150.0,
+            "optimistic": 120.0,
+            "unit": "USD/t",
+            "held_constant": false,
+            "basis": "analyst_assumption",
+            "evidence_ids": [],
+            "note": "Synthetic test assumption."
+          }
+        ],
+        "missing_inputs": [],
+        "not_calculated_metrics": "Gross margin, profitability, NPV, and IRR are not calculated. They need capital costs, fixed costs, a discount rate, a time horizon, and agreed definitions, none of which are available yet. Gross contribution excludes capital costs, fixed costs, and the value of the feedstock in its current use."
+      }
+    },
+    {
+      "pathway_id": "carbon_materials",
+      "findings": {
+        "pathway_id": "carbon_materials",
+        "processing_requirements": [
+          {
+            "statement": "For carbon-fiber precursor, the cited specification requires lignin content greater than 99%, ash below 0.1% by weight, residual carbohydrates below 500 ppm, volatiles below 5% at 250 °C, and removal of particulates larger than 1 µm.",
+            "evidence": [
+              "EV-CM-01#R1",
+              "EV-CM-01#R2",
+              "EV-CM-01#R3",
+              "EV-CM-01#R4",
+              "EV-CM-01#R5"
+            ]
+          },
+          {
+            "statement": "The kraft-lignin carbon-fiber route requires purification, and softwood lignin requires a plasticizing agent for melt spinning.",
+            "evidence": [
+              "EV-CM-02#R1",
+              "EV-CM-02#R2"
+            ]
+          },
+          {
+            "statement": "Activated-carbon production is a less restrictive alternative because the evidence identifies no strict precursor-quality limitation, although lower ash improves yield.",
+            "evidence": [
+              "EV-CM-05#R1"
+            ]
+          },
+          {
+            "statement": "Wet-cake preparation and shipping would need to address the absence of a dryer and uncertain moisture.",
+            "evidence": [
+              "feedstock:constraints[0]",
+              "feedstock:constraints[5]"
+            ]
+          }
+        ],
+        "technical_maturity": {
+          "statement": "The cited lignin precursor-fiber project reached TRL 5, mapping to a mid-level technical-readiness score.",
+          "evidence": [
+            "EV-CM-03#1"
+          ]
+        },
+        "adoption_barriers": [
+          {
+            "statement": "The deterministic feedstock-compatibility score is 1 for the checked carbon-fiber requirements, with the tool identifying the largest relative gap as 900%.",
+            "evidence": [
+              "EV-CM-01#R1",
+              "EV-CM-01#R2"
+            ]
+          },
+          {
+            "statement": "Pinecrest has no available measurements for ash, lignin purity, volatiles, carbohydrates, particulates, or metals, so carbon-fiber precursor compliance cannot be screened reliably.",
+            "evidence": [
+              "feedstock:missing_properties[0]",
+              "feedstock:constraints[5]"
+            ]
+          },
+          {
+            "statement": "Solvent or membrane fractionation is unavailable, limiting carbon-material routes that require molecular fractionation.",
+            "evidence": [
+              "feedstock:constraints[2]"
+            ]
+          },
+          {
+            "statement": "Lignin-based anode material may require qualification with battery manufacturers and carmakers, and the evidence reports that this qualification can take 3 years.",
+            "evidence": [
+              "EV-CM-06#1"
+            ]
+          },
+          {
+            "statement": "The pathway competes with PAN-based carbon fiber, anthracite or cellulose for sodium-ion hard carbon, and conventional activated carbon.",
+            "evidence": [
+              "EV-CM-02#1",
+              "EV-CM-04#1",
+              "EV-CM-05#1"
+            ]
+          },
+          {
+            "statement": "Commercial diversion would affect the mill's current boiler-fuel route.",
+            "evidence": [
+              "feedstock:constraints[1]"
+            ]
+          }
+        ],
+        "missing_inputs": [
+          "product yield",
+          "product price",
+          "variable costs",
+          "ash content",
+          "lignin purity",
+          "volatile content",
+          "residual carbohydrate content",
+          "particulate-size distribution and removal performance",
+          "metal content",
+          "moisture measurement",
+          "drying and purification process design",
+          "carbonization or activation process and capital requirement",
+          "buyer qualification requirements and contract terms",
+          "the value of displaced boiler fuel"
+        ],
+        "assumptions": [
+          "The economics used fictional wet-feedstock masses of 36000.0 / 40000.0 / 43000.0 t/yr for conservative / base / optimistic cases.",
+          "The economics used fictional moisture assumptions of 40.0 / 35.0 / 30.0% of wet mass for conservative / base / optimistic cases.",
+          "The economics used fictional availability fractions of 40.0 / 50.0 / 60.0%.",
+          "No product output, revenue, variable cost, or gross contribution was calculated because product yield, product price, and variable costs were missing.",
+          "Commercial feasibility assumes that Pinecrest would need downstream purification, drying, carbonization or activation, and customer qualification capabilities."
+        ],
+        "uncertainties": [
+          "The compatibility score applies to the checked carbon-fiber requirements; activated carbon and other carbon products may have different requirements.",
+          "Indicative economics are unavailable: product output, revenue, variable cost, gross contribution, and contribution per tonne were not calculated.",
+          "The TRL 5 claim concerns lignin precursor-fiber production and does not establish readiness for every carbon-material application in scope.",
+          "The absence of feedstock quality measurements prevents reliable selection among carbon fiber, battery hard carbon, and activated carbon.",
+          "Qualification duration, process yields, energy demand, logistics costs, and the impact on the existing boiler-fuel route are unresolved."
+        ],
+        "commercialization_feasibility": {
+          "score": 2,
+          "rationale": "The route needs major new assets and partners that are not yet identified: carbon-fiber processing faces a score-1 feedstock mismatch and stringent purification, while battery-anode routes require lengthy customer qualification; activated carbon is less restrictive but still lacks economics and process data.",
+          "evidence": [
+            "EV-CM-01#R1",
+            "EV-CM-01#R2",
+            "EV-CM-02#R1",
+            "EV-CM-06#1",
+            "EV-CM-05#R1",
+            "feedstock:constraints[2]"
+          ]
+        }
+      },
+      "feedstock_compatibility": {
+        "criterion": "feedstock_compatibility",
+        "score": 1,
+        "method": "rule",
+        "rationale": "Largest relative gap is 900% across 2 checked requirement(s). The checked requirements apply to: carbon fiber precursor; other products in this pathway may have different requirements.",
+        "evidence_ids": [
+          "EV-CM-01"
+        ],
+        "inputs": [
+          "lignin_pct = 94 vs min 99 (EV-CM-01, for carbon fiber precursor): outside by 5% of the limit",
+          "ash_pct = 1 vs max 0.1 (EV-CM-01, for carbon fiber precursor): outside by 900% of the limit"
+        ]
+      },
+      "technical_readiness": {
+        "criterion": "technical_readiness",
+        "score": 3,
+        "method": "rule",
+        "rationale": "TRL 5 maps to 3. Stated in EV-CM-03#1.",
+        "evidence_ids": [
+          "EV-CM-03"
+        ],
+        "inputs": [
+          "TRL = 5"
+        ]
+      },
+      "indicative_economics": {
+        "criterion": "indicative_economics",
+        "score": null,
+        "method": "none",
+        "rationale": "Gross contribution per tonne could not be calculated. Missing inputs: product yield, product price, variable costs.",
+        "evidence_ids": [],
+        "inputs": []
+      },
+      "scenario_analysis": {
+        "pathway_id": "carbon_materials",
+        "product": "Lignin as a carbon precursor",
+        "scenarios": {
+          "conservative": {
+            "scenario": "conservative",
+            "steps": {
+              "dry_mass": {
+                "key": "dry_mass",
+                "label": "Dry mass",
+                "status": "calculated",
+                "value": 21600.0,
+                "unit": "t/yr dry",
+                "formula": "wet mass x (1 - moisture)",
+                "inputs": [
+                  "wet mass = 36,000 t/yr",
+                  "moisture = 40 % of wet mass"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "usable_feedstock": {
+                "key": "usable_feedstock",
+                "label": "Usable feedstock",
+                "status": "calculated",
+                "value": 8640.0,
+                "unit": "t/yr usable dry feedstock",
+                "formula": "dry mass x availability fraction",
+                "inputs": [
+                  "dry mass = 21,600 t/yr",
+                  "availability = 40 %"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "product_output": {
+                "key": "product_output",
+                "label": "Product output",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "t/yr product",
+                "formula": "usable feedstock x yield",
+                "inputs": [],
+                "reason": "Not calculated: product yield not supplied.",
+                "warnings": []
+              },
+              "revenue": {
+                "key": "revenue",
+                "label": "Revenue",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "(currency unknown)/yr",
+                "formula": "product output x price",
+                "inputs": [],
+                "reason": "Not calculated: needs product output, which could not be calculated.",
+                "warnings": []
+              },
+              "variable_cost": {
+                "key": "variable_cost",
+                "label": "Variable processing cost",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "(currency unknown)/yr",
+                "formula": "sum of cost rate x tonnes it applies to",
+                "inputs": [],
+                "reason": "Not calculated: variable costs not supplied (no default is assumed).",
+                "warnings": []
+              },
+              "gross_contribution": {
+                "key": "gross_contribution",
+                "label": "Gross contribution",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "(currency unknown)/yr",
+                "formula": "revenue - variable processing cost",
+                "inputs": [],
+                "reason": "Not calculated: needs revenue and variable processing cost, which could not be calculated.",
+                "warnings": []
+              },
+              "contribution_per_t_feedstock": {
+                "key": "contribution_per_t_feedstock",
+                "label": "Gross contribution per tonne of usable feedstock",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "(currency unknown)/t usable dry feedstock",
+                "formula": "gross contribution / usable feedstock",
+                "inputs": [],
+                "reason": "Not calculated: needs gross contribution, which could not be calculated.",
+                "warnings": []
+              }
+            }
+          },
+          "base": {
+            "scenario": "base",
+            "steps": {
+              "dry_mass": {
+                "key": "dry_mass",
+                "label": "Dry mass",
+                "status": "calculated",
+                "value": 26000.0,
+                "unit": "t/yr dry",
+                "formula": "wet mass x (1 - moisture)",
+                "inputs": [
+                  "wet mass = 40,000 t/yr",
+                  "moisture = 35 % of wet mass"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "usable_feedstock": {
+                "key": "usable_feedstock",
+                "label": "Usable feedstock",
+                "status": "calculated",
+                "value": 13000.0,
+                "unit": "t/yr usable dry feedstock",
+                "formula": "dry mass x availability fraction",
+                "inputs": [
+                  "dry mass = 26,000 t/yr",
+                  "availability = 50 %"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "product_output": {
+                "key": "product_output",
+                "label": "Product output",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "t/yr product",
+                "formula": "usable feedstock x yield",
+                "inputs": [],
+                "reason": "Not calculated: product yield not supplied.",
+                "warnings": []
+              },
+              "revenue": {
+                "key": "revenue",
+                "label": "Revenue",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "(currency unknown)/yr",
+                "formula": "product output x price",
+                "inputs": [],
+                "reason": "Not calculated: needs product output, which could not be calculated.",
+                "warnings": []
+              },
+              "variable_cost": {
+                "key": "variable_cost",
+                "label": "Variable processing cost",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "(currency unknown)/yr",
+                "formula": "sum of cost rate x tonnes it applies to",
+                "inputs": [],
+                "reason": "Not calculated: variable costs not supplied (no default is assumed).",
+                "warnings": []
+              },
+              "gross_contribution": {
+                "key": "gross_contribution",
+                "label": "Gross contribution",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "(currency unknown)/yr",
+                "formula": "revenue - variable processing cost",
+                "inputs": [],
+                "reason": "Not calculated: needs revenue and variable processing cost, which could not be calculated.",
+                "warnings": []
+              },
+              "contribution_per_t_feedstock": {
+                "key": "contribution_per_t_feedstock",
+                "label": "Gross contribution per tonne of usable feedstock",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "(currency unknown)/t usable dry feedstock",
+                "formula": "gross contribution / usable feedstock",
+                "inputs": [],
+                "reason": "Not calculated: needs gross contribution, which could not be calculated.",
+                "warnings": []
+              }
+            }
+          },
+          "optimistic": {
+            "scenario": "optimistic",
+            "steps": {
+              "dry_mass": {
+                "key": "dry_mass",
+                "label": "Dry mass",
+                "status": "calculated",
+                "value": 30100.0,
+                "unit": "t/yr dry",
+                "formula": "wet mass x (1 - moisture)",
+                "inputs": [
+                  "wet mass = 43,000 t/yr",
+                  "moisture = 30 % of wet mass"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "usable_feedstock": {
+                "key": "usable_feedstock",
+                "label": "Usable feedstock",
+                "status": "calculated",
+                "value": 18060.0,
+                "unit": "t/yr usable dry feedstock",
+                "formula": "dry mass x availability fraction",
+                "inputs": [
+                  "dry mass = 30,100 t/yr",
+                  "availability = 60 %"
+                ],
+                "reason": "",
+                "warnings": []
+              },
+              "product_output": {
+                "key": "product_output",
+                "label": "Product output",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "t/yr product",
+                "formula": "usable feedstock x yield",
+                "inputs": [],
+                "reason": "Not calculated: product yield not supplied.",
+                "warnings": []
+              },
+              "revenue": {
+                "key": "revenue",
+                "label": "Revenue",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "(currency unknown)/yr",
+                "formula": "product output x price",
+                "inputs": [],
+                "reason": "Not calculated: needs product output, which could not be calculated.",
+                "warnings": []
+              },
+              "variable_cost": {
+                "key": "variable_cost",
+                "label": "Variable processing cost",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "(currency unknown)/yr",
+                "formula": "sum of cost rate x tonnes it applies to",
+                "inputs": [],
+                "reason": "Not calculated: variable costs not supplied (no default is assumed).",
+                "warnings": []
+              },
+              "gross_contribution": {
+                "key": "gross_contribution",
+                "label": "Gross contribution",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "(currency unknown)/yr",
+                "formula": "revenue - variable processing cost",
+                "inputs": [],
+                "reason": "Not calculated: needs revenue and variable processing cost, which could not be calculated.",
+                "warnings": []
+              },
+              "contribution_per_t_feedstock": {
+                "key": "contribution_per_t_feedstock",
+                "label": "Gross contribution per tonne of usable feedstock",
+                "status": "not_calculated",
+                "value": null,
+                "unit": "(currency unknown)/t usable dry feedstock",
+                "formula": "gross contribution / usable feedstock",
+                "inputs": [],
+                "reason": "Not calculated: needs gross contribution, which could not be calculated.",
+                "warnings": []
+              }
+            }
+          }
+        },
+        "assumptions": [
+          {
+            "input": "wet feedstock mass",
+            "conservative": 36000.0,
+            "base": 40000.0,
+            "optimistic": 43000.0,
+            "unit": "t/yr",
+            "held_constant": false,
+            "basis": "fictional_assumption",
+            "evidence_ids": [],
+            "note": "From feedstock profile demo_pinecrest_kraft_lignin (fictional assumption). Conservative and optimistic use the low and high ends of its range."
+          },
+          {
+            "input": "moisture",
+            "conservative": 40.0,
+            "base": 35.0,
+            "optimistic": 30.0,
+            "unit": "% of wet mass",
+            "held_constant": false,
+            "basis": "fictional_assumption",
+            "evidence_ids": [],
+            "note": "From feedstock profile demo_pinecrest_kraft_lignin (fictional assumption). Conservative and optimistic use the high and low ends of its range."
+          },
+          {
+            "input": "availability fraction",
+            "conservative": 40.0,
+            "base": 50.0,
+            "optimistic": 60.0,
+            "unit": "%",
+            "held_constant": false,
+            "basis": "fictional_assumption",
+            "evidence_ids": [],
+            "note": "Fictional assumption for the demo: the mill would commit this share of its dry lignin to the pathway. Conservative and optimistic are 40% and 60%."
+          }
+        ],
+        "missing_inputs": [
+          "product yield",
+          "product price",
+          "variable costs"
+        ],
+        "not_calculated_metrics": "Gross margin, profitability, NPV, and IRR are not calculated. They need capital costs, fixed costs, a discount rate, a time horizon, and agreed definitions, none of which are available yet. Gross contribution excludes capital costs, fixed costs, and the value of the feedstock in its current use."
+      }
+    }
+  ],
+  "decision": {
+    "ranking": {
+      "weights": {
+        "feedstock_compatibility": 0.25,
+        "technical_readiness": 0.2,
+        "market_evidence": 0.2,
+        "indicative_economics": 0.2,
+        "commercialization_feasibility": 0.15
+      },
+      "min_completeness": 0.6,
+      "ranked": [
+        {
+          "pathway_id": "polyurethanes",
+          "name": "Polyurethane materials and foams",
+          "criteria": [
+            {
+              "criterion": "feedstock_compatibility",
+              "label": "Feedstock compatibility",
+              "weight": 0.25,
+              "status": "not_assessed",
+              "score": null,
+              "meaning": "Not assessed",
+              "weighted_contribution": null,
+              "method": "none",
+              "rationale": "The evidence library has no numeric requirements for this pathway to check against.",
+              "evidence_ids": [],
+              "inputs": []
+            },
+            {
+              "criterion": "technical_readiness",
+              "label": "Technical readiness",
+              "weight": 0.2,
+              "status": "assessed",
+              "score": 3,
+              "meaning": "TRL 5-6: validated or demonstrated in a relevant (pilot) environment.",
+              "weighted_contribution": 0.6,
+              "method": "rule",
+              "rationale": "TRL 6 maps to 3. Stated in EV-PU-04#1.",
+              "evidence_ids": [
+                "EV-PU-04"
+              ],
+              "inputs": [
+                "TRL = 6"
+              ]
+            },
+            {
+              "criterion": "market_evidence",
+              "label": "Market evidence",
+              "weight": 0.2,
+              "status": "assessed",
+              "score": 2,
+              "meaning": "Interest shown only in research literature or announcements.",
+              "weighted_contribution": 0.4,
+              "method": "analyst",
+              "rationale": "The evidence shows research-scale foam trials and a broad TRL assessment, but it does not document commercial sales, established buyers, or a development pilot specifically for Pinecrest-type kraft lignin.",
+              "evidence_ids": [
+                "EV-PU-01",
+                "EV-PU-04",
+                "EV-PU-05"
+              ],
+              "inputs": []
+            },
+            {
+              "criterion": "indicative_economics",
+              "label": "Indicative economics",
+              "weight": 0.2,
+              "status": "assessed",
+              "score": 5,
+              "meaning": "Above 500 USD per tonne of usable dry feedstock.",
+              "weighted_contribution": 1.0,
+              "method": "rule",
+              "rationale": "Base-scenario gross contribution is 1,850.00 USD/t usable dry feedstock, which scores 5 (conservative 5, optimistic 5). Excludes capital costs, fixed costs, and the feedstock's value in its current use.",
+              "evidence_ids": [],
+              "inputs": [
+                "conservative: 1,300.00 USD/t usable dry feedstock (band score 5)",
+                "base: 1,850.00 USD/t usable dry feedstock (band score 5)",
+                "optimistic: 2,380.00 USD/t usable dry feedstock (band score 5)"
+              ]
+            },
+            {
+              "criterion": "commercialization_feasibility",
+              "label": "Commercialization feasibility",
+              "weight": 0.15,
+              "status": "assessed",
+              "score": 2,
+              "meaning": "Needs major new assets and partners that are not yet identified.",
+              "weighted_contribution": 0.3,
+              "method": "analyst",
+              "rationale": "The pathway needs major new processing assets and partners that are not yet identified: chemical modification and drying are unavailable, hydroxyl suitability is unknown, and customer qualification remains necessary despite positive deterministic economics.",
+              "evidence_ids": [
+                "EV-PU-04"
+              ],
+              "inputs": []
+            }
+          ],
+          "attractiveness": 3.07,
+          "attractiveness_range": [
+            2.55,
+            3.55
+          ],
+          "completeness": {
+            "assessed_weight": 0.75,
+            "assessed": [
+              "technical_readiness",
+              "market_evidence",
+              "indicative_economics",
+              "commercialization_feasibility"
+            ],
+            "not_assessed": [
+              "feedstock_compatibility"
+            ],
+            "missing_inputs": []
+          },
+          "evidence": {
+            "cited_records": [
+              "EV-PU-04",
+              "EV-PU-01",
+              "EV-PU-05"
+            ],
+            "by_quality": {
+              "high": 2,
+              "moderate": 1,
+              "low": 0,
+              "unverified": 0
+            },
+            "strongest": "high",
+            "criteria_without_evidence": [
+              "indicative_economics"
+            ]
+          },
+          "status": "ranked",
+          "rank": 1
+        },
+        {
+          "pathway_id": "carbon_materials",
+          "name": "Lignin-derived carbon materials",
+          "criteria": [
+            {
+              "criterion": "feedstock_compatibility",
+              "label": "Feedstock compatibility",
+              "weight": 0.25,
+              "status": "assessed",
+              "score": 1,
+              "meaning": "Misses at least one documented requirement by more than 100% of the limit.",
+              "weighted_contribution": 0.25,
+              "method": "rule",
+              "rationale": "Largest relative gap is 900% across 2 checked requirement(s). The checked requirements apply to: carbon fiber precursor; other products in this pathway may have different requirements.",
+              "evidence_ids": [
+                "EV-CM-01"
+              ],
+              "inputs": [
+                "lignin_pct = 94 vs min 99 (EV-CM-01, for carbon fiber precursor): outside by 5% of the limit",
+                "ash_pct = 1 vs max 0.1 (EV-CM-01, for carbon fiber precursor): outside by 900% of the limit"
+              ]
+            },
+            {
+              "criterion": "technical_readiness",
+              "label": "Technical readiness",
+              "weight": 0.2,
+              "status": "assessed",
+              "score": 3,
+              "meaning": "TRL 5-6: validated or demonstrated in a relevant (pilot) environment.",
+              "weighted_contribution": 0.6,
+              "method": "rule",
+              "rationale": "TRL 5 maps to 3. Stated in EV-CM-03#1.",
+              "evidence_ids": [
+                "EV-CM-03"
+              ],
+              "inputs": [
+                "TRL = 5"
+              ]
+            },
+            {
+              "criterion": "market_evidence",
+              "label": "Market evidence",
+              "weight": 0.2,
+              "status": "assessed",
+              "score": 3,
+              "meaning": "Documented industry trials, pilots, or development partnerships.",
+              "weighted_contribution": 0.6,
+              "method": "analyst",
+              "rationale": "The evidence documents an industrially relevant precursor-fiber development project and a pilot anode-material line with stated qualification partnerships, but it does not establish several producers selling to established buyers.",
+              "evidence_ids": [
+                "EV-CM-03",
+                "EV-CM-06"
+              ],
+              "inputs": []
+            },
+            {
+              "criterion": "indicative_economics",
+              "label": "Indicative economics",
+              "weight": 0.2,
+              "status": "not_assessed",
+              "score": null,
+              "meaning": "Not assessed",
+              "weighted_contribution": null,
+              "method": "none",
+              "rationale": "Gross contribution per tonne could not be calculated. Missing inputs: product yield, product price, variable costs.",
+              "evidence_ids": [],
+              "inputs": []
+            },
+            {
+              "criterion": "commercialization_feasibility",
+              "label": "Commercialization feasibility",
+              "weight": 0.15,
+              "status": "assessed",
+              "score": 2,
+              "meaning": "Needs major new assets and partners that are not yet identified.",
+              "weighted_contribution": 0.3,
+              "method": "analyst",
+              "rationale": "The route needs major new assets and partners that are not yet identified: carbon-fiber processing faces a score-1 feedstock mismatch and stringent purification, while battery-anode routes require lengthy customer qualification; activated carbon is less restrictive but still lacks economics and process data.",
+              "evidence_ids": [
+                "EV-CM-01",
+                "EV-CM-02",
+                "EV-CM-06",
+                "EV-CM-05"
+              ],
+              "inputs": []
+            }
+          ],
+          "attractiveness": 2.19,
+          "attractiveness_range": [
+            1.95,
+            2.75
+          ],
+          "completeness": {
+            "assessed_weight": 0.8,
+            "assessed": [
+              "feedstock_compatibility",
+              "technical_readiness",
+              "market_evidence",
+              "commercialization_feasibility"
+            ],
+            "not_assessed": [
+              "indicative_economics"
+            ],
+            "missing_inputs": [
+              "product yield",
+              "product price",
+              "variable costs"
+            ]
+          },
+          "evidence": {
+            "cited_records": [
+              "EV-CM-01",
+              "EV-CM-03",
+              "EV-CM-06",
+              "EV-CM-02",
+              "EV-CM-05"
+            ],
+            "by_quality": {
+              "high": 3,
+              "moderate": 2,
+              "low": 0,
+              "unverified": 0
+            },
+            "strongest": "high",
+            "criteria_without_evidence": []
+          },
+          "status": "ranked",
+          "rank": 2
+        }
+      ],
+      "insufficient_data": [
+        {
+          "pathway_id": "phenolic_resins",
+          "name": "Phenolic resins and adhesives",
+          "criteria": [
+            {
+              "criterion": "feedstock_compatibility",
+              "label": "Feedstock compatibility",
+              "weight": 0.25,
+              "status": "not_assessed",
+              "score": null,
+              "meaning": "Not assessed",
+              "weighted_contribution": null,
+              "method": "none",
+              "rationale": "The evidence library has no numeric requirements for this pathway to check against.",
+              "evidence_ids": [],
+              "inputs": []
+            },
+            {
+              "criterion": "technical_readiness",
+              "label": "Technical readiness",
+              "weight": 0.2,
+              "status": "assessed",
+              "score": 5,
+              "meaning": "TRL 8-9: complete and qualified system, or proven in commercial operation.",
+              "weighted_contribution": 1.0,
+              "method": "rule",
+              "rationale": "TRL 9 maps to 5. Stated in EV-PF-03#1.",
+              "evidence_ids": [
+                "EV-PF-03"
+              ],
+              "inputs": [
+                "TRL = 9"
+              ]
+            },
+            {
+              "criterion": "market_evidence",
+              "label": "Market evidence",
+              "weight": 0.2,
+              "status": "assessed",
+              "score": 3,
+              "meaning": "Documented industry trials, pilots, or development partnerships.",
+              "weighted_contribution": 0.6,
+              "method": "analyst",
+              "rationale": "The evidence documents industrially proven LPF resin and wood-panel performance, but it does not document commercial sales by a lignin producer or several established buyers.",
+              "evidence_ids": [
+                "EV-PF-02",
+                "EV-PF-01"
+              ],
+              "inputs": []
+            },
+            {
+              "criterion": "indicative_economics",
+              "label": "Indicative economics",
+              "weight": 0.2,
+              "status": "not_assessed",
+              "score": null,
+              "meaning": "Not assessed",
+              "weighted_contribution": null,
+              "method": "none",
+              "rationale": "Gross contribution per tonne could not be calculated. Missing inputs: product yield, product price, variable costs.",
+              "evidence_ids": [],
+              "inputs": []
+            },
+            {
+              "criterion": "commercialization_feasibility",
+              "label": "Commercialization feasibility",
+              "weight": 0.15,
+              "status": "assessed",
+              "score": 3,
+              "meaning": "Feasible with significant investment or a partner; the barriers are known.",
+              "weighted_contribution": 0.45,
+              "method": "analyst",
+              "rationale": "This is feasible with significant investment or a partner: the resin application has a mature cited route and identifiable plywood and panel customers, but Pinecrest lacks drying and chemical-modification assets and still needs feedstock-property and customer qualification work.",
+              "evidence_ids": [
+                "EV-PF-03",
+                "EV-PF-01"
+              ],
+              "inputs": []
+            }
+          ],
+          "attractiveness": 3.73,
+          "attractiveness_range": [
+            2.5,
+            4.3
+          ],
+          "completeness": {
+            "assessed_weight": 0.55,
+            "assessed": [
+              "technical_readiness",
+              "market_evidence",
+              "commercialization_feasibility"
+            ],
+            "not_assessed": [
+              "feedstock_compatibility",
+              "indicative_economics"
+            ],
+            "missing_inputs": [
+              "product yield",
+              "product price",
+              "variable costs"
+            ]
+          },
+          "evidence": {
+            "cited_records": [
+              "EV-PF-03",
+              "EV-PF-02",
+              "EV-PF-01"
+            ],
+            "by_quality": {
+              "high": 2,
+              "moderate": 1,
+              "low": 0,
+              "unverified": 0
+            },
+            "strongest": "high",
+            "criteria_without_evidence": []
+          },
+          "status": "insufficient_data",
+          "rank": null
+        }
+      ]
+    },
+    "ranking_source": "score_and_rank, called by the Decision Agent",
+    "report": {
+      "shortlist": [
+        {
+          "pathway_id": "polyurethanes",
+          "rank": 1,
+          "main_drivers": [
+            "Rank 1 with attractiveness 3.07 and range 2.55–3.55; the indicative economics score is 5, based on an analyst-assumed base-case gross contribution of 1,850.00 USD per tonne of usable dry feedstock.",
+            "Technical readiness scores 3 (TRL 6), while market evidence and commercialization feasibility score 2 each.",
+            "Feedstock compatibility is not assessed, so the ranking does not establish that Pinecrest lignin meets polyurethane hydroxyl or moisture requirements; evidence quality is high overall, but indicative economics have no cited evidence."
+          ],
+          "what_could_change_it": [
+            "A measured total hydroxyl value and moisture result showing compatibility, or failure to meet the route requirement, could move the pathway up or down.",
+            "A sourced polyol or polyurethane-product price, measured yield, conversion cost, drying cost, modification cost, and boiler-fuel replacement value could materially change the economics score.",
+            "A named customer qualification, pilot commitment, or commercial contract could improve market evidence and commercialization feasibility; evidence of unacceptable foam performance or high qualification cost could reduce them."
+          ]
+        },
+        {
+          "pathway_id": "carbon_materials",
+          "rank": 2,
+          "main_drivers": [
+            "Rank 2 with attractiveness 2.19 and range 1.95–2.75.",
+            "Feedstock compatibility scores 1 for the checked carbon-fiber requirements, while technical readiness scores 3, market evidence 3, and commercialization feasibility 2.",
+            "Indicative economics are not assessed because product yield, product price, and variable costs are missing; evidence quality is high overall, with industrial development and qualification-partnership evidence."
+          ],
+          "what_could_change_it": [
+            "Pinecrest measurements for ash, purity, volatiles, residual carbohydrate, metals, particle size, and moisture could show that a less restrictive carbon product is compatible or confirm the carbon-fiber mismatch.",
+            "A product-specific yield, price, variable-cost model, and capital or energy estimate could establish economics and change the ranking materially.",
+            "A buyer qualification requirement, pilot result, or purchase commitment for activated carbon, hard carbon, or precursor fiber could improve commercialization feasibility; unsuccessful qualification could lower it."
+          ]
+        },
+        {
+          "pathway_id": "phenolic_resins",
+          "rank": null,
+          "main_drivers": [
+            "It has the highest unadjusted attractiveness estimate, 3.73 with range 2.5–4.3, driven by technical readiness score 5 (TRL 9), market evidence score 3, and commercialization feasibility score 3.",
+            "It is listed as insufficient data rather than ranked because only 0.55 of the weighted criteria were assessed; both feedstock compatibility and indicative economics are unassessed.",
+            "The route has high-quality cited evidence for mature resin performance, but no product yield, product price, or variable-cost inputs were supplied."
+          ],
+          "what_could_change_it": [
+            "Measured molecular weight, phenolic hydroxyl content, sodium content, and moisture, together with numeric resin-feed requirements, could establish feedstock compatibility and allow ranking.",
+            "A sourced resin-input or product price, yield, variable costs, drying and modification costs, and displaced boiler-fuel value could establish indicative economics.",
+            "A buyer qualification or supply agreement with a plywood or panel producer could improve market evidence and feasibility; inability to dry or modify the wet cake economically could reduce them."
+          ]
+        }
+      ],
+      "validation_steps": [
+        {
+          "action": "Measure Pinecrest cake moisture, molecular weight, phenolic hydroxyl content, sodium, ash, purity, volatiles, residual carbohydrate, metals, and particle-size distribution, then compare the results with numeric requirements for each target product.",
+          "reason": "This resolves the unassessed feedstock compatibility for phenolic resins and polyurethanes and tests the score-1 carbon-fiber compatibility finding.",
+          "addresses": [
+            "feedstock_compatibility",
+            "missing feedstock properties",
+            "wet-cake handling"
+          ]
+        },
+        {
+          "action": "Build a measured process and mass balance for drying, polyurethane modification, resin preparation, and representative carbon-material preparation, including product yield and energy demand.",
+          "reason": "The current assessment lacks product yield for phenolic resins and carbon materials, while drying and modification are identified constraints.",
+          "addresses": [
+            "product yield",
+            "drying method and cost",
+            "modification process",
+            "indicative economics"
+          ]
+        },
+        {
+          "action": "Obtain sourced regional price and demand data, named-buyer specifications, qualification protocols, and written expressions of interest or pilot commitments for each pathway.",
+          "reason": "This tests whether documented trials and partnerships can convert into actual Pinecrest demand and improves the market and commercialization assessment.",
+          "addresses": [
+            "market evidence",
+            "commercialization feasibility",
+            "product price",
+            "market volume",
+            "buyer qualification"
+          ]
+        },
+        {
+          "action": "Prepare a project-level economic model using the measured yield, price, variable costs, capital, logistics, drying, qualification, and modification costs, and subtract the value of displaced boiler fuel.",
+          "reason": "Polyurethane economics currently rely on indicative analyst assumptions, while phenolic-resin and carbon-material economics are unassessed.",
+          "addresses": [
+            "indicative economics",
+            "capital requirement",
+            "variable costs",
+            "boiler-fuel opportunity cost"
+          ]
+        }
+      ],
+      "ranking_changers": [
+        "A measured feedstock-compatibility result for phenolic resins could unlock its currently insufficient-data pathway; its high technical-readiness score and attractiveness range make it the most likely candidate to challenge the current ranking.",
+        "Replacing the polyurethane analyst-assumed economics with sourced price, measured yield, conversion cost, capital, drying, modification, and boiler-fuel opportunity-cost data could substantially lower or confirm its rank-1 position.",
+        "Product-specific carbon-material compatibility and economics—especially for an activated-carbon or battery-material route rather than the checked carbon-fiber route—could remove the current compatibility penalty and change the relative order.",
+        "A real customer qualification or purchase commitment, or failure to qualify, could change the market-evidence and commercialization-feasibility scores across the pathways."
+      ],
+      "caveats": [
+        "The Pinecrest feedstock and dashboard case are fictional, so the result is a screening assessment rather than a bankable investment decision.",
+        "The ranking is the deterministic engine's ranking. Phenolic resins are not ranked because only 0.55 of weighted criteria were assessed; an unassessed criterion is missing evidence, not a poor score.",
+        "Polyurethane indicative economics score 5 is based on an analyst-assumed gross contribution of 1,850.00 USD per tonne of usable dry feedstock and excludes capital costs, fixed costs, and the current fuel-route value.",
+        "No product output, revenue, variable cost, gross contribution, or contribution per tonne was calculated for phenolic resins or carbon materials; carbon-material economics therefore remain unassessed.",
+        "The technical-readiness evidence describes documented pathway configurations and does not prove that Pinecrest's wet cake, unavailable dryer, unavailable chemical-modification equipment, or current boiler-fuel tradeoff can meet them."
+      ],
+      "summary": "The deterministic ranking places polyurethanes first, carbon materials second, and phenolic resins as insufficient data. Polyurethanes lead because of the assessed economics score of 5, despite unresolved feedstock compatibility and major processing and qualification needs. Carbon materials have stronger market evidence but a checked carbon-fiber compatibility score of 1 and no economics assessment. Phenolic resins appear most promising on technical maturity and unadjusted attractiveness, but require feedstock and economics validation before they can be ranked."
+    }
+  },
+  "ledger": {
+    "documented_facts": [
+      {
+        "statement": "For kraft lignin in phenol-formaldehyde (PF) resins, the typical replacement of phenol is up to 50%, using a two-step process with depolymerized lignin (Mw 800-1,700 g/mol).",
+        "source": "EV-PF-01#1 · high quality evidence"
+      },
+      {
+        "statement": "Global PF resin production was expected to reach about 10 Mt (valued at about USD 13.36 billion in 2019), and more than 50% of these resins are used to make adhesives for wood-based panels.",
+        "source": "EV-PF-01#4 · high quality evidence"
+      },
+      {
+        "statement": "UPM states that its lignin can replace up to 80% of the phenol in lignin-phenol-formaldehyde (LPF) resin.",
+        "source": "EV-PF-02#1 · moderate quality evidence"
+      },
+      {
+        "statement": "UPM states that LPF resin is industrially proven and meets EN 314-2 Bonding Class 3 for veneer plywood.",
+        "source": "EV-PF-02#2 · moderate quality evidence"
+      },
+      {
+        "statement": "With phenol at around 1,000 USD per tonne, substituting part of the phenol in PF resins with lignin is estimated to add about 800 USD per marginal tonne of pulp (not per tonne of lignin); the additional operating costs are not known.",
+        "source": "EV-PF-03#3 · high quality evidence"
+      },
+      {
+        "statement": "Kraft lignin needs an activation or depolymerization step before use in PF resins.",
+        "source": "EV-PF-01#2 · high quality evidence"
+      },
+      {
+        "statement": "Pre-treatment of kraft lignin: Activation or depolymerization is needed before kraft lignin is used in PF resins.",
+        "source": "EV-PF-01#R1 · high quality evidence"
+      },
+      {
+        "statement": "UPM reports formaldehyde emissions (EN 717-2) of 0.230 mg/m²/h for 12 mm spruce, 0.148 for 12 mm birch, and 0.170 for 12 mm combi panels made with LPF resin.",
+        "source": "EV-PF-02#3 · moderate quality evidence"
+      },
+      {
+        "statement": "With the depolymerized lignin making up 50% of the phenolic component, the resin's viscosity, bonding strength, and free formaldehyde met the Chinese wood-adhesive standard used in the study.",
+        "source": "EV-PF-04#2 · high quality evidence"
+      },
+      {
+        "statement": "A 2018 report cited by the IEA estimates the technology readiness level (TRL) for producing biobased phenolic resins at 8.",
+        "source": "EV-PF-01#3 · high quality evidence"
+      },
+      {
+        "statement": "Replacing 30 wt% of the petroleum-based polyol with unmodified lignin, 16 of the 19 lignins tested gave rigid PUR/PIR foams that passed all measured ASTM C1029-15 type 1 specifications.",
+        "source": "EV-PU-01#1 · high quality evidence"
+      },
+      {
+        "statement": "Rigid foams containing 19-23% (w/w) hardwood kraft lignin, or 25-30% (w/w) organosolv lignin, kept comparable structure and strength.",
+        "source": "EV-PU-02#1 · high quality evidence"
+      },
+      {
+        "statement": "Fifteen unmodified lignins (ten kraft, five organosolv) were tested as a replacement for 20 wt% of the petroleum-based polyol in flexible polyurethane foam.",
+        "source": "EV-PU-03#1 · high quality evidence"
+      },
+      {
+        "statement": "Organosolv lignins were the most suitable for automotive flexible foam; kraft lignins gave denser, stiffer foams that the authors suggest may suit heavy-duty foams.",
+        "source": "EV-PU-03#3 · high quality evidence"
+      },
+      {
+        "statement": "The IEA rates polyurethane uses of lignin (foams, panels, coatings, rubber replacement; kraft, organosolv, and soda lignin) at TRL 6.",
+        "source": "EV-PU-04#1 · high quality evidence"
+      },
+      {
+        "statement": "In cited studies, kraft lignin replaced up to about 20% of polyol after oxypropylation, up to 50% when depolymerized and oxypropylated, and up to 100% when liquefied in a bio-based polyol.",
+        "source": "EV-PU-04#2 · high quality evidence"
+      },
+      {
+        "statement": "Total hydroxyl value of the lignin: Above 200 mg KOH/g (3.56 mmol/g total OH) is cited as the acceptable range for rigid polyurethane foam production. This is total OH, not phenolic OH, so it is not checked against the feedstock's phenolic OH figure.",
+        "source": "EV-PU-01#R1 · high quality evidence"
+      },
+      {
+        "statement": "Modification of kraft lignin: Kraft lignin needs significant treatment (for example oxypropylation, depolymerization, or liquefaction) to reach target properties for polyurethanes.",
+        "source": "EV-PU-04#R1 · high quality evidence"
+      },
+      {
+        "statement": "Commercialization of lignin-based polyurethane foams remains limited by low product consistency, poor technical performance, and high production costs.",
+        "source": "EV-PU-05#1 · moderate quality evidence"
+      },
+      {
+        "statement": "Oak Ridge National Laboratory (ORNL) specifications for lignin as a carbon fiber precursor (Baker et al. 2005) set lignin content at 99%, ash below 0.1%, volatiles below 5% at 250 °C, and full removal of particulates larger than 1 µm.",
+        "source": "EV-CM-01#1 · high quality evidence"
+      },
+      {
+        "statement": "DOE's goal was to cut industrial-grade carbon fiber cost from about $20/lb to a target of $5-7/lb, with mechanical properties suitable for automotive use (250 ksi tensile strength, 25 Msi modulus).",
+        "source": "EV-CM-02#1 · high quality evidence"
+      },
+      {
+        "statement": "Mechanical properties of lignin-based carbon fibers were about 50% of the target in this work.",
+        "source": "EV-CM-02#4 · high quality evidence"
+      },
+      {
+        "statement": "A feedstock comparison for sodium-ion battery hard carbon lists lignin at about 300 $/t with a carbon yield above 40%, against anthracite (50-200 $/t, about 90%) and cellulose (1,000 $/t, below 10%).",
+        "source": "EV-CM-04#1 · high quality evidence"
+      },
+      {
+        "statement": "Hard carbons from kraft lignin (carbonized at 1,200 °C) had higher initial coulombic efficiency than those from sulfonated lignin, which the review attributes to lower ash content.",
+        "source": "EV-CM-04#2 · high quality evidence"
+      },
+      {
+        "statement": "Activated carbon has no strict limitations on precursor quality, so lignin too impure for other uses can be converted into it.",
+        "source": "EV-CM-05#1 · high quality evidence"
+      },
+      {
+        "statement": "The GreenLight project raised the TRL of lignin precursor fiber production from 2-3 (proof of concept) to 5 (validated in an industrially relevant environment).",
+        "source": "EV-CM-03#1 · moderate quality evidence"
+      },
+      {
+        "statement": "Stora Enso states that qualification with battery manufacturers and carmakers can take 3 years, and that partnering helps shorten this.",
+        "source": "EV-CM-06#1 · moderate quality evidence"
+      },
+      {
+        "statement": "The modelled production cost of GreenLight lignin-based carbon fiber was EUR 12.6/kg, against about EUR 16/kg estimated for PAN-based fiber; cooperation with existing melt-spinning and carbon fiber plants could lower it to EUR 6.5-7.1/kg.",
+        "source": "EV-CM-03#2 · moderate quality evidence"
+      },
+      {
+        "statement": "Lignin content: Greater than 99% (ORNL precursor specification).",
+        "source": "EV-CM-01#R1 · high quality evidence"
+      },
+      {
+        "statement": "Ash content: Below 0.1% by weight (ORNL precursor specification).",
+        "source": "EV-CM-01#R2 · high quality evidence"
+      },
+      {
+        "statement": "Residual carbohydrates: Below 500 ppm (Baker 2011). Not mapped to the feedstock's carbohydrate percentage, because the source doesn't state the basis of the ppm figure.",
+        "source": "EV-CM-01#R3 · high quality evidence"
+      },
+      {
+        "statement": "Volatile material: Below 5% at 250 °C. The feedstock profile has no volatiles field, so this is not checked.",
+        "source": "EV-CM-01#R4 · high quality evidence"
+      },
+      {
+        "statement": "Particulate matter: 100% removal of particulates larger than 1 µm in diameter.",
+        "source": "EV-CM-01#R5 · high quality evidence"
+      },
+      {
+        "statement": "Purification of kraft lignin: The kraft lignin examined needed purification before it could be used for carbon fiber.",
+        "source": "EV-CM-02#R1 · high quality evidence"
+      },
+      {
+        "statement": "Melt spinnability of softwood lignin: A plasticizing (alloying) agent is needed to melt-spin softwood lignin.",
+        "source": "EV-CM-02#R2 · high quality evidence"
+      },
+      {
+        "statement": "Precursor quality: No strict limitations on precursor quality; lower ash improves yield.",
+        "source": "EV-CM-05#R1 · high quality evidence"
+      },
+      {
+        "statement": "Stora Enso announced a EUR 10 million pilot production line for lignin-based anode material, operational in 2021, with scale-up planned in standardized 20 kton manufacturing units.",
+        "source": "EV-CM-06#2 · moderate quality evidence"
+      },
+      {
+        "statement": "A techno-economic comparison lists LignoBoost extraction combined with phenol substitution in resins ('LB+Resin') at TRL 9.",
+        "source": "EV-PF-03#1 · high quality evidence"
+      }
+    ],
+    "assumptions": [
+      {
+        "statement": "annual_wet_quantity = 40000 t/yr",
+        "source": "feedstock input, fictional assumption"
+      },
+      {
+        "statement": "moisture_pct = 35 % of wet mass",
+        "source": "feedstock input, fictional assumption"
+      },
+      {
+        "statement": "composition.lignin_pct = 94 % of dry matter",
+        "source": "feedstock input, fictional assumption"
+      },
+      {
+        "statement": "composition.ash_pct = 1 % of dry matter",
+        "source": "feedstock input, fictional assumption"
+      },
+      {
+        "statement": "composition.sulfur_pct = 2.2 % of dry matter",
+        "source": "feedstock input, fictional assumption"
+      },
+      {
+        "statement": "composition.carbohydrates_pct = 1.5 % of dry matter",
+        "source": "feedstock input, fictional assumption"
+      },
+      {
+        "statement": "infrastructure[0].capacity = 30000 t/yr",
+        "source": "feedstock input, fictional assumption"
+      },
+      {
+        "statement": "infrastructure[5].capacity = 1500 t wet",
+        "source": "feedstock input, fictional assumption"
+      },
+      {
+        "statement": "Phenolic resins and adhesives: availability fraction = 40 / 50 / 60 %",
+        "source": "economic input, fictional assumption"
+      },
+      {
+        "statement": "Polyurethane materials and foams: availability fraction = 40 / 50 / 60 %",
+        "source": "economic input, analyst assumption"
+      },
+      {
+        "statement": "Polyurethane materials and foams: product yield = 1 t/t",
+        "source": "economic input, analyst assumption"
+      },
+      {
+        "statement": "Polyurethane materials and foams: product price = 1500 / 2000 / 2500 USD/t",
+        "source": "economic input, analyst assumption"
+      },
+      {
+        "statement": "Polyurethane materials and foams: variable cost: Conversion (per t product) = 200 / 150 / 120 USD/t",
+        "source": "economic input, analyst assumption"
+      },
+      {
+        "statement": "Lignin-derived carbon materials: availability fraction = 40 / 50 / 60 %",
+        "source": "economic input, fictional assumption"
+      }
+    ],
+    "estimates": [
+      {
+        "statement": "Phenolic resins and adhesives: dry mass 21,600 / 26,000 / 30,100 t/yr dry (conservative / base / optimistic)",
+        "source": "calculated: wet mass x (1 - moisture)"
+      },
+      {
+        "statement": "Phenolic resins and adhesives: usable feedstock 8,640 / 13,000 / 18,060 t/yr usable dry feedstock (conservative / base / optimistic)",
+        "source": "calculated: dry mass x availability fraction"
+      },
+      {
+        "statement": "Polyurethane materials and foams: dry mass 21,600 / 26,000 / 30,100 t/yr dry (conservative / base / optimistic)",
+        "source": "calculated: wet mass x (1 - moisture)"
+      },
+      {
+        "statement": "Polyurethane materials and foams: usable feedstock 8,640 / 13,000 / 18,060 t/yr usable dry feedstock (conservative / base / optimistic)",
+        "source": "calculated: dry mass x availability fraction"
+      },
+      {
+        "statement": "Polyurethane materials and foams: product output 8,640 / 13,000 / 18,060 t/yr product (conservative / base / optimistic)",
+        "source": "calculated: usable feedstock x yield"
+      },
+      {
+        "statement": "Polyurethane materials and foams: revenue 12,960,000 / 26,000,000 / 45,150,000 USD/yr (conservative / base / optimistic)",
+        "source": "calculated: product output x price"
+      },
+      {
+        "statement": "Polyurethane materials and foams: gross contribution 11,232,000 / 24,050,000 / 42,982,800 USD/yr (conservative / base / optimistic)",
+        "source": "calculated: revenue - variable processing cost"
+      },
+      {
+        "statement": "Lignin-derived carbon materials: dry mass 21,600 / 26,000 / 30,100 t/yr dry (conservative / base / optimistic)",
+        "source": "calculated: wet mass x (1 - moisture)"
+      },
+      {
+        "statement": "Lignin-derived carbon materials: usable feedstock 8,640 / 13,000 / 18,060 t/yr usable dry feedstock (conservative / base / optimistic)",
+        "source": "calculated: dry mass x availability fraction"
+      },
+      {
+        "statement": "Polyurethane materials and foams: technical readiness scored 3 of 5",
+        "source": "rule: TRL 6 maps to 3. Stated in EV-PU-04#1."
+      },
+      {
+        "statement": "Polyurethane materials and foams: market evidence scored 2 of 5",
+        "source": "agent judgment: The evidence shows research-scale foam trials and a broad TRL assessment, but it does not document commercial sales, established buyers, or a development pilot specifically for Pinecrest-type kraft lignin."
+      },
+      {
+        "statement": "Polyurethane materials and foams: indicative economics scored 5 of 5",
+        "source": "rule: Base-scenario gross contribution is 1,850.00 USD/t usable dry feedstock, which scores 5 (conservative 5, optimistic 5). Excludes capital costs, fixed costs, and the feedstock's value in its current use."
+      },
+      {
+        "statement": "Polyurethane materials and foams: commercialization feasibility scored 2 of 5",
+        "source": "agent judgment: The pathway needs major new processing assets and partners that are not yet identified: chemical modification and drying are unavailable, hydroxyl suitability is unknown, and customer qualification remains necessary despite positive deterministic economics."
+      },
+      {
+        "statement": "Polyurethane materials and foams: attractiveness 3.07 of 5 (75% of the weight assessed)",
+        "source": "scoring engine"
+      },
+      {
+        "statement": "Lignin-derived carbon materials: feedstock compatibility scored 1 of 5",
+        "source": "rule: Largest relative gap is 900% across 2 checked requirement(s). The checked requirements apply to: carbon fiber precursor; other products in this pathway may have different requirements."
+      },
+      {
+        "statement": "Lignin-derived carbon materials: technical readiness scored 3 of 5",
+        "source": "rule: TRL 5 maps to 3. Stated in EV-CM-03#1."
+      },
+      {
+        "statement": "Lignin-derived carbon materials: market evidence scored 3 of 5",
+        "source": "agent judgment: The evidence documents an industrially relevant precursor-fiber development project and a pilot anode-material line with stated qualification partnerships, but it does not establish several producers selling to established buyers."
+      },
+      {
+        "statement": "Lignin-derived carbon materials: commercialization feasibility scored 2 of 5",
+        "source": "agent judgment: The route needs major new assets and partners that are not yet identified: carbon-fiber processing faces a score-1 feedstock mismatch and stringent purification, while battery-anode routes require lengthy customer qualification; activated carbon is less restrictive but still lacks economics and process data."
+      },
+      {
+        "statement": "Lignin-derived carbon materials: attractiveness 2.19 of 5 (80% of the weight assessed)",
+        "source": "scoring engine"
+      },
+      {
+        "statement": "Phenolic resins and adhesives: technical readiness scored 5 of 5",
+        "source": "rule: TRL 9 maps to 5. Stated in EV-PF-03#1."
+      },
+      {
+        "statement": "Phenolic resins and adhesives: market evidence scored 3 of 5",
+        "source": "agent judgment: The evidence documents industrially proven LPF resin and wood-panel performance, but it does not document commercial sales by a lignin producer or several established buyers."
+      },
+      {
+        "statement": "Phenolic resins and adhesives: commercialization feasibility scored 3 of 5",
+        "source": "agent judgment: This is feasible with significant investment or a partner: the resin application has a mature cited route and identifiable plywood and panel customers, but Pinecrest lacks drying and chemical-modification assets and still needs feedstock-property and customer qualification work."
+      },
+      {
+        "statement": "Phenolic resins and adhesives: attractiveness 3.73 of 5 (55% of the weight assessed)",
+        "source": "scoring engine"
+      }
+    ],
+    "unknowns": [
+      {
+        "statement": "Phenolic resins and adhesives: product yield",
+        "source": "economic input not supplied"
+      },
+      {
+        "statement": "Phenolic resins and adhesives: product price",
+        "source": "economic input not supplied"
+      },
+      {
+        "statement": "Phenolic resins and adhesives: variable costs",
+        "source": "economic input not supplied"
+      },
+      {
+        "statement": "Lignin-derived carbon materials: product yield",
+        "source": "economic input not supplied"
+      },
+      {
+        "statement": "Lignin-derived carbon materials: product price",
+        "source": "economic input not supplied"
+      },
+      {
+        "statement": "Lignin-derived carbon materials: variable costs",
+        "source": "economic input not supplied"
+      },
+      {
+        "statement": "Polyurethane materials and foams: feedstock compatibility not assessed",
+        "source": "The evidence library has no numeric requirements for this pathway to check against."
+      },
+      {
+        "statement": "Lignin-derived carbon materials: indicative economics not assessed",
+        "source": "Gross contribution per tonne could not be calculated. Missing inputs: product yield, product price, variable costs."
+      },
+      {
+        "statement": "Phenolic resins and adhesives: feedstock compatibility not assessed",
+        "source": "The evidence library has no numeric requirements for this pathway to check against."
+      },
+      {
+        "statement": "Phenolic resins and adhesives: indicative economics not assessed",
+        "source": "Gross contribution per tonne could not be calculated. Missing inputs: product yield, product price, variable costs."
+      },
+      {
+        "statement": "feedstock composition.mw_g_per_mol",
+        "source": "not measured (data gap)"
+      },
+      {
+        "statement": "feedstock composition.phenolic_oh_mmol_per_g",
+        "source": "not measured (data gap)"
+      },
+      {
+        "statement": "feedstock composition.other.sodium_pct",
+        "source": "not measured (data gap)"
+      },
+      {
+        "statement": "Phenolic resins and adhesives: No current lignin price, delivered price, demand volume, named buyer, contract terms, or regional market split is provided.",
+        "source": "reported missing by the Market Intelligence Agent"
+      },
+      {
+        "statement": "Phenolic resins and adhesives: The evidence does not establish whether Pinecrest's wet cake can meet the required resin input condition; the feedstock profile states that no dryer or chemical-modification equipment is available (feedstock:constraints[0]; feedstock:constraints[3]).",
+        "source": "reported missing by the Market Intelligence Agent"
+      },
+      {
+        "statement": "Phenolic resins and adhesives: Pinecrest lignin molecular weight, phenolic hydroxyl content, and sodium content are missing, limiting reliable screening of property-dependent resin routes (feedstock:missing_properties).",
+        "source": "reported missing by the Market Intelligence Agent"
+      },
+      {
+        "statement": "Polyurethane materials and foams: No current lignin or polyol price, market volume, named buyer, qualification contract, or regional demand estimate is provided.",
+        "source": "reported missing by the Market Intelligence Agent"
+      },
+      {
+        "statement": "Polyurethane materials and foams: Pinecrest's total hydroxyl value is not supplied, and its chemical-modification equipment is unavailable, creating a direct screening gap for the cited polyurethane routes (feedstock:missing_properties; feedstock:constraints[3]).",
+        "source": "reported missing by the Market Intelligence Agent"
+      },
+      {
+        "statement": "Polyurethane materials and foams: The wet-cake condition and lack of a dryer are not reconciled with the processing requirements of prospective polyurethane customers (feedstock:constraints[0]).",
+        "source": "reported missing by the Market Intelligence Agent"
+      },
+      {
+        "statement": "Lignin-derived carbon materials: No current Pinecrest-specific price, product volume, named purchase order, buyer list, or regional demand estimate is provided.",
+        "source": "reported missing by the Market Intelligence Agent"
+      },
+      {
+        "statement": "Lignin-derived carbon materials: No Pinecrest ash, lignin purity, volatiles, carbohydrate, particulate, or metal measurements are available, so carbon-fiber precursor compliance cannot be screened (feedstock:missing_properties).",
+        "source": "reported missing by the Market Intelligence Agent"
+      },
+      {
+        "statement": "Lignin-derived carbon materials: The feedstock profile states that solvent or membrane fractionation is unavailable, while fractionation is relevant to some carbon-material processing routes (feedstock:constraints[2]).",
+        "source": "reported missing by the Market Intelligence Agent"
+      },
+      {
+        "statement": "Lignin-derived carbon materials: The wet-cake condition and lack of a dryer may require additional preparation before downstream carbon processing, but the evidence does not quantify that requirement (feedstock:constraints[0]).",
+        "source": "reported missing by the Market Intelligence Agent"
+      }
+    ]
+  },
+  "execution": {
+    "run_id": "run-20261025-000518-1ded09",
+    "model": "gpt-5.6-luna",
+    "config": "optimized",
+    "token_budget": 400000,
+    "started_at": "2026-10-25T00:05:18-04:00",
+    "finished_at": "2026-10-25T00:06:35-04:00",
+    "agents": [
+      {
+        "agent": "feedstock",
+        "order": 1,
+        "status": "ok",
+        "attempts": 1,
+        "started_at": "2026-10-25T00:05:18-04:00",
+        "finished_at": "2026-10-25T00:05:28-04:00",
+        "seconds": 10.69,
+        "usage": {
+          "requests": 3,
+          "tool_calls": 5,
+          "input_tokens": 7828,
+          "cache_read_tokens": 5226,
+          "output_tokens": 840,
+          "reasoning_tokens": 277
+        },
+        "tool_calls": [
+          {
+            "agent": "feedstock",
+            "tool": "read_feedstock_profile",
+            "arguments": {},
+            "status": "ok",
+            "result": "feedstock record demo_pinecrest_kraft_lignin (15 fields, 6 data gaps)",
+            "seconds": 0.0001
+          },
+          {
+            "agent": "feedstock",
+            "tool": "convert_units",
+            "arguments": {
+              "field": "annual_wet_quantity",
+              "value": 40000.0,
+              "unit": "t/yr",
+              "kind": "mass_flow"
+            },
+            "status": "ok",
+            "result": "{\"field\": \"annual_wet_quantity\", \"value\": 40000.0, \"unit\": \"t/yr\", \"from\": \"40000.0 t/yr\"}",
+            "seconds": 0.0002
+          },
+          {
+            "agent": "feedstock",
+            "tool": "convert_units",
+            "arguments": {
+              "field": "moisture_pct",
+              "value": 35.0,
+              "unit": "% of wet mass",
+              "kind": "moisture"
+            },
+            "status": "ok",
+            "result": "{\"field\": \"moisture_pct\", \"value\": 0.35000000000000003, \"unit\": \"fraction of wet mass\", \"from\": \"35.0 % of wet mass\"}",
+            "seconds": 0.0
+          },
+          {
+            "agent": "feedstock",
+            "tool": "calculate_dry_mass",
+            "arguments": {
+              "wet_value": 40000.0,
+              "wet_unit": "t/yr",
+              "moisture_value": 35.0,
+              "moisture_unit": "% of wet mass"
+            },
+            "status": "ok",
+            "result": "{\"dry_mass_t_per_yr\": 26000.0, \"unit\": \"t/yr\", \"formula\": \"wet mass x (1 - moisture)\", \"inputs\": \"40000.0 t/yr, moisture 35.0 % of wet mass\"}",
+            "seconds": 0.0001
+          },
+          {
+            "agent": "feedstock",
+            "tool": "validate_feedstock",
+            "arguments": {},
+            "status": "ok",
+            "result": "{\"schema_valid\": true, \"checks\": [{\"check\": \"dry matter balance\", \"passed\": true, \"detail\": \"recorded dry matter 26,000 t/yr; wet quantity x (1 - moisture) = 26,000 t/yr\"}, {\"check\": \"composition total\", \"passed\": true, \"detail\": \"lignin + ash + carbohydrates = 96.5% of dry matter\"}, {\"check\": \"miss... (+3741 chars)",
+            "seconds": 0.0006
+          }
+        ],
+        "guard_events": [],
+        "errors": [],
+        "skipped_reason": ""
+      },
+      {
+        "agent": "market",
+        "order": 2,
+        "status": "ok",
+        "attempts": 1,
+        "started_at": "2026-10-25T00:05:28-04:00",
+        "finished_at": "2026-10-25T00:05:49-04:00",
+        "seconds": 21.1,
+        "usage": {
+          "requests": 3,
+          "tool_calls": 5,
+          "input_tokens": 12034,
+          "cache_read_tokens": 5618,
+          "output_tokens": 2984,
+          "reasoning_tokens": 586
+        },
+        "tool_calls": [
+          {
+            "agent": "market",
+            "tool": "list_pathways",
+            "arguments": {},
+            "status": "ok",
+            "result": "[{\"id\": \"phenolic_resins\", \"code\": \"PF\", \"name\": \"Phenolic resins and adhesives\", \"description\": \"Lignin as a partial replacement for phenol in phenol-formaldehyde (PF) resins, used mainly as adhesives for plywood and other wood-based panels.\", \"example_products\": [\"Lignin-phenol-formaldehyde (LPF) ... (+1188 chars)",
+            "seconds": 0.0003
+          },
+          {
+            "agent": "market",
+            "tool": "search_evidence",
+            "arguments": {
+              "pathway_id": "phenolic_resins",
+              "keywords": null
+            },
+            "status": "ok",
+            "result": "4 record(s): ['EV-PF-01', 'EV-PF-02', 'EV-PF-03', 'EV-PF-04']",
+            "seconds": 0.0012
+          },
+          {
+            "agent": "market",
+            "tool": "search_evidence",
+            "arguments": {
+              "pathway_id": "polyurethanes",
+              "keywords": null
+            },
+            "status": "ok",
+            "result": "5 record(s): ['EV-PU-01', 'EV-PU-02', 'EV-PU-03', 'EV-PU-04', 'EV-PU-05']",
+            "seconds": 0.0009
+          },
+          {
+            "agent": "market",
+            "tool": "search_evidence",
+            "arguments": {
+              "pathway_id": "carbon_materials",
+              "keywords": null
+            },
+            "status": "ok",
+            "result": "6 record(s): ['EV-CM-01', 'EV-CM-02', 'EV-CM-03', 'EV-CM-04', 'EV-CM-05', 'EV-CM-06']",
+            "seconds": 0.0013
+          },
+          {
+            "agent": "market",
+            "tool": "get_scoring_rubric",
+            "arguments": {
+              "criterion": "market_evidence"
+            },
+            "status": "ok",
+            "result": "{\"weights\": {\"feedstock_compatibility\": 0.25, \"technical_readiness\": 0.2, \"market_evidence\": 0.2, \"indicative_economics\": 0.2, \"commercialization_feasibility\": 0.15}, \"min_completeness\": 0.6, \"rubric\": {\"market_evidence\": {\"label\": \"Market evidence\", \"question\": \"How strong is the documented evidenc... (+650 chars)",
+            "seconds": 0.0002
+          }
+        ],
+        "guard_events": [],
+        "errors": [],
+        "skipped_reason": ""
+      },
+      {
+        "agent": "commercialization",
+        "order": 3,
+        "status": "ok",
+        "attempts": 1,
+        "started_at": "2026-10-25T00:05:49-04:00",
+        "finished_at": "2026-10-25T00:06:15-04:00",
+        "seconds": 25.21,
+        "usage": {
+          "requests": 3,
+          "tool_calls": 16,
+          "input_tokens": 19308,
+          "cache_read_tokens": 13057,
+          "output_tokens": 3885,
+          "reasoning_tokens": 641
+        },
+        "tool_calls": [
+          {
+            "agent": "commercialization",
+            "tool": "get_pathway_requirements",
+            "arguments": {
+              "pathway_id": "phenolic_resins"
+            },
+            "status": "ok",
+            "result": "[{\"ref\": \"EV-PF-01#R1\", \"parameter\": \"Pre-treatment of kraft lignin\", \"requirement\": \"Activation or depolymerization is needed before kraft lignin is used in PF resins.\", \"applies_to\": \"\", \"feedstock_property\": null, \"min\": null, \"max\": null, \"status\": \"supported\"}]",
+            "seconds": 0.0002
+          },
+          {
+            "agent": "commercialization",
+            "tool": "check_feedstock_compatibility",
+            "arguments": {
+              "pathway_id": "phenolic_resins"
+            },
+            "status": "ok",
+            "result": "{\"criterion\": \"feedstock_compatibility\", \"score\": null, \"method\": \"none\", \"rationale\": \"The evidence library has no numeric requirements for this pathway to check against.\", \"evidence_ids\": [], \"inputs\": []}",
+            "seconds": 0.0001
+          },
+          {
+            "agent": "commercialization",
+            "tool": "run_scenario_analysis",
+            "arguments": {
+              "pathway_id": "phenolic_resins"
+            },
+            "status": "ok",
+            "result": "{\"missing_inputs\": [\"product yield\", \"product price\", \"variable costs\"], \"base\": {\"dry_mass\": 26000.0, \"usable_feedstock\": 13000.0, \"product_output\": null, \"revenue\": null, \"variable_cost\": null, \"gross_contribution\": null, \"contribution_per_t_feedstock\": null}}",
+            "seconds": 0.0005
+          },
+          {
+            "agent": "commercialization",
+            "tool": "find_trl_claims",
+            "arguments": {
+              "pathway_id": "phenolic_resins"
+            },
+            "status": "ok",
+            "result": "[{\"ref\": \"EV-PF-01#3\", \"text\": \"A 2018 report cited by the IEA estimates the technology readiness level (TRL) for producing biobased phenolic resins at 8.\"}, {\"ref\": \"EV-PF-03#1\", \"text\": \"A techno-economic comparison lists LignoBoost extraction combined with phenol substitution in resins ('LB+Resin... (+15 chars)",
+            "seconds": 0.0003
+          },
+          {
+            "agent": "commercialization",
+            "tool": "get_pathway_requirements",
+            "arguments": {
+              "pathway_id": "polyurethanes"
+            },
+            "status": "ok",
+            "result": "[{\"ref\": \"EV-PU-01#R1\", \"parameter\": \"Total hydroxyl value of the lignin\", \"requirement\": \"Above 200 mg KOH/g (3.56 mmol/g total OH) is cited as the acceptable range for rigid polyurethane foam production. This is total OH, not phenolic OH, so it is not checked against the feedstock's phenolic OH fi... (+436 chars)",
+            "seconds": 0.0
+          },
+          {
+            "agent": "commercialization",
+            "tool": "check_feedstock_compatibility",
+            "arguments": {
+              "pathway_id": "polyurethanes"
+            },
+            "status": "ok",
+            "result": "{\"criterion\": \"feedstock_compatibility\", \"score\": null, \"method\": \"none\", \"rationale\": \"The evidence library has no numeric requirements for this pathway to check against.\", \"evidence_ids\": [], \"inputs\": []}",
+            "seconds": 0.0
+          },
+          {
+            "agent": "commercialization",
+            "tool": "run_scenario_analysis",
+            "arguments": {
+              "pathway_id": "polyurethanes"
+            },
+            "status": "ok",
+            "result": "{\"missing_inputs\": [], \"base\": {\"dry_mass\": 26000.0, \"usable_feedstock\": 13000.0, \"product_output\": 13000.0, \"revenue\": 26000000.0, \"variable_cost\": 1950000.0, \"gross_contribution\": 24050000.0, \"contribution_per_t_feedstock\": 1850.0}}",
+            "seconds": 0.0008
+          },
+          {
+            "agent": "commercialization",
+            "tool": "find_trl_claims",
+            "arguments": {
+              "pathway_id": "polyurethanes"
+            },
+            "status": "ok",
+            "result": "[{\"ref\": \"EV-PU-04#1\", \"text\": \"The IEA rates polyurethane uses of lignin (foams, panels, coatings, rubber replacement; kraft, organosolv, and soda lignin) at TRL 6.\"}]",
+            "seconds": 0.0
+          },
+          {
+            "agent": "commercialization",
+            "tool": "get_pathway_requirements",
+            "arguments": {
+              "pathway_id": "carbon_materials"
+            },
+            "status": "ok",
+            "result": "[{\"ref\": \"EV-CM-01#R1\", \"parameter\": \"Lignin content\", \"requirement\": \"Greater than 99% (ORNL precursor specification).\", \"applies_to\": \"carbon fiber precursor\", \"feedstock_property\": \"lignin_pct\", \"min\": 99.0, \"max\": null, \"status\": \"supported\"}, {\"ref\": \"EV-CM-01#R2\", \"parameter\": \"Ash content\", \"... (+1913 chars)",
+            "seconds": 0.0001
+          },
+          {
+            "agent": "commercialization",
+            "tool": "check_feedstock_compatibility",
+            "arguments": {
+              "pathway_id": "carbon_materials"
+            },
+            "status": "ok",
+            "result": "{\"criterion\": \"feedstock_compatibility\", \"score\": 1, \"method\": \"rule\", \"rationale\": \"Largest relative gap is 900% across 2 checked requirement(s). The checked requirements apply to: carbon fiber precursor; other products in this pathway may have different requirements.\", \"evidence_ids\": [\"EV-CM-01\"]... (+204 chars)",
+            "seconds": 0.0001
+          },
+          {
+            "agent": "commercialization",
+            "tool": "run_scenario_analysis",
+            "arguments": {
+              "pathway_id": "carbon_materials"
+            },
+            "status": "ok",
+            "result": "{\"missing_inputs\": [\"product yield\", \"product price\", \"variable costs\"], \"base\": {\"dry_mass\": 26000.0, \"usable_feedstock\": 13000.0, \"product_output\": null, \"revenue\": null, \"variable_cost\": null, \"gross_contribution\": null, \"contribution_per_t_feedstock\": null}}",
+            "seconds": 0.0002
+          },
+          {
+            "agent": "commercialization",
+            "tool": "find_trl_claims",
+            "arguments": {
+              "pathway_id": "carbon_materials"
+            },
+            "status": "ok",
+            "result": "[{\"ref\": \"EV-CM-03#1\", \"text\": \"The GreenLight project raised the TRL of lignin precursor fiber production from 2-3 (proof of concept) to 5 (validated in an industrially relevant environment).\"}]",
+            "seconds": 0.0
+          },
+          {
+            "agent": "commercialization",
+            "tool": "get_scoring_rubric",
+            "arguments": {
+              "criterion": "commercialization_feasibility"
+            },
+            "status": "ok",
+            "result": "{\"weights\": {\"feedstock_compatibility\": 0.25, \"technical_readiness\": 0.2, \"market_evidence\": 0.2, \"indicative_economics\": 0.2, \"commercialization_feasibility\": 0.15}, \"min_completeness\": 0.6, \"rubric\": {\"commercialization_feasibility\": {\"label\": \"Commercialization feasibility\", \"question\": \"How feas... (+630 chars)",
+            "seconds": 0.0001
+          },
+          {
+            "agent": "commercialization",
+            "tool": "assess_technical_readiness",
+            "arguments": {
+              "pathway_id": "phenolic_resins",
+              "trl": 9,
+              "evidence": [
+                "EV-PF-03#1"
+              ]
+            },
+            "status": "ok",
+            "result": "{\"criterion\": \"technical_readiness\", \"score\": 5, \"method\": \"rule\", \"rationale\": \"TRL 9 maps to 5. Stated in EV-PF-03#1.\", \"evidence_ids\": [\"EV-PF-03\"], \"inputs\": [\"TRL = 9\"]}",
+            "seconds": 0.0045
+          },
+          {
+            "agent": "commercialization",
+            "tool": "assess_technical_readiness",
+            "arguments": {
+              "pathway_id": "polyurethanes",
+              "trl": 6,
+              "evidence": [
+                "EV-PU-04#1"
+              ]
+            },
+            "status": "ok",
+            "result": "{\"criterion\": \"technical_readiness\", \"score\": 3, \"method\": \"rule\", \"rationale\": \"TRL 6 maps to 3. Stated in EV-PU-04#1.\", \"evidence_ids\": [\"EV-PU-04\"], \"inputs\": [\"TRL = 6\"]}",
+            "seconds": 0.0001
+          },
+          {
+            "agent": "commercialization",
+            "tool": "assess_technical_readiness",
+            "arguments": {
+              "pathway_id": "carbon_materials",
+              "trl": 5,
+              "evidence": [
+                "EV-CM-03#1"
+              ]
+            },
+            "status": "ok",
+            "result": "{\"criterion\": \"technical_readiness\", \"score\": 3, \"method\": \"rule\", \"rationale\": \"TRL 5 maps to 3. Stated in EV-CM-03#1.\", \"evidence_ids\": [\"EV-CM-03\"], \"inputs\": [\"TRL = 5\"]}",
+            "seconds": 0.0001
+          }
+        ],
+        "guard_events": [],
+        "errors": [],
+        "skipped_reason": ""
+      },
+      {
+        "agent": "decision",
+        "order": 4,
+        "status": "ok",
+        "attempts": 1,
+        "started_at": "2026-10-25T00:06:15-04:00",
+        "finished_at": "2026-10-25T00:06:35-04:00",
+        "seconds": 20.0,
+        "usage": {
+          "requests": 2,
+          "tool_calls": 1,
+          "input_tokens": 7186,
+          "cache_read_tokens": 2629,
+          "output_tokens": 1558,
+          "reasoning_tokens": 53
+        },
+        "tool_calls": [
+          {
+            "agent": "decision",
+            "tool": "score_and_rank",
+            "arguments": {},
+            "status": "ok",
+            "result": "{\"ranked\": [[\"polyurethanes\", 3.07], [\"carbon_materials\", 2.19]], \"insufficient_data\": [\"phenolic_resins\"]}",
+            "seconds": 0.0149
+          }
+        ],
+        "guard_events": [],
+        "errors": [],
+        "skipped_reason": ""
+      }
+    ],
+    "security_events": []
+  },
+  "usage": {
+    "requests": 11,
+    "tool_calls": 27,
+    "input_tokens": 46356,
+    "cache_read_tokens": 26530,
+    "output_tokens": 9267,
+    "reasoning_tokens": 1557
+  },
+  "cost": {
+    "status": "not_calculated",
+    "usd": null,
+    "note": "No verified price for gpt-5.6-luna in data/model_prices.json; token counts are measured.",
+    "proxy_usd": 0.006881,
+    "proxy_note": "Estimate only: priced as gpt-6-luna (Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11)), not the price of gpt-5.6-luna."
+  }
+}

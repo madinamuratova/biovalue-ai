@@ -1,0 +1,15 @@
+{
+  "about": "Assumptions for cost estimates (backend/tokenomics.py). These are assumptions, not measurements: token counts per assessment are measured in the evaluation runs; everything here is a stated input you can change.",
+  "proxy_price_model": "gpt-6-luna",
+  "proxy_reason": "The course model gpt-5.6-luna has no verified price in data/model_prices.json. gpt-6-luna is the only model with a verified course price (MGT 409 Lecture 11, via HW 6), so it is used as a labelled proxy. The real cost of gpt-5.6-luna may be higher or lower.",
+  "assessments_per_user_per_month": 4,
+  "assessments_reason": "Assumption: a strategist screens about one feedstock stream or scenario per week. Change this to match real use.",
+  "user_counts": [100, 10000],
+  "other_costs": {
+    "hosting_usd_per_month": null,
+    "portkey_plan_usd_per_month": null,
+    "storage_and_logging_usd_per_month": null,
+    "engineering_and_support_usd_per_month": null,
+    "note": "Not estimated: no verified quotes. These are separate from model costs and must be filled in from provider quotes."
+  }
+}

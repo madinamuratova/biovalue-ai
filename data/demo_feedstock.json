@@ -1,0 +1,210 @@
+{
+  "about": "FICTIONAL DEMO FEEDSTOCK. An invented kraft lignin stream at an invented mill, for demonstrating BioValue AI. Every figure is an illustrative assumption (basis 'fictional_assumption') or calculated from them (basis 'calculated'); none is a measurement from a real mill. Schema: backend/feedstock.py.",
+  "id": "demo_pinecrest_kraft_lignin",
+  "name": "Pinecrest Mill kraft lignin cake (fictional)",
+  "data_status": "fictional_demo",
+  "disclaimer": "Fictional demo data: the Pinecrest Mill and this lignin stream are invented. All values are illustrative assumptions, not measurements from any real mill, and must be replaced with a mill's own lab data before any decision.",
+  "feedstock_type": "Washed softwood kraft lignin filter cake from an acid-precipitation unit at a kraft pulp mill (fictional)",
+  "wood_type": "softwood",
+  "annual_wet_quantity": {
+    "value": 40000,
+    "low": 36000,
+    "high": 43000,
+    "unit": "t/yr",
+    "basis": "fictional_assumption",
+    "note": "Wet filter cake leaving the precipitation unit. The range reflects assumed swings in pulp production."
+  },
+  "moisture_pct": {
+    "value": 35,
+    "low": 30,
+    "high": 40,
+    "unit": "% of wet mass",
+    "basis": "fictional_assumption",
+    "method": "Oven-dry mass loss (stated for illustration)",
+    "note": "Filter cake as discharged; there is no dryer at the fictional mill."
+  },
+  "dry_matter": {
+    "value": 26000,
+    "unit": "t/yr",
+    "basis": "calculated",
+    "method": "annual_wet_quantity x (1 - moisture_pct / 100) = 40,000 x 0.65",
+    "note": "Calculated from the fictional wet quantity and moisture."
+  },
+  "composition": {
+    "lignin_pct": {
+      "value": 94,
+      "low": 92,
+      "high": 96,
+      "unit": "% of dry matter",
+      "basis": "fictional_assumption",
+      "method": "Acid-insoluble (Klason) plus acid-soluble lignin, as % of dry matter (method stated for illustration)"
+    },
+    "ash_pct": {
+      "value": 1.0,
+      "low": 0.5,
+      "high": 2.0,
+      "unit": "% of dry matter",
+      "basis": "fictional_assumption",
+      "method": "Residue after ignition (stated for illustration)"
+    },
+    "sulfur_pct": {
+      "value": 2.2,
+      "low": 1.8,
+      "high": 2.8,
+      "unit": "% of dry matter",
+      "basis": "fictional_assumption",
+      "method": "Total sulfur by elemental analysis (stated for illustration)"
+    },
+    "carbohydrates_pct": {
+      "value": 1.5,
+      "low": 0.8,
+      "high": 2.5,
+      "unit": "% of dry matter",
+      "basis": "fictional_assumption",
+      "method": "Total sugars after acid hydrolysis (stated for illustration)"
+    },
+    "mw_g_per_mol": {
+      "value": null,
+      "unit": "g/mol",
+      "basis": "fictional_assumption",
+      "note": "Not measured at the fictional mill. See data_gaps."
+    },
+    "phenolic_oh_mmol_per_g": {
+      "value": null,
+      "unit": "mmol/g",
+      "basis": "fictional_assumption",
+      "note": "Not measured at the fictional mill. See data_gaps."
+    },
+    "other": {
+      "sodium_pct": {
+        "value": null,
+        "unit": "% of dry matter",
+        "basis": "fictional_assumption",
+        "note": "Not measured at the fictional mill. See data_gaps."
+      }
+    }
+  },
+  "variability": {
+    "summary": "Fictional: volume and quality are assumed to vary over the year. Each figure's low/high is its assumed range over a year of normal operation.",
+    "drivers": [
+      "Pulp production rate, including planned shutdowns (assumed)",
+      "Changes in the softwood mix (assumed)",
+      "Performance of the precipitation and cake-washing steps (assumed)"
+    ]
+  },
+  "current_use": {
+    "route": "internal_fuel",
+    "description": "Fictional: the precipitated lignin is fired in the mill's own boilers in place of purchased fuel. The unit was built to relieve the recovery boiler, not to sell lignin."
+  },
+  "infrastructure": [
+    {
+      "kind": "lignin_precipitation",
+      "name": "Acid-precipitation unit",
+      "status": "operating",
+      "capacity": {
+        "value": 30000,
+        "unit": "t/yr",
+        "basis": "fictional_assumption",
+        "note": "Dry tonnes per year."
+      },
+      "note": "Fictional."
+    },
+    {
+      "kind": "washing_and_filtration",
+      "name": "Filter presses with cake washing",
+      "status": "operating",
+      "note": "Fictional; part of the precipitation unit."
+    },
+    {
+      "kind": "drying",
+      "name": "Lignin dryer",
+      "status": "not_available",
+      "note": "Fictional. Lignin leaves the mill as wet cake, so any buyer who needs dry powder would need a dryer first."
+    },
+    {
+      "kind": "fractionation",
+      "name": "Solvent or membrane fractionation",
+      "status": "not_available",
+      "note": "Fictional."
+    },
+    {
+      "kind": "chemical_modification",
+      "name": "Chemical modification",
+      "status": "not_available",
+      "note": "Fictional."
+    },
+    {
+      "kind": "packaging_and_storage",
+      "name": "Covered cake storage",
+      "status": "operating",
+      "capacity": {
+        "value": 1500,
+        "unit": "t wet",
+        "basis": "fictional_assumption",
+        "note": "About two weeks of wet cake at the base rate."
+      },
+      "note": "Fictional."
+    },
+    {
+      "kind": "rail_or_port_access",
+      "name": "Rail siding",
+      "status": "operating",
+      "note": "Fictional."
+    },
+    {
+      "kind": "steam_and_power",
+      "name": "Mill steam and power",
+      "status": "operating",
+      "note": "Fictional: spare steam and power are assumed to be available for future processing steps."
+    }
+  ],
+  "geographic_market": {
+    "mill_location": "Southeastern United States (fictional site)",
+    "target_markets": ["North America", "Western Europe (by sea)"],
+    "logistics": "Fictional: rail siding at the mill; the nearest deep-water port is assumed to be about 150 km away."
+  },
+  "data_gaps": [
+    {
+      "field": "data_status",
+      "issue": "fictional",
+      "severity": "high",
+      "impact": "Every figure in this profile is invented for demonstration. Results based on it say nothing about a real mill.",
+      "next_step": "Replace the profile with the mill's own lab data and production records."
+    },
+    {
+      "field": "composition.mw_g_per_mol",
+      "issue": "missing",
+      "severity": "high",
+      "impact": "Molecular weight can't be compared with any pathway requirement until it is measured.",
+      "next_step": "Commission a lab analysis of molecular weight distribution, and record the method used."
+    },
+    {
+      "field": "composition.phenolic_oh_mmol_per_g",
+      "issue": "missing",
+      "severity": "high",
+      "impact": "Phenolic hydroxyl content can't be compared with any pathway requirement until it is measured.",
+      "next_step": "Commission a lab analysis of hydroxyl group content, and record the method used."
+    },
+    {
+      "field": "composition.other.sodium_pct",
+      "issue": "missing",
+      "severity": "medium",
+      "impact": "The make-up of the ash is unknown, so ash-related requirements can only be checked against total ash.",
+      "next_step": "Request an inorganic element analysis of the ash."
+    },
+    {
+      "field": "composition.lignin_pct",
+      "issue": "method_unclear",
+      "severity": "medium",
+      "impact": "Reported lignin content depends on what the analysis counts. The method here is stated for illustration only.",
+      "next_step": "Confirm the analytical method with the lab and use the same one when comparing with buyers' specifications."
+    },
+    {
+      "field": "moisture_pct",
+      "issue": "uncertain",
+      "severity": "medium",
+      "impact": "Moisture sets the dry tonnage (dry matter = wet quantity x (1 - moisture)) and the mass that has to be shipped.",
+      "next_step": "Log cake moisture for each shift over at least one month."
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+node_modules
+# dist is committed on purpose: the FastAPI server serves it, so running the app needs only Python
+*.local

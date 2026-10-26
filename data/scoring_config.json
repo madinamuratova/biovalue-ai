@@ -1,0 +1,85 @@
+{
+  "about": "Scoring settings for backend/scoring.py: the 1-5 rubric, the weights, and the cut-offs the three rule-based criteria use. These are design choices, not data. Change them here and every score is recomputed. Weights must cover all five criteria and sum to 1.",
+  "weights": {
+    "feedstock_compatibility": 0.25,
+    "technical_readiness": 0.20,
+    "market_evidence": 0.20,
+    "indicative_economics": 0.20,
+    "commercialization_feasibility": 0.15
+  },
+  "min_completeness": 0.6,
+  "rubric": {
+    "feedstock_compatibility": {
+      "label": "Feedstock compatibility",
+      "question": "Can this feedstock meet the pathway's documented technical requirements?",
+      "how_scored": "Rule. For each numeric requirement in the evidence library that the feedstock profile reports, the relative gap is how far outside the limit the feedstock is, as a share of the limit (0 when within it). The score comes from the largest gap. Requirements the feedstock profile doesn't report are listed as not checked; if none can be checked, the criterion is not assessed.",
+      "levels": {
+        "1": "Misses at least one documented requirement by more than 100% of the limit.",
+        "2": "Largest gap is more than 50% and up to 100% of a limit.",
+        "3": "Largest gap is more than 10% and up to 50% of a limit.",
+        "4": "Largest gap is above 0% and up to 10% of a limit.",
+        "5": "Meets every documented requirement that could be checked."
+      }
+    },
+    "technical_readiness": {
+      "label": "Technical readiness",
+      "question": "How mature is the technology for turning this feedstock into the product?",
+      "how_scored": "Rule. A technology readiness level (TRL 1-9) taken from the evidence is mapped to the scale below. With no TRL, the criterion is not assessed.",
+      "levels": {
+        "1": "TRL 1-2: basic principles observed or technology concept formulated.",
+        "2": "TRL 3-4: proof of concept, or validation in the lab.",
+        "3": "TRL 5-6: validated or demonstrated in a relevant (pilot) environment.",
+        "4": "TRL 7: prototype demonstrated in an operational environment.",
+        "5": "TRL 8-9: complete and qualified system, or proven in commercial operation."
+      }
+    },
+    "market_evidence": {
+      "label": "Market evidence",
+      "question": "How strong is the documented evidence of demand for this lignin product?",
+      "how_scored": "Judgment, supplied with a rationale and the evidence records it rests on. Score 1 only after evidence was searched and none was found; if the evidence hasn't been reviewed, leave the criterion not assessed.",
+      "levels": {
+        "1": "Searched, and found no documented buyers, trials, or demand for lignin in this product.",
+        "2": "Interest shown only in research literature or announcements.",
+        "3": "Documented industry trials, pilots, or development partnerships.",
+        "4": "Documented commercial sales by at least one lignin producer.",
+        "5": "Several producers sell commercially to established buyers."
+      }
+    },
+    "indicative_economics": {
+      "label": "Indicative economics",
+      "question": "How large is the indicative gross contribution per tonne of usable dry feedstock in the base scenario?",
+      "how_scored": "Rule. The base-scenario gross contribution (revenue minus variable processing cost) per tonne of usable dry feedstock is placed in the bands below. It excludes capital costs, fixed costs, and the feedstock's value in its current use. If any input is missing, or the currency differs from the bands', the criterion is not assessed.",
+      "levels": {
+        "1": "Zero or negative: at most 0 USD per tonne of usable dry feedstock.",
+        "2": "Above 0 and up to 100 USD per tonne of usable dry feedstock.",
+        "3": "Above 100 and up to 250 USD per tonne of usable dry feedstock.",
+        "4": "Above 250 and up to 500 USD per tonne of usable dry feedstock.",
+        "5": "Above 500 USD per tonne of usable dry feedstock."
+      }
+    },
+    "commercialization_feasibility": {
+      "label": "Commercialization feasibility",
+      "question": "How feasible is it for this mill to bring the product to market?",
+      "how_scored": "Judgment, supplied with a rationale (assets, partners, approvals, logistics) and the evidence it rests on.",
+      "levels": {
+        "1": "No identifiable route: critical assets, partners, or approvals are missing with no clear way to obtain them.",
+        "2": "Needs major new assets and partners that are not yet identified.",
+        "3": "Feasible with significant investment or a partner; the barriers are known.",
+        "4": "Feasible with modest additions to existing assets; partners are identifiable.",
+        "5": "Can start with existing assets and established buyers or partners."
+      }
+    }
+  },
+  "compatibility_gap_bands": [0.10, 0.50, 1.00],
+  "trl_to_score": {"1": 1, "2": 1, "3": 2, "4": 2, "5": 3, "6": 3, "7": 4, "8": 5, "9": 5},
+  "economics_bands": {
+    "currency": "USD",
+    "upper_bounds": [0, 100, 250, 500]
+  },
+  "notes": {
+    "weights": "Initial weights set by the project owner: feedstock compatibility 25%, technical readiness 20%, market evidence 20%, indicative economics 20%, commercialization feasibility 15%.",
+    "min_completeness": "An opportunity is ranked only when criteria carrying at least 60% of the weight have been assessed. Below that it is listed as 'insufficient data', not ranked last.",
+    "compatibility_gap_bands": "Scoring design choices, not industry thresholds: gaps up to 10%, 50%, and 100% of a limit score 4, 3, and 2.",
+    "economics_bands": "Illustrative cut-offs chosen for this prototype, not industry benchmarks. Calibrate them (for example against the feedstock's value in its current use) before relying on the economics score."
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "about": "The demo project: the fictional feedstock in demo_feedstock.json, the evidence library, and the three product pathways in scope. Load it with backend.data.project(). economic_assumptions holds the economic inputs supplied for each pathway; for the demo that is only a fictional availability fraction. No price, yield, or cost is supplied, because no verified source gives one for a mill's lignin in these uses.",
+  "id": "demo",
+  "name": "BioValue AI demo: fictional softwood kraft lignin stream",
+  "description": "Screens three product pathways for a fictional kraft lignin cake: phenolic resins and adhesives, polyurethane materials and foams, and carbon materials. The feedstock is invented; the evidence is from published sources.",
+  "feedstock_file": "demo_feedstock.json",
+  "evidence_file": "evidence_library.json",
+  "pathways": [
+    "phenolic_resins",
+    "polyurethanes",
+    "carbon_materials"
+  ],
+  "economic_assumptions": {
+    "phenolic_resins": {
+      "product": "Lignin for phenol substitution in PF resins",
+      "availability": {
+        "base": 50,
+        "conservative": 40,
+        "optimistic": 60,
+        "unit": "%",
+        "basis": "fictional_assumption",
+        "note": "Fictional assumption for the demo: the mill would commit this share of its dry lignin to the pathway. Conservative and optimistic are 40% and 60%."
+      }
+    },
+    "polyurethanes": {
+      "product": "Lignin for polyol substitution in polyurethanes",
+      "availability": {
+        "base": 50,
+        "conservative": 40,
+        "optimistic": 60,
+        "unit": "%",
+        "basis": "fictional_assumption",
+        "note": "Fictional assumption for the demo: the mill would commit this share of its dry lignin to the pathway. Conservative and optimistic are 40% and 60%."
+      }
+    },
+    "carbon_materials": {
+      "product": "Lignin as a carbon precursor",
+      "availability": {
+        "base": 50,
+        "conservative": 40,
+        "optimistic": 60,
+        "unit": "%",
+        "basis": "fictional_assumption",
+        "note": "Fictional assumption for the demo: the mill would commit this share of its dry lignin to the pathway. Conservative and optimistic are 40% and 60%."
+      }
+    }
+  }
+}
