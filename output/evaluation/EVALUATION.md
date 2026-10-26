@@ -18,7 +18,7 @@ Generated 2026-10-25T19:04:01-0400 by `evals/run_eval.py`. The expected behavior
 4. **Agreement with expert-reviewed rankings:** not measured. No expert-reviewed ranking has been recorded. To measure it, copy evals/expert_rankings_template.json to evals/expert_rankings.json and fill in a reviewer's order for each scenario.
 5. **Handling of uncertainty:** 50/50 checks passed.
 6. **Successful-run rate and latency:** 12/12 live runs completed; wall-clock time per completed run: median 77.4 s, mean 85.0 s, range 67.34–164.77 s.
-7. **Cost per completed assessment:** mean 50,745 input tokens (28,187 of them cached) and 11,157 output tokens, from the provider's usage metadata. Cost: USD 0.008116 per assessment. At gpt-6-luna's verified course price (Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11)).
+7. **Cost per completed assessment:** mean 50,745 input tokens (28,187 of them cached) and 11,157 output tokens, from the provider's usage metadata. Cost: USD 0.008116 per assessment. At gpt-6-luna's verified course price (MGT 409 Lecture 11 (OpenAI Standard pricing per 1M tokens), as recorded in the course HW 6 materials).
 
 Also: safety 17/18 checks passed; input validation 9/9 checks passed.
 

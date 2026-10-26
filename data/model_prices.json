@@ -5,7 +5,7 @@
       "input_per_1m": 0.1,
       "cached_input_per_1m": 0.01,
       "output_per_1m": 0.5,
-      "source": "Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11)"
+      "source": "MGT 409 Lecture 11 (OpenAI Standard pricing per 1M tokens), as recorded in the course HW 6 materials"
     }
   }
 }

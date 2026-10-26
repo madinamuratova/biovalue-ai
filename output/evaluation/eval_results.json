@@ -2318,10 +2318,10 @@
       },
       "status": "calculated",
       "usd": 0.008116,
-      "note": "At gpt-6-luna's verified course price (Copied from HW 6 data/prices.json (OpenAI Standard pricing per 1M tokens, MGT 409 Lecture 11)).",
+      "note": "At gpt-6-luna's verified course price (MGT 409 Lecture 11 (OpenAI Standard pricing per 1M tokens), as recorded in the course HW 6 materials).",
       "proxy_usd": 0.008116,
       "proxy_note": "At gpt-6-luna's verified price."
     }
   },
-  "resummarized_at": "2026-10-25T19:46:39-0400"
+  "resummarized_at": "2026-10-25T21:40:48-0400"
 }
