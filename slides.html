@@ -50,13 +50,16 @@ svg.chart path:hover { opacity: .8; }
 .tile .big { font-size: 34px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
 .tile .small { font-size: 16px; color: var(--muted); line-height: 1.3; }
 .foot { font-size: 15px !important; color: var(--muted) !important; }
+.repo { font-size: 20px !important; color: var(--ink) !important; margin-top: 28px !important; }
+.repo code { font-size: 17px; background: var(--soft); padding: 2px 8px; border-radius: 4px; }
 .reveal .diagram { font-size: 15px; } .reveal .diagram p { font-size: 14px; }
 .reveal .controls, .reveal .progress { color: var(--accent); }
 </style></head>
 <body><div class="reveal"><div class="slides"><section><p class="kicker">MGT 409 · AI Foundations for Managers · Final project</p><h1>BioValue AI</h1>
         <p style="font-size:28px">Four agents that tell a pulp mill which use of its lignin deserves a closer look first, with every number
         computed by code and every claim tied to a verified source.</p><p style="margin-top:40px">Madina Muratova · Yale SOM · October 2026</p>
-        <p class="foot">https://github.com/madinamuratova/biovalue-ai · all results from real runs with gpt-6-luna · the example mill is fictional</p></section><section><p class="kicker">Problem</p><h2>Lignin is mostly burned; choosing a better use is slow and opaque</h2><div class="cols">
+        <p class="repo">Public repository: <a href="https://github.com/madinamuratova/biovalue-ai">https://github.com/madinamuratova/biovalue-ai</a><br><code>git clone https://github.com/madinamuratova/biovalue-ai.git</code></p>
+        <p class="foot">All results from real runs with gpt-6-luna · the demo mill is fictional; a second preset uses published data</p></section><section><p class="kicker">Problem</p><h2>Lignin is mostly burned; choosing a better use is slow and opaque</h2><div class="cols">
         <ul><li>50–70 Mt of lignin a year; just 1–2% goes into added-value products (Kienberger et al., 2021)</li>
         <li>Large target markets: PF resins about 10 Mt, USD 13.4 bn (2019); polyurethanes USD 65 bn (2019), bio-based under 1% (IEA Bioenergy)</li></ul>
         <ul><li><strong>Who:</strong> a mill's strategy lead, or a climate-tech analyst, doing the first screen</li>
@@ -99,7 +102,8 @@ svg.chart path:hover { opacity: .8; }
         <li>Test with real users and a real mill's lab data</li><li>Expert-reviewed rankings to measure agreement</li>
         <li>Small evidence library (15 sources): no resin or polyurethane specs, prices, or yields</li></ul>
         <ul><li>Prefer the conservative TRL when sources disagree</li><li>Flag rankings that rest on user assumptions</li>
-        <li>Average several judgment samples to cut run-to-run variation</li><li>Hosting quotes for an organization-scale budget</li></ul></div></section></div></div>
+        <li>Average several judgment samples to cut run-to-run variation</li><li>Hosting quotes for an organization-scale budget</li></ul></div>
+        <p class="repo" style="margin-top:24px">Code (public): <a href="https://github.com/madinamuratova/biovalue-ai">https://github.com/madinamuratova/biovalue-ai</a> · <code>git clone https://github.com/madinamuratova/biovalue-ai.git</code></p></section></div></div>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
 <script>Reveal.initialize({ hash: true, width: 1280, height: 720, margin: 0.05, slideNumber: "c/t", transition: "fade" });</script>
 </body></html>

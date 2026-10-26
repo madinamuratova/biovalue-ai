@@ -25,6 +25,8 @@ SLIDE_CSS = """
 .tile .big { font-size: 34px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
 .tile .small { font-size: 16px; color: var(--muted); line-height: 1.3; }
 .foot { font-size: 15px !important; color: var(--muted) !important; }
+.repo { font-size: 20px !important; color: var(--ink) !important; margin-top: 28px !important; }
+.repo code { font-size: 17px; background: var(--soft); padding: 2px 8px; border-radius: 4px; }
 .reveal .diagram { font-size: 15px; } .reveal .diagram p { font-size: 14px; }
 .reveal .controls, .reveal .progress { color: var(--accent); }
 """
@@ -62,7 +64,8 @@ def slides_html() -> str:
         f"""<section><p class="kicker">MGT 409 · AI Foundations for Managers · Final project</p><h1>BioValue AI</h1>
         <p style="font-size:28px">Four agents that tell a pulp mill which use of its lignin deserves a closer look first, with every number
         computed by code and every claim tied to a verified source.</p><p style="margin-top:40px">Madina Muratova · Yale SOM · October 2026</p>
-        <p class="foot">{esc(repo)} · all results from real runs with {esc(A["model"])} · the example mill is fictional</p></section>""",
+        <p class="repo">Public repository: <a href="{esc(repo)}">{esc(repo)}</a><br><code>git clone {esc(repo)}.git</code></p>
+        <p class="foot">All results from real runs with {esc(A["model"])} · the demo mill is fictional; a second preset uses published data</p></section>""",
         """<section><p class="kicker">Problem</p><h2>Lignin is mostly burned; choosing a better use is slow and opaque</h2><div class="cols">
         <ul><li>50–70 Mt of lignin a year; just 1–2% goes into added-value products (Kienberger et al., 2021)</li>
         <li>Large target markets: PF resins about 10 Mt, USD 13.4 bn (2019); polyurethanes USD 65 bn (2019), bio-based under 1% (IEA Bioenergy)</li></ul>
@@ -102,11 +105,12 @@ def slides_html() -> str:
                  (f'{lat["median"]:.0f} s', "median time per screen"), (str(t["deterministic"]["tests"] + t["mock"]["tests"]), "automated tests, all passing")])}
         <ul><li>15 scenarios, expectations written before running; calculations {M["calculation_accuracy"]["passed"]}/{M["calculation_accuracy"]["total"]}; citations {M["reference_validity"]["valid"]:,}/{M["reference_validity"]["total"]:,} valid</li>
         <li>Failed checks: {esc("; ".join(failed)) if failed else "none"}{S13_NOTE if any(f.startswith("S13") for f in failed) else ""}</li>{_user_line()}</ul></section>""",
-        """<section><p class="kicker">Limits and next steps</p><h2>What comes next</h2><div class="cols"><ul>
+        f"""<section><p class="kicker">Limits and next steps</p><h2>What comes next</h2><div class="cols"><ul>
         <li>Test with real users and a real mill's lab data</li><li>Expert-reviewed rankings to measure agreement</li>
         <li>Small evidence library (15 sources): no resin or polyurethane specs, prices, or yields</li></ul>
         <ul><li>Prefer the conservative TRL when sources disagree</li><li>Flag rankings that rest on user assumptions</li>
-        <li>Average several judgment samples to cut run-to-run variation</li><li>Hosting quotes for an organization-scale budget</li></ul></div></section>""",
+        <li>Average several judgment samples to cut run-to-run variation</li><li>Hosting quotes for an organization-scale budget</li></ul></div>
+        <p class="repo" style="margin-top:24px">Code (public): <a href="{esc(repo)}">{esc(repo)}</a> · <code>git clone {esc(repo)}.git</code></p></section>""",
     ]
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">

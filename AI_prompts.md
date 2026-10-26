@@ -410,3 +410,25 @@ None.
 The answers I typed during this step are not copied here, because they include the participant's name and the participant asked to stay anonymous. What was recorded is in `output/user_test_results.json`.
 
 ---
+
+## Step 15: Final submission format
+
+### Prompt
+
+> So here is what you submit:
+>
+> 1) HTML of report - put your github repo url in the report so we can clone it
+>
+> 2) HTML of slides - put your github repo url in the report so we can clone it
+>
+> 3) Nothing else - any other files you include will annoy me and be penalized
+>
+> If your github repo is not in your report and slide files, we cannot clone it and grade it, so do not forget.
+>
+> Also, if your repo is private, please mention this in your report and slides.
+
+### Follow-up prompt
+
+None.
+
+---

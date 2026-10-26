@@ -11,6 +11,14 @@ def _link(url, missing):
     return f'<a href="{esc(url)}">{esc(url)}</a>' if url else f'<span class="na">{missing}</span>'
 
 
+def _repo_row() -> str:
+    repo = LINKS.get("repo")
+    if not repo:
+        return '<span class="na">to be added before submission</span>'
+    return (f'<a href="{esc(repo)}"><strong>{esc(repo)}</strong></a> · public, no login needed · clone with '
+            f'<code>git clone {esc(repo)}.git</code>, then follow its README')
+
+
 def title() -> str:
     passed, total = check_totals()
     runs = M["runs"]
@@ -35,7 +43,7 @@ def title() -> str:
   with every number computed by tested code and every gap shown as a gap.</p>
   {table(["", ""], [
         ["Author", "Madina Muratova · Yale School of Management · October 2026"],
-        ["Code repository", _link(LINKS.get("repo"), "to be added before submission")],
+        ["Code repository (public)", _repo_row()],
         ["Live app", _link(LINKS.get("app"), "not hosted; runs from a fresh clone in one command (see the README)")],
         ["Demo video", _link(LINKS.get("video"), "optional; not provided")]], cls="kv links")}
   <div class="tiles">{tile_html}</div>
