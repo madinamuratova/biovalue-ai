@@ -12,7 +12,7 @@ result.
 
 ## Before you start (read to the participant)
 
-- **About the data:** all feedstock data is fictional. Please do not enter confidential data about a real mill.
+- **About the data:** the two task feedstocks are fictional. Please do not enter confidential data about a real mill.
 - **What is being tested:** we are testing the tool, not you. There are no right answers.
 - **What we record:** we record times, ratings, and your answers. We quote you only if you agree. Your name is not put in
   the project report unless you agree.
@@ -108,6 +108,9 @@ Scale: 1 = strongly disagree, 5 = strongly agree.
 ## E. Facilitator notes
 
 - Ask the participant to think aloud. Do not explain the tool's reasoning during the timed tasks.
+- Optional, after the timed tasks: show the *Load literature reference* preset (published, cited values for a real
+  commercial lignin) and ask whether it changes how much they trust the result. Record the answer separately from the
+  timed tasks.
 - Record the times as they happen. Do not reconstruct them afterwards.
 - Write answers in the participant's words. Mark your own interpretation separately.
 - With one participant, report results as one person's experience, not as evidence of general user impact.

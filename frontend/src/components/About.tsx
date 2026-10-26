@@ -3,7 +3,7 @@
 import { EvidenceRefs } from './ui.tsx'
 
 const STEPS: [string, string][] = [
-  ['Describe your lignin stream', 'Annual quantity, moisture, composition, equipment, and where you sell. Leave anything you have not measured blank: it is recorded as missing, never as zero.'],
+  ['Describe your lignin stream', 'Annual quantity, moisture, composition, equipment, and where you sell, starting from the fictional demo or the literature reference (published, cited values). Leave anything you have not measured blank: it is recorded as missing, never as zero.'],
   ['Run the four agents', 'About one to three minutes. The agents read your data and a library of verified sources; every number is calculated by tested code.'],
   ['Read the ranking and why', 'Three product pathways scored 1–5, with how much of the score could be assessed, how strong the evidence is, and indicative economics where you gave prices and costs.'],
   ['Act on the next steps', 'Three to five validation steps, an evidence explorer, a full trace of what each agent did, and an HTML or Markdown report. Rerun whenever a lab result arrives.'],
@@ -110,8 +110,8 @@ export function About({ onStart }: { onStart: () => void }) {
         <h3>What it is not</h3>
         <p>
           Not an engineering approval, a business case, or proof of customer demand: it does not calculate NPV, IRR, or margins, and it
-          only knows the sources in its library. The demo mill is fictional. Use it to decide what to look at next, then confirm with lab
-          data, buyers, and experts.
+          only knows the sources in its library. The demo mill is fictional, and the literature reference combines published values from
+          different studies, not one mill’s records. Use it to decide what to look at next, then confirm with lab data, buyers, and experts.
         </p>
       </section>
     </main>

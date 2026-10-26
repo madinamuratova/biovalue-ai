@@ -20,6 +20,8 @@ Four agents run in a fixed order. Every number comes from plain, tested Python t
 | 4 | Safety, reliability, and tokenomics: injection screening, prohibited-claim guard, run budget, usage and cost logging, baseline vs optimized configuration | Done; compared live (`output/safety.md`, `output/tokenomics.md`) |
 | 5 | Evaluation suite: 15 scenarios with expectations written before running, three test tiers, user-test questionnaire | Done; run live (`output/evaluation/EVALUATION.md`, `FINDINGS.md`) |
 | 6 | Submission: `report.html`, `slides.html`, final README, fresh-setup check | Done (see "Submission files") |
+| 7 | Official requirements applied: gpt-6-luna (the only model the course key covers), every live result re-measured, one-command start with the dashboard served by the API, report in the required eight sections, reveal.js slides, public repository | Done; results on gpt-6-luna; earlier gpt-5.6-luna results archived |
+| 8 | Dashboard additions: About tab, wood-motif background, and a literature-based reference stream (published, cited values) as a second input preset | Done; reference run live once; the evaluation still uses the fictional demo |
 
 ## Quick start (Python only, about 5 minutes)
 
@@ -112,6 +114,7 @@ The tests are split into three tiers, so a model failure is never mixed up with 
 | `tests/test_safety.py` | Prompt injection in the feedstock and in an evidence record, a fooled agent that still can't move scores, malformed output, run budget, API key never stored, the facts/assumptions/estimates/unknowns ledger |
 | `tests/test_safety_rules.py`, `tests/test_tokenomics.py` | Injection screening, prohibited claims, secret redaction; cost arithmetic, proxy labels, monthly estimates, the usage log |
 | `tests/test_scenarios.py`, `tests/test_eval_runner.py` | Every evaluation scenario builds, and its hand-calculated expectations match the engine; the runner's agreement arithmetic |
+| `tests/test_reference_feedstock.py` | The literature reference: every figure with a value cites a source with quotes, unpublished figures stay blank, edited figures lose their citation, sources always come from the stored file, and the evaluation still runs on the fictional demo |
 
 ## Evaluate
 
@@ -125,6 +128,8 @@ This runs all three tiers and writes `output/evaluation/eval_results.json` (mach
 - **Measures:** gap coverage, reference validity (re-checked independently of the guards), calculation accuracy, agreement with expert rankings, uncertainty handling, run success and latency, and tokens and proxy cost per completed assessment.
 - **Expert agreement** is reported as *not measured* until a reviewer fills in `evals/expert_rankings.json` (copy `evals/expert_rankings_template.json`).
 - **User test:** `output/user_test_questionnaire.md` is a blank instrument for comparing a professional's normal screening with BioValue AI. No user test has been run yet.
+
+`--tiers deterministic mock --merge` reruns only the pytest tiers and keeps the saved live results; `--resummarize` recomputes the measures and `EVALUATION.md` from the saved results without running anything.
 
 `scripts/evaluate.py` is the phase-4 comparison of the baseline and optimized configurations (`output/evaluation/results.json`, `summary.md`), and `scripts/cost_estimate.py` turns it into monthly cost estimates (`output/cost_estimate.json`).
 
@@ -219,8 +224,10 @@ Attractiveness is the weighted average of the criteria that were assessed. Data 
 | `output/safety.md`, `output/tokenomics.md`, `output/cost_estimate.json` | Safety testing; token use, configuration comparison, and cost projections |
 | `output/user_test_questionnaire.md` | The user-test instrument (the test itself has not been run yet) |
 | `output/screenshots/` | Screenshots of the running dashboard used in the report and slides |
+| `output/submission_links.json` | Repository, app, and video links shown in the report and on the first slide (fill in, then rebuild) |
+| `output/user_test_results.json` | The real user test's results, filled in by hand after the test; the report says "pending" until `conducted` is true (then rebuild) |
 
-`report.html` and `slides.html` are built from the result files by `.venv/bin/python scripts/build_report.py` (self-contained files with the screenshots embedded). The screenshots come from `node scripts/capture_screenshots.mjs` with the API and dashboard running and Google Chrome installed; it only reads the page, so it shows the latest saved run (`--run <run id>` shows an earlier saved run, `section@800` keeps the top 800 pixels).
+`report.html` and `slides.html` are built from the result files by `.venv/bin/python scripts/build_report.py` (self-contained files with the screenshots embedded). The screenshots come from `node scripts/capture_screenshots.mjs` with the API and dashboard running and Google Chrome installed; it only reads the page, so it shows the latest saved run (`--run <run id>` shows an earlier saved run, `--click "<button text>"` presses a button first, `section@800` keeps the top 800 pixels, and `section!` opens every expandable detail).
 
 ## Project layout
 
@@ -236,9 +243,10 @@ Attractiveness is the weighted average of the criteria that were assessed. Data 
 | `backend/safety.py`, `backend/tokenomics.py` | Injection screening, prohibited claims, redaction; prices, cost reports, monthly estimates |
 | `backend/main.py` | FastAPI routes for the dashboard |
 | `backend/report.py` | HTML and Markdown export |
-| `frontend/` | React + Vite + TypeScript dashboard |
+| `frontend/` | React + Vite + TypeScript dashboard; `frontend/dist` is the committed build the API serves |
 | `scripts/run_workflow.py` | Command-line run on the demo |
 | `scripts/evaluate.py`, `scripts/cost_estimate.py` | Baseline vs optimized comparison; monthly cost estimates |
+| `scripts/build_report.py`, `report_*.py`, `capture_screenshots.mjs` | Builds `report.html` and `slides.html` from the result files; captures dashboard screenshots with headless Chrome |
 | `evals/` | Evaluation scenarios, their inputs, the runner, and the expert-ranking template |
 | `output/` | Saved runs, audit trail, usage log, `design.md`, `safety.md`, `tokenomics.md`, `user_test_questionnaire.md`, `evaluation/` |
 | `AI_prompts.md` | Every prompt used with Claude Code |

@@ -382,3 +382,15 @@ None.
 **What was missing after the first prompt:** The first answer researched which figures could be sourced and asked for a go-ahead before changing the app.
 
 ---
+
+## Step 13: Check that every submission document is up to date
+
+### Prompt
+
+> did you update all the relevant submission docs as well
+
+### Follow-up prompt
+
+None.
+
+---
