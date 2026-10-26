@@ -39,7 +39,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python -m uvicorn backend.main:app --port 8765
 ```
 
-5. Open http://127.0.0.1:8765 in a browser. The dashboard opens with the fictional demo mill and the latest saved run; click **Rerun assessment** to run the four agents live (about one to two minutes).
+5. Open http://127.0.0.1:8765 in a browser. The dashboard opens with the fictional demo mill and the latest saved run; click **Rerun assessment** to run the four agents live (usually one to three minutes).
 
 ## Configuration
 
@@ -71,7 +71,7 @@ The dashboard opens with the fictional demo feedstock and the latest saved run. 
 8. **Agent execution trace:** agents, tool calls, guard actions, failures, and tokens. It updates live during a run.
 9. **Export:** the assessment as an HTML or Markdown report.
 
-**Run assessment** sends the current inputs to the four agents, which takes about one to two minutes (median 67 s in the evaluation runs). If the inputs change after a run, sections 3–6 and the export are marked as describing the earlier run until you rerun.
+**Run assessment** sends the current inputs to the four agents, which usually takes one to three minutes (median 77 s in the evaluation runs; the slowest run so far took about 3.3 minutes). If the inputs change after a run, sections 3–6 and the export are marked as describing the earlier run until you rerun.
 
 ## Run the workflow from the command line
 
@@ -177,7 +177,7 @@ contribution per t  = gross contribution / usable feedstock
 
 Attractiveness is the weighted average of the criteria that were assessed. Data completeness and evidence quality are reported separately. **Missing evidence is never a low score:** an unassessed criterion lowers completeness, and pathways with less than 60% of the weight assessed are listed as *insufficient data* instead of being ranked last.
 
-**Current demo result.** With the demo inputs, only carbon materials can be ranked (2.19, with 80% of the weight assessed, in every live run so far). Phenolic resins score higher on what was assessed (3.73 or 4.09, depending on the run, because its market-evidence judgment varies between 3 and 4), but only 55% of the weight was assessed. That is because no source gives a numeric lignin spec for resins, and no source gives a price or yield for any pathway.
+**Current demo result.** With the demo inputs, only carbon materials can be ranked (2.19, with 80% of the weight assessed, in every live run so far). Phenolic resins score higher on what was assessed (3.09–3.73 across the gpt-6-luna evaluation runs, because its market-evidence and feasibility judgments vary by a point between runs), but only 55% of the weight was assessed. That is because no source gives a numeric lignin spec for resins, and no source gives a price or yield for any pathway.
 
 ## Data
 
@@ -198,7 +198,7 @@ Attractiveness is the weighted average of the criteria that were assessed. Data 
 | `address already in use` on 8765 or 5173 | Another copy is running. Find it with `lsof -i :8765` (or `:5173`) and stop it. |
 | `/api/health` shows `"api_key_configured": false`, or a run fails with a missing-key error | `.env` is missing or has no `PORTKEY_API_KEY`. Copy `.env.example` to `.env` in the project folder (or the folder above) and restart the API. |
 | `Operation not permitted` when running `.venv/bin/uvicorn` | Some sandboxes block the script wrapper. Use `.venv/bin/python -m uvicorn ...` as shown. |
-| "Run … is still going" (HTTP 409) | One assessment runs at a time. Wait for it to finish (usually one to two minutes; section 8 shows progress). |
+| "Run … is still going" (HTTP 409) | One assessment runs at a time. Wait for it to finish (usually one to three minutes; section 8 shows progress). |
 | HTTP 422 with a field name | An input failed validation (unit, range, text over 1,000 characters, list over 30 items). The dashboard highlights the field. |
 | HTTP 413 | The request body is over 100 KB. |
 | A run ends as *partial* | An agent failed after its retries or the run's token budget was spent. Section 8 shows which agent and why; the deterministic ranking is still shown. |
