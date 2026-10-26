@@ -15,7 +15,8 @@ figures.
 
 All three tiers ran:
 
-- **Deterministic:** 323 tests, 0 failures.
+- **Deterministic:** 323 tests, 0 failures, when the suite ran. After the literature-based reference stream was added, the
+  pytest tiers were rerun with `--merge`: 338 deterministic tests, 0 failures. The live results below are unchanged.
 - **Mock model:** 46 tests, 0 failures.
 - **Live:** the 15 scenarios ran as 12 live runs on gpt-6-luna (S09 reuses S01's run) plus 2 API-only scenarios.
   All 12 runs completed, and **162 of 163 pre-written checks passed**. The one failure is S13.

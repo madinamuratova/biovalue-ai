@@ -17,7 +17,10 @@ from backend.scoring import Assessment, Ranking, ScoringConfig, analyst_assessme
 
 
 def _quantity(q) -> dict:
-    return {"value": q.value, "unit": q.unit, "basis": q.basis, "low": q.low, "high": q.high, "method": q.method}
+    out = {"value": q.value, "unit": q.unit, "basis": q.basis, "low": q.low, "high": q.high, "method": q.method}
+    if q.source:  # a published value: the key of its source in the feedstock record's `sources`
+        out["source"] = q.source
+    return out
 
 
 def normalized_feedstock(project: Project) -> dict:

@@ -491,6 +491,8 @@ def main() -> None:
                         choices=["deterministic", "mock", "live"])
     parser.add_argument("--scenarios", nargs="*", default=None, help="scenario ids (default: all)")
     parser.add_argument("--out", type=Path, default=EVAL_DIR, help="folder for eval_results.json and EVALUATION.md")
+    parser.add_argument("--merge", action="store_true",
+                        help="keep the other tiers' saved results and replace only the tiers run now (e.g. rerun the pytest tiers)")
     parser.add_argument("--resummarize", action="store_true",
                         help="recompute the measures and EVALUATION.md from the saved eval_results.json; runs nothing")
     args = parser.parse_args()
@@ -505,11 +507,19 @@ def main() -> None:
         return
     config = default_run_config()
     results = {"generated_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"), "model": model_name(), "config": config.name, "tiers": {}}
+    saved = args.out / "eval_results.json"
+    if args.merge and saved.exists():
+        results = json.loads(saved.read_text(encoding="utf-8"))
+        results.setdefault("tiers_updated_at", {})
     if "deterministic" in args.tiers:
         results["tiers"]["deterministic"] = run_pytest("not mock")
+        if args.merge:
+            results["tiers_updated_at"]["deterministic"] = time.strftime("%Y-%m-%dT%H:%M:%S%z")
         print("deterministic:", results["tiers"]["deterministic"]["summary_line"], flush=True)
     if "mock" in args.tiers:
         results["tiers"]["mock"] = run_pytest("mock")
+        if args.merge:
+            results["tiers_updated_at"]["mock"] = time.strftime("%Y-%m-%dT%H:%M:%S%z")
         print("mock:", results["tiers"]["mock"]["summary_line"], flush=True)
     if "live" in args.tiers:
         chosen = [s for s in load_scenarios()["scenarios"] if not args.scenarios or s["id"] in args.scenarios]

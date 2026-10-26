@@ -21,6 +21,8 @@ from backend.feedstock import FeedstockProfile
 from backend.project import Project
 
 BASIS_FOR_STATUS = {"fictional_demo": "fictional_assumption", "measured": "measured", "mixed": "estimated"}
+REFERENCE_FEEDSTOCK_FILE = "reference_feedstock.json"
+RANGE_KEYS = ("value", "low", "high", "unit")
 USER_DISCLAIMER = "Values entered by the user in the BioValue AI dashboard; not independently verified."
 DRY_MATTER_METHOD = "Calculated by the server: annual wet quantity x (1 - moisture)"
 
@@ -90,10 +92,30 @@ def prepare_feedstock(raw: dict) -> FeedstockProfile:
     """Validate a feedstock edited in the dashboard. Raises InputError with field-level messages."""
     d = copy.deepcopy(raw)
     status = d.get("data_status", "fictional_demo")
-    basis = BASIS_FOR_STATUS.get(status, "estimated")
-    for path, q in _quantity_slots(d):
-        if path != "dry_matter":
-            q["basis"] = basis
+    edited_literature = False
+    if status == "literature_reference":
+        # Literature figures keep their basis and citation only while they still equal the stored, verified reference
+        # (data/reference_feedstock.json); a figure edited in the dashboard becomes the user's own estimate. The source
+        # list always comes from the stored file, never from the request.
+        reference = data.raw(REFERENCE_FEEDSTOCK_FILE)
+        stored = dict(_quantity_slots(reference))
+        for path, q in _quantity_slots(d):
+            if path == "dry_matter":
+                continue
+            r = stored.get(path)
+            if r is not None and all(q.get(k) == r.get(k) for k in RANGE_KEYS):
+                q["basis"], q["source"] = r["basis"], r.get("source", "")
+            else:
+                q["basis"], q["source"] = "estimated", ""
+                edited_literature = True
+        d["sources"] = reference["sources"]
+    else:
+        basis = BASIS_FOR_STATUS.get(status, "estimated")
+        for path, q in _quantity_slots(d):
+            if path != "dry_matter":
+                q["basis"] = basis
+                q.pop("source", None)
+        d["sources"] = []
     dry = _dry_matter(d.get("annual_wet_quantity") or {}, d.get("moisture_pct") or {})
     if dry is not None:
         d["dry_matter"] = dry
@@ -108,7 +130,10 @@ def prepare_feedstock(raw: dict) -> FeedstockProfile:
               "impact": "Left blank in the input form, so it can't be checked against any requirement.",
               "next_step": "Measure or obtain this value."} for path in sorted(missing_now - covered)]
     d["data_gaps"] = kept
-    if status != "fictional_demo":
+    if status == "literature_reference":
+        d["disclaimer"] = reference["disclaimer"] + (" Some figures were edited in the dashboard and are marked as estimates."
+                                                     if edited_literature else "")
+    elif status != "fictional_demo":
         d["disclaimer"] = USER_DISCLAIMER
     elif "fictional" not in str(d.get("disclaimer", "")).lower():
         d["disclaimer"] = "Fictional demo data, edited in the dashboard: illustrative values, not measurements."

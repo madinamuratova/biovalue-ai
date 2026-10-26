@@ -1,6 +1,6 @@
 """slides.html: 10 reveal.js slides (from a CDN) in one file, images embedded. Arrow keys move, F goes full screen."""
 
-from report_data import (A, BASE_CSS, E, LINKS, M, UT, agent_diagram, check_totals, esc, img_uri, mean_usage,
+from report_data import (A, BASE_CSS, E, LINKS, M, REF_RUN, UT, agent_diagram, check_totals, esc, img_uri, mean_usage,
                          monthly_from_suite, p4_means, ranking_rows, token_chart)
 
 REVEAL = "https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist"
@@ -79,7 +79,7 @@ def slides_html() -> str:
         <div class="cols r"><ul><li><strong>{esc(rk[0]["name"])}</strong>: the only pathway with enough data to rank ({rk[0]["attractiveness"]:.2f} of 5)</li>
         <li>Ash 1.0% vs the &lt; 0.1% carbon-fiber spec: compatibility 1</li>
         <li><strong>{esc(rk[1]["name"])}</strong>: {rk[1]["attractiveness"]:.2f} on what could be assessed, but only {rk[1]["completeness"]["assessed_weight"]:.0%} of the weight, so insufficient data</li>
-        <li>{A["usage"]["requests"]} model requests, {A["usage"]["tool_calls"]} tool calls</li></ul>
+        <li>Also run on <strong>published, cited data</strong> for a real commercial lignin (BioChoice, LignoBoost): {"same" if [o["pathway_id"] for o in REF_RUN["decision"]["ranking"]["ranked"]] == [o["pathway_id"] for o in A["decision"]["ranking"]["ranked"]] else "different"} ranking pattern</li></ul>
         <img class="shot" src="{img_uri("comparison")}" alt="Opportunity comparison"></div></section>""",
         f"""<section><p class="kicker">Demo · the trace</p><h2>Every tool call, guard action, and token is recorded</h2>
         <img class="shot" style="max-height:560px" src="{img_uri("trace_open_top")}" alt="Execution trace with tool calls"></section>""",

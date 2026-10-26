@@ -124,14 +124,14 @@ gross contribution  = revenue − variable cost               per tonne        =
   <p>The fictional Pinecrest Mill demo (40,000 t/yr of wet lignin cake, 35% moisture, ash 1.0%; molecular weight, phenolic OH, and
   sodium deliberately missing) was run from the dashboard as run <code>{esc(A["run_id"])}</code>: {secs:.0f} s end to end,
   {u["requests"]} model requests, {u["tool_calls"]} tool calls, {n(u["input_tokens"])} input and {n(u["output_tokens"])} output tokens.</p>
-  {figure("input_top", "Step 0: the inputs in section 1 of the dashboard. Every figure carries its source (here: fictional demo values); blank fields are recorded as missing, never as zero.", width="56%")}
+  {figure("input_top", "Step 0: the inputs in section 1 of the dashboard. Every figure carries its source (here: fictional demo values); blank fields are recorded as missing, never as zero.", width="50%")}
   {table(["Step", "Agent", "Tool calls, in order", "What it produced", "Time"], _run_steps())}
   {_guard_note()}
-  {figure("trace_open_top", "The execution trace for this run with every agent opened: each tool call with its arguments, status, and result, and any guard action.", width="62%")}
-  {figure("comparison", "The result: carbon materials is the only pathway with enough assessed weight to rank; the other two are shown as insufficient data with their possible ranges (hollow dots), and completeness is shown separately.", width="60%")}
+  {figure("trace_open_top", "The execution trace for this run with every agent opened: each tool call with its arguments, status, and result, and any guard action.", width="54%")}
+  {figure("comparison", "The result: carbon materials is the only pathway with enough assessed weight to rank; the other two are shown as insufficient data with their possible ranges (hollow dots), and completeness is shown separately.", width="54%")}
   <p>Why: the stream's ash is far above the carbon-fiber precursor specification in the evidence
   ({esc("; ".join(i for i in cm["feedstock_compatibility"]["inputs"] if i.startswith("ash")))}), so compatibility scores 1; and the economics
   stop at usable feedstock ({n(base["usable_feedstock"]["value"])} t/yr in the base scenario) because no yield, price, or cost was given.</p>
-  {figure("ranking_top", "Ranking breakdown for carbon materials: each criterion's score, meaning, weight, contribution, and whether it came from a deterministic rule or an agent judgment, with its evidence.", width="58%")}
-  {figure("actions_top", "Recommended actions: the disclaimers every run carries, the Decision Agent's summary, and the validation steps with the gaps each resolves.", width="58%")}
+  {figure("ranking_top", "Ranking breakdown for carbon materials: each criterion's score, meaning, weight, contribution, and whether it came from a deterministic rule or an agent judgment, with its evidence.", width="52%")}
+  {figure("actions_top", "Recommended actions: the disclaimers every run carries, the Decision Agent's summary, and the validation steps with the gaps each resolves.", width="52%")}
 </section>"""

@@ -92,7 +92,7 @@ class LedgerItem(Frozen):
 class Ledger(Frozen):
     """What the assessment rests on, kept apart so a reader never mistakes one kind for another."""
 
-    documented_facts: tuple[LedgerItem, ...]  # stated in a cited evidence record, or a measured input
+    documented_facts: tuple[LedgerItem, ...]  # stated in a cited evidence record, a measured input, or a cited published value
     assumptions: tuple[LedgerItem, ...]  # inputs nobody measured: fictional values and economic assumptions
     estimates: tuple[LedgerItem, ...]  # calculated from the above, scored by a rule, or judged by an agent
     unknowns: tuple[LedgerItem, ...]  # missing inputs and data, unassessed criteria, gaps the agents reported
@@ -295,8 +295,13 @@ def build_ledger(deps: WorkflowDeps, ranking: Ranking) -> Ledger:
     for ref in _cited_refs(deps):
         record = p.evidence.record(EVIDENCE_REF.fullmatch(ref).group(1))
         facts.append(LedgerItem(statement=_claim_text(deps, ref), source=f"{ref} · {record.quality} quality evidence"))
+    citations = {src.key: src.citation for src in p.feedstock.sources}
     for path, q in p.feedstock.quantities():
         if q.value is None or q.basis == "calculated":
+            continue
+        if q.basis == "literature":  # a published value, cited: documented, but about the source's sample, not this mill
+            facts.append(LedgerItem(statement=f"{path} = {q.value:g} {q.unit}",
+                                    source=f"published value · {citations.get(q.source, q.source)}"))
             continue
         line = LedgerItem(statement=f"{path} = {q.value:g} {q.unit}", source=f"feedstock input, {q.basis.replace('_', ' ')}")
         (facts if q.basis == "measured" else assumptions).append(line)

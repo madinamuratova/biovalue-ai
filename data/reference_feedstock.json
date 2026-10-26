@@ -1,0 +1,266 @@
+{
+  "about": "LITERATURE-BASED REFERENCE STREAM. Every figure with a value is a published value, cited per figure through `source` (a key into `sources`, which quotes the passages verbatim). The figures describe BioChoice lignin, a commercial softwood kraft lignin made with the LignoBoost process at Domtar's Plymouth, North Carolina mill, and the LignoBoost process itself. They come from different studies and samples, so this is not a measured profile of any mill and not data supplied by Domtar. Figures no source reports are left blank. Quotes were checked against each source's own text on 2026-10-25. Schema: backend/feedstock.py.",
+  "id": "literature_biochoice_reference",
+  "name": "Literature-based reference: LignoBoost softwood kraft lignin (BioChoice, published data)",
+  "data_status": "literature_reference",
+  "disclaimer": "Literature-based reference stream: each figure is a published value for BioChoice lignin (a commercial softwood kraft lignin made with the LignoBoost process at Domtar's Plymouth, North Carolina mill) or for the LignoBoost process, cited per figure. The values come from different studies and samples. This is not a measured profile of any mill and not data supplied by Domtar; figures edited in the dashboard become your own estimates.",
+  "feedstock_type": "Washed softwood kraft lignin from a LignoBoost plant, sold as BioChoice lignin (published values)",
+  "wood_type": "softwood",
+  "annual_wet_quantity": {
+    "value": 25000,
+    "unit": "t/yr",
+    "basis": "literature",
+    "source": "valmet2015",
+    "method": "Published nameplate capacity of the lignin plant ('25,000 MT per year'); Kienberger et al. (2021) also give 25,000 tons of isolated kraft lignin a year",
+    "note": "A capacity, not actual output. The sources do not say whether it is dry lignin or moist cake; it is entered as the quantity leaving the plant, with the published LignoBoost cake moisture below. See the data gap."
+  },
+  "moisture_pct": {
+    "value": 35,
+    "unit": "% of wet mass",
+    "basis": "literature",
+    "source": "valmet2015",
+    "method": "100% minus the published dry solids content of LignoBoost moist lignin ('about 65%')",
+    "note": "Measured at Stora Enso's Sunila LignoBoost plant (same process); no figure is published for Plymouth. Dried LignoBoost lignin is above 95% dry solids, so a dried product would contain far less water."
+  },
+  "dry_matter": {
+    "value": 16250,
+    "unit": "t/yr",
+    "basis": "calculated",
+    "method": "annual_wet_quantity x (1 - moisture_pct / 100) = 25,000 x 0.65",
+    "note": "Calculated from the published capacity and cake moisture. If the capacity is already dry lignin, the dry tonnage is about 25,000 t/yr instead."
+  },
+  "composition": {
+    "lignin_pct": {
+      "value": 97.1,
+      "unit": "% of dry matter",
+      "basis": "literature",
+      "source": "yan2018",
+      "method": "Lignin content per Domtar's product specification, as quoted by Yan et al. (2018)",
+      "note": "A literature compilation lists 91.1% acid-insoluble plus 5.4% acid-soluble lignin for BioChoice (Hararak et al. 2023, Table 1)."
+    },
+    "ash_pct": {
+      "value": 1.65,
+      "low": 1.2,
+      "high": 2.8,
+      "unit": "% of dry matter",
+      "basis": "literature",
+      "source": "yan2018",
+      "method": "Ash per ASTM D1102 (Yan et al. 2018)",
+      "note": "Other measurements of BioChoice lignin: 1.20 ± 0.02% by TAPPI T211 (Hararak et al. 2023) and 2.8% as residue after thermogravimetric analysis at 700 °C (Wu et al. 2024). The range spans these studies and methods; it is not a measured variation over a year."
+    },
+    "sulfur_pct": {
+      "value": 0.8,
+      "unit": "% of dry matter",
+      "basis": "literature",
+      "source": "yan2018",
+      "method": "Elemental (CHNS) analysis of the untreated lignin: 0.8 ± 0.2 wt % (Yan et al. 2018, Table 3)",
+      "note": "The same paper's text says the lignin 'contained less than 0.1% sulfur'. The measured table value is used here, and the conflict is flagged as a data gap."
+    },
+    "carbohydrates_pct": {
+      "value": null,
+      "unit": "% of dry matter",
+      "basis": "literature",
+      "source": "wu2024",
+      "note": "Described as 'sugar-free' (Wu et al. 2024), while Hararak et al. (2023) observed small sugar impurities. No figure is published, so it is left blank."
+    },
+    "mw_g_per_mol": {
+      "value": 6000,
+      "low": 5200,
+      "high": 6700,
+      "unit": "g/mol",
+      "basis": "literature",
+      "source": "hararak2023",
+      "method": "Weight-average molecular weight by gel permeation chromatography: 6000 ± 283 g/mol for the as-received lignin (Hararak et al. 2023, Table 2)",
+      "note": "The range is the literature range in the same paper's Table 1 (5,200–6,700). Wu et al. (2024) report 19,200 Da with a different method; molecular weight depends strongly on the method."
+    },
+    "phenolic_oh_mmol_per_g": {
+      "value": null,
+      "unit": "mmol/g",
+      "basis": "literature",
+      "note": "No published figure for BioChoice lignin was found in an open-access source."
+    },
+    "other": {
+      "sodium_pct": {
+        "value": null,
+        "unit": "% of dry matter",
+        "basis": "literature",
+        "note": "No published figure for BioChoice lignin was found in an open-access source."
+      }
+    }
+  },
+  "variability": {
+    "summary": "Not published: none of the sources reports how this lignin's volume or quality varies over a year. The ranges on ash and molecular weight show differences between studies and methods, not variation over time.",
+    "drivers": [
+      "Differences between samples and analytical methods across studies"
+    ]
+  },
+  "current_use": {
+    "route": "sold_as_material",
+    "description": "Sold as BioChoice lignin: 'Domtar now markets the lignin as BioChoice™ lignin.' The plant was built to de-bottleneck the recovery boiler, and lignin 'was originally intended to be burned in a power boiler, with the potential to sell' (Valmet 2015)."
+  },
+  "infrastructure": [
+    {
+      "kind": "lignin_precipitation",
+      "name": "LignoBoost lignin plant",
+      "status": "operating",
+      "capacity": {
+        "value": 25000,
+        "unit": "t/yr",
+        "basis": "literature",
+        "source": "valmet2015",
+        "note": "Published nameplate capacity."
+      },
+      "note": "The first full-scale LignoBoost plant, started up in 2013 (Valmet 2015)."
+    },
+    {
+      "kind": "washing_and_filtration",
+      "name": "Lignin cake washing (part of the LignoBoost process)",
+      "status": "operating",
+      "note": "'the first washed lignin cake was produced on February 15th 2013' (Valmet 2015)."
+    }
+  ],
+  "geographic_market": {
+    "mill_location": "Plymouth, North Carolina, USA (Valmet 2015)",
+    "target_markets": [
+      "North America (supplied by Domtar from Plymouth, North Carolina)",
+      "Europe (UPM Biochemicals is described as the European distributor of BioChoice lignin; Mandlekar et al. 2019)"
+    ],
+    "logistics": "Not published in the sources used."
+  },
+  "data_gaps": [
+    {
+      "field": "data_status",
+      "issue": "uncertain",
+      "severity": "high",
+      "impact": "The figures are published values from different studies and samples of a commercial lignin, not one mill's records. They show what a real LignoBoost softwood kraft lignin looks like, not what any specific mill produces today.",
+      "next_step": "Replace them with the mill's own production records and lab analyses before any decision."
+    },
+    {
+      "field": "annual_wet_quantity",
+      "issue": "uncertain",
+      "severity": "high",
+      "impact": "25,000 t/yr is a nameplate capacity, and the source does not say whether it is dry lignin or moist cake, so the dry tonnage could be about 25,000 t/yr rather than the calculated figure.",
+      "next_step": "Use actual annual output, stated on a dry basis."
+    },
+    {
+      "field": "moisture_pct",
+      "issue": "uncertain",
+      "severity": "medium",
+      "impact": "The cake moisture was published for another LignoBoost plant (Sunila), not for this one, and a dried product would contain far less water.",
+      "next_step": "Use the plant's own cake moisture or the moisture of the product as sold."
+    },
+    {
+      "field": "composition.sulfur_pct",
+      "issue": "uncertain",
+      "severity": "medium",
+      "impact": "The source gives 0.8 wt % in a table and 'less than 0.1%' in its text.",
+      "next_step": "Measure total sulfur by a stated method."
+    },
+    {
+      "field": "composition.ash_pct",
+      "issue": "uncertain",
+      "severity": "low",
+      "impact": "Published ash values for this lignin range from 1.20% to 2.8% depending on the study and method.",
+      "next_step": "Measure ash by the method a target buyer uses."
+    },
+    {
+      "field": "composition.mw_g_per_mol",
+      "issue": "method_unclear",
+      "severity": "low",
+      "impact": "Published molecular weights range from 5,200 to 19,200 g/mol depending on the method.",
+      "next_step": "Measure with the method used in the target application's specification."
+    },
+    {
+      "field": "composition.carbohydrates_pct",
+      "issue": "missing",
+      "severity": "medium",
+      "impact": "No carbohydrate figure is published; sources disagree on whether sugars are present.",
+      "next_step": "Measure residual carbohydrates (for carbon fiber, a specification of below 500 ppm is cited in EV-CM-01)."
+    },
+    {
+      "field": "composition.phenolic_oh_mmol_per_g",
+      "issue": "missing",
+      "severity": "high",
+      "impact": "Phenolic hydroxyl content can't be checked against resin or polyurethane needs until it is measured.",
+      "next_step": "Measure hydroxyl groups by 31P NMR or a standard titration."
+    },
+    {
+      "field": "composition.other.sodium_pct",
+      "issue": "missing",
+      "severity": "medium",
+      "impact": "The make-up of the ash is unknown, so ash-related requirements can only be checked against total ash.",
+      "next_step": "Request an inorganic element analysis of the ash."
+    }
+  ],
+  "sources": [
+    {
+      "key": "valmet2015",
+      "citation": "Valmet (22 Dec 2015). LignoBoost plants produce large volumes of lignin, case studies. Up and Running.",
+      "url": "https://www.valmet.com/insights/articles/up-and-running/new-technology/PEERS1stLignoBoostPlants/",
+      "verified_on": "2026-10-25",
+      "quotes": [
+        "The first full-scale LignoBoost plant was started up in 2013 at Domtar’s Plymouth, North Carolina mill, where high-quality lignin is a by-product of the kraft pulping process",
+        "This mill has an annual capacity of 466,000 ADMT of softwood kraft pulp and the main raw material is Southern Pine.",
+        "A lignin plant capacity of 25,000 MT per year allowed the mill to de-bottleneck the recovery boiler and sell the incremental pulp.",
+        "Lignin was originally intended to be burned in a power boiler, with the potential to sell.",
+        "Domtar now markets the lignin as BioChoice™ lignin.",
+        "Moist lignin that has a dry solids content of about 65% is dried in a ring dryer utilizing off-gases from the lime kilns as drying media."
+      ]
+    },
+    {
+      "key": "kienberger2021",
+      "citation": "Kienberger, M., Maitz, S., Pichler, T., Demmelmayer, P. (2021). Systematic Review on Isolation Processes for Technical Lignin. Processes 9, 804.",
+      "url": "https://doi.org/10.3390/pr9050804",
+      "verified_on": "2026-10-25",
+      "quotes": [
+        "The first full scale industrial LignoBoost plant was commissioned at Domtar’s pulp mill in North Carolina with an annual capacity of 25,000 tons of isolated Kraft lignin."
+      ]
+    },
+    {
+      "key": "yan2018",
+      "citation": "Yan, Q., Li, J., Zhang, J., Cai, Z. (2018). Thermal Decomposition of Kraft Lignin under Gas Atmospheres of Argon, Hydrogen, and Carbon Dioxide. Polymers 10(7), 729.",
+      "url": "https://doi.org/10.3390/polym10070729",
+      "verified_on": "2026-10-25",
+      "quotes": [
+        "Kraft lignin (BioChoice, Plymouth, NC, USA) was supplied by Domtar Corp (Fort Mill, SC, USA).",
+        "According to the specification from Domtar, the BioChoice product contained 97.1 wt % of lignin.",
+        "The ash content of lignin (1.65 wt %) was measured according to ASTM D1102 [ 34 ].",
+        "Table 3, untreated kraft lignin (wt %): C 65.2 ± 0.2, H 6.1 ± 0.2, O 27.4 ± 0.9, N 0.1 ± 0.05, S 0.8 ± 0.2",
+        "Lignin in general contains 2 to 3% sulfur after its kraft pulping process [ 46 ], but, kraft lignin used in this experiment contained less than 0.1% sulfur because the intensive acid purification step was applied in its production process."
+      ]
+    },
+    {
+      "key": "hararak2023",
+      "citation": "Hararak, B., Khan, I., Fernando, G. F. (2023). Single-Solvent Fractionation and Electro-Spinning Neat Softwood Kraft Lignin. ACS Applied Bio Materials 6(8), 3153.",
+      "url": "https://doi.org/10.1021/acsabm.3c00278",
+      "verified_on": "2026-10-25",
+      "quotes": [
+        "Softwood Kraft lignin (Domtar’s BioChoice lignin) used in this study was purchased from distributor, UMP, Finland.",
+        "The ash content in the ARL was 1.20 ± 0.02%, and this is similar to that reported in the literature for BioChoice lignin.",
+        "Table 2, ARL (as-received lignin): ash content 1.20 ± 0.02%, Mw 6000 ± 283 g·mol–1, Mn 2700 ± 141 g·mol–1, PDI 2.22 ± 0.22",
+        "Table 1, BioChoice lignin: softwood, Kraft and LignoBoost, Mw 5200–6700 g·mol–1, PDI 3–7, ash content 1.36%, acid-soluble lignin 5.4%, acid-insoluble lignin 91.1%"
+      ]
+    },
+    {
+      "key": "wu2024",
+      "citation": "Wu, C., Ding, J., Tindall, G. W., Pittman, Z. A., Thies, M. C., Roberts, M. E., Łukasik, R. M. (2024). The Role of Lignin Molecular Weight on Activated Carbon Pore Structure. Molecules 29(16), 3879.",
+      "url": "https://doi.org/10.3390/molecules29163879",
+      "verified_on": "2026-10-25",
+      "quotes": [
+        "The lignin feedstock (LF) was obtained from a commercial source, named Biochoice ® lignin, which is supplied by Domtar Corp (Plymouth, NC, USA).",
+        "This lignin is classified as a sugar-free, low-ash lignin, produced from Southern Pine trees via the Kraft process.",
+        "Compared to the feed lignin (LF), which had a weight-average MW (M w ) of 19,200 Da, the resulting lignin samples spanned a range of M w from 11,900 Da to 44,200 Da.",
+        "Compared to the ash content of 2.8% in LF, all of the ash contents in the three ALPHA-processed lignin samples are lower than 0.6%."
+      ]
+    },
+    {
+      "key": "mandlekar2019",
+      "citation": "Mandlekar, N., Cayla, A., Rault, F., Giraud, S., Salaün, F., Guan, J. (2019). Valorization of Industrial Lignin as Biobased Carbon Source in Fire Retardant System for Polyamide 11 Blends. Polymers 11(1), 180.",
+      "url": "https://doi.org/10.3390/polym11010180",
+      "verified_on": "2026-10-25",
+      "quotes": [
+        "Two different types of industrial lignins were used as a carbon source, varying in chemical nature: the first one is a lignosulphonate lignin (coded as LL), provided from Domsjö Fabriker AB ( Örnsköldsvik Sweden) and the second one is an alkali kraft lignin (coded as DL) obtained from UPM Biochemicals, Helsinki, Finland (European distributor of Domtar BioChoice ® lignin)."
+      ]
+    }
+  ]
+}

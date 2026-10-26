@@ -12,6 +12,15 @@ export interface Quantity {
   basis: string
   method?: string
   note?: string
+  source?: string // key into Feedstock.sources when basis is 'literature'
+}
+
+export interface LiteratureSource {
+  key: string
+  citation: string
+  url: string
+  verified_on: string
+  quotes: string[]
 }
 
 export interface Asset {
@@ -33,7 +42,7 @@ export interface DataGap {
 export interface Feedstock {
   id: string
   name: string
-  data_status: 'fictional_demo' | 'measured' | 'mixed'
+  data_status: 'fictional_demo' | 'measured' | 'mixed' | 'literature_reference'
   disclaimer: string
   feedstock_type: string
   wood_type: 'softwood' | 'hardwood' | 'mixed'
@@ -46,6 +55,7 @@ export interface Feedstock {
   infrastructure: Asset[]
   geographic_market: { mill_location: string; target_markets: string[]; logistics: string }
   data_gaps: DataGap[]
+  sources?: LiteratureSource[]
 }
 
 export interface ScenarioInput {
@@ -96,8 +106,17 @@ export interface ScoringConfig {
   rubric: Record<string, RubricEntry>
 }
 
+export interface Preset {
+  id: string
+  label: string
+  name: string
+  feedstock: Feedstock
+  economic_assumptions: EconomicAssumptions
+}
+
 export interface ProjectInfo {
   name: string
+  presets: Preset[]
   feedstock: Feedstock
   economic_assumptions: EconomicAssumptions
   pathways: Pathway[]

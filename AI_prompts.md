@@ -368,3 +368,17 @@ None.
 None.
 
 ---
+
+## Step 12: A literature-based reference stream
+
+### Prompt
+
+> is there any way to make the assumption not fictional? like based on research paper?
+
+### Follow-up prompt
+
+> Yes: add a literature-based reference stream as a second preset next to the fictional demo. Every figure must cite a verified source, unknowns stay blank, keep the evaluation on the fictional demo, run it live once, and add it to the report.
+
+**What was missing after the first prompt:** The first answer researched which figures could be sourced and asked for a go-ahead before changing the app.
+
+---

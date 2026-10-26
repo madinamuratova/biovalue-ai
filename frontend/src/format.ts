@@ -30,6 +30,11 @@ export function time(iso: string | null | undefined): string {
   return new Date(iso).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })
 }
 
+/** Read a value at a dotted path such as "composition.ash_pct". */
+export function getIn(obj: unknown, path: string): unknown {
+  return path.split('.').reduce<unknown>((o, k) => (o == null ? undefined : (o as Record<string, unknown>)[k]), obj)
+}
+
 /** Set a value at a dotted path such as "composition.ash_pct.value", returning a new object. */
 export function setIn<T>(obj: T, path: string, value: unknown): T {
   const [head, ...rest] = path.split('.')

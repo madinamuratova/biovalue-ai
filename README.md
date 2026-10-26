@@ -59,7 +59,7 @@ Check the configuration without calling the model: start the app and open http:/
 
 Started as in the quick start, the API serves the dashboard at http://127.0.0.1:8765. To edit the frontend, run the development server instead (needs Node 24): keep the API running, then `npm --prefix frontend install` and `npm --prefix frontend run dev`, and open http://localhost:5173. After editing, rebuild the committed copy with `npm --prefix frontend run build`.
 
-The dashboard has two tabs. **About the tool** explains in plain words what you can do with it, the idea behind it (with sources), and who can benefit; link to it directly with `?tab=about`. **Assessment** opens with the fictional demo feedstock and the latest saved run, in nine sections:
+The dashboard has two tabs. **About the tool** explains in plain words what you can do with it, the idea behind it (with sources), and who can benefit; link to it directly with `?tab=about`. **Assessment** opens with the fictional demo feedstock and the latest saved run, in nine sections. Under the input form, **Load fictional demo** and **Load literature reference** switch between the invented demo mill and a stream described only by published, cited values; editing a published figure makes it your own estimate and removes its citation.
 
 1. **Feedstock input:** editable form, checked as you type. A blank figure is recorded as missing data, never as zero. Optional economic assumptions are entered per pathway.
 2. **Feedstock profile:** units, ranges, missing data, and uncertainty for the current inputs (deterministic, no model).
@@ -184,6 +184,7 @@ Attractiveness is the weighted average of the criteria that were assessed. Data 
 | File | Contents |
 |---|---|
 | `data/demo_feedstock.json` | **Fictional** kraft lignin cake at an invented mill. Mw, phenolic OH, and sodium are deliberately missing |
+| `data/reference_feedstock.json`, `data/reference_project.json` | **Literature-based reference stream**: published values for BioChoice lignin (a commercial LignoBoost softwood kraft lignin) and the LignoBoost process. Every figure cites a source, and each source quotes the passages it was taken from, checked on 2026-10-25. Unpublished figures (carbohydrates, phenolic OH, sodium) are blank; no economic inputs are published. The evaluation does not use it |
 | `data/demo_project.json` | The demo project; its only economic input is a fictional availability fraction (40/50/60%) |
 | `data/evidence_library.json` | 15 verified evidence records (11 high quality, 4 moderate); each supported claim quotes its source |
 | `data/scoring_config.json` | Weights, the 1–5 rubric, and the rule cut-offs, with notes |

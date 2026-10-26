@@ -1,0 +1,14 @@
+{
+  "about": "The literature-based reference project: the published-values feedstock in reference_feedstock.json, the same evidence library and pathways as the demo. No economic inputs are supplied, because no verified source gives an availability fraction, yield, price, or cost for this lignin in these uses. The evaluation suite does not use this project; it runs on the fictional demo, for which its expectations were written.",
+  "id": "literature_reference",
+  "name": "BioValue AI reference: literature-based LignoBoost softwood kraft lignin",
+  "description": "Screens the three product pathways for a softwood kraft lignin described entirely by published, cited figures (BioChoice lignin from a LignoBoost plant). Unpublished figures are left blank.",
+  "feedstock_file": "reference_feedstock.json",
+  "evidence_file": "evidence_library.json",
+  "pathways": [
+    "phenolic_resins",
+    "polyurethanes",
+    "carbon_materials"
+  ],
+  "economic_assumptions": {}
+}

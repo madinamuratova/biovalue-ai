@@ -4,7 +4,9 @@ Everything numeric in the report and slides is read here from files the applicat
     output/evaluation/eval_results.json   evaluation suite (phase 5)
     output/evaluation/results.json        baseline vs optimized comparison (phase 4)
     output/cost_estimate.json             monthly estimates from the phase-4 runs
-    output/latest_assessment.json         the dashboard's demo run shown in the screenshots
+    output/runs/<DEMO_RUN>.json           the dashboard's demo run shown in the screenshots
+    output/runs/<id>.json                 the latest run of the literature-based reference stream (found automatically)
+    data/reference_feedstock.json         the reference stream's figures and their quoted sources
     output/runs/<id>.json                 the dashboard's latest prompt-injection run (found automatically)
     output/submission_links.json          repo / app / video links (filled in by hand)
     output/user_test_results.json         the real user test (filled in by hand; "pending" until then)
@@ -42,7 +44,8 @@ def load(path: Path):
 E = load(OUT / "evaluation" / "eval_results.json")
 P4 = load(OUT / "evaluation" / "results.json")
 COST = load(OUT / "cost_estimate.json")
-A = load(OUT / "latest_assessment.json")
+DEMO_RUN = "run-20261025-195831-fda557"  # the dashboard demo run the step-by-step section and screenshots describe
+A = load(OUT / "runs" / f"{DEMO_RUN}.json")
 LINKS = load(OUT / "submission_links.json")
 UT = load(OUT / "user_test_results.json")
 
@@ -60,6 +63,21 @@ def _latest_injection_run() -> dict:
 
 INJ = _latest_injection_run()
 INJECTION_RUN = INJ["run_id"]
+
+
+def _latest_reference_run() -> dict:
+    """The newest saved run of the literature-based reference stream with the report's model."""
+    for f in sorted((OUT / "runs").glob("run-*.json"), reverse=True):
+        if f.name.endswith(".inputs.json"):
+            continue
+        r = load(f)
+        if r.get("model") == A["model"] and r.get("project_name", "").startswith("Literature-based reference"):
+            return r
+    raise FileNotFoundError("no saved run of the literature-based reference stream")
+
+
+REF_RUN = _latest_reference_run()
+REF_FEEDSTOCK = load(ROOT / "data" / "reference_feedstock.json")
 SC = load(ROOT / "data" / "scoring_config.json")
 FS = load(ROOT / "data" / "demo_feedstock.json")
 LIB = load(ROOT / "data" / "evidence_library.json")

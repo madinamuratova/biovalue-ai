@@ -6,6 +6,7 @@
 //
 //   node scripts/capture_screenshots.mjs                       all sections -> output/screenshots/
 //   node scripts/capture_screenshots.mjs --prefix injection --run <run id> trace   section 8 of that run -> injection_trace.png
+//   node scripts/capture_screenshots.mjs --prefix reference --click "Load literature reference" input profile   after pressing a button
 
 import { spawn } from 'node:child_process'
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
@@ -23,6 +24,8 @@ const WIDTH = 1280
 const args = process.argv.slice(2)
 const prefixAt = args.indexOf('--prefix')
 const prefix = prefixAt >= 0 ? args.splice(prefixAt, 2)[1] + '_' : ''
+const clickAt = args.indexOf('--click')
+const CLICK = clickAt >= 0 ? args.splice(clickAt, 2)[1] : null  // press a button (by its text) before capturing
 const runAt = args.indexOf('--run')
 const RUN_ID = runAt >= 0 ? args.splice(runAt, 2)[1] : null
 const API = process.env.API_URL || 'http://127.0.0.1:8765'
@@ -72,6 +75,11 @@ async function main() {
       if (await evaluate(`!!document.querySelector('#comparison') && !document.body.innerText.includes('Loading')`)) break
     }
     await sleep(1500)
+    if (CLICK) {
+      const clicked = await evaluate(`(() => { const b = [...document.querySelectorAll('button')].find((x) => x.textContent.trim() === ${JSON.stringify(CLICK)}); if (!b) return false; b.click(); return true })()`)
+      if (!clicked) throw new Error(`no button labelled "${CLICK}"`)
+      await sleep(3000) // let the preview of the new inputs come back from the API
+    }
 
     // A spec is a section id, "header", "page" (the first screen), "ledger" (the facts/assumptions/estimates/unknowns
     // panel), "<id>!" (with every <details> opened), or any of these with "@<height>" to keep only the top <height> CSS pixels (saved as <name>_top.png).

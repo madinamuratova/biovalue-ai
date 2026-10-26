@@ -22,7 +22,12 @@ export function FeedstockProfile({ preview, updating, agent, agentRunId }: {
   const dry = profile.dry_matter
   return (
     <div style={{ opacity: updating ? 0.6 : 1, transition: 'opacity .2s' }}>
-      {n.is_fictional && <Callout tone="warning" title="Fictional data">{checks.disclaimer}</Callout>}
+      {n.is_fictional && (
+        <Callout tone="warning" title={({ literature_reference: 'Published literature values, not one mill\u2019s measurements',
+          mixed: 'Estimated or mixed data', fictional_demo: 'Fictional data' } as Record<string, string>)[profile.data_status] ?? 'Not measured data'}>
+          {checks.disclaimer}
+        </Callout>
+      )}
       <div className="kpis" style={{ marginTop: 14 }}>
         <div className="kpi"><div className="label">Wet quantity</div><div className="value">{num(n.wet_mass_t_per_yr)}</div><div className="sub">t/yr</div></div>
         <div className="kpi"><div className="label">Moisture</div><div className="value">{pct(n.moisture_fraction)}</div><div className="sub">of wet mass</div></div>
@@ -44,7 +49,7 @@ export function FeedstockProfile({ preview, updating, agent, agentRunId }: {
                     <td className="num">{q.value === null ? <StatusBadge status="warning" label="missing" /> : num(q.value)}</td>
                     <td className="small">{q.unit}</td>
                     <td className="num">{range(q)}</td>
-                    <td className="small">{humanize(q.basis)}</td>
+                    <td className="small">{humanize(q.basis)}{q.source ? <div className="hint" title="Published source; see Published sources in section 1">{q.source}</div> : null}</td>
                   </tr>
                 ))}
               </tbody>

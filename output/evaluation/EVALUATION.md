@@ -6,8 +6,8 @@ Generated 2026-10-25T19:04:01-0400 by `evals/run_eval.py`. The expected behavior
 
 | Tier | What it covers | Checks | Failed | Errors | Seconds |
 |---|---|---|---|---|---|
-| deterministic | pytest -m 'not mock': units, calculations, scoring, schemas, safety rules, scenario expectations | 323 | 0 | 0 | 1.22 |
-| mock | pytest -m mock: real agents, tools, guards, API with a scripted stand-in model (no API calls) | 46 | 0 | 0 | 3.35 |
+| deterministic | pytest -m 'not mock': units, calculations, scoring, schemas, safety rules, scenario expectations | 338 | 0 | 0 | 1.23 |
+| mock | pytest -m mock: real agents, tools, guards, API with a scripted stand-in model (no API calls) | 46 | 0 | 0 | 3.26 |
 | live | evals/scenarios.json with the course model through Portkey | 163 | 1 | 0 | 1020.6 |
 
 ## The seven measures

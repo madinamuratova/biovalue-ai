@@ -35,7 +35,8 @@ LIMITS: list[tuple[str, str]] = [
      "Allow derived arithmetic and all feedstock-record numbers; treat missing-information lists as non-claims; add a model-based injection classifier."),
     ("Small evidence library (15 sources): no resin or polyurethane specs, prices, or yields.", "Add verified buyer specifications and price sources; let a mill add its own documents."),
     ("Occasional slow runs; no overall time limit per run.", "Add a run-level deadline and log client-side retries."),
-    ("The example mill is fictional; NPV, IRR, and margins are deliberately not calculated.", "Test with a real mill's lab data; add capital and fixed costs with agreed definitions."),
+    ("The demo mill is fictional, and the literature reference combines published values from different studies, not one mill's records; NPV, IRR, and margins are deliberately not calculated.",
+     "Test with a real mill's own production and lab data; add capital and fixed costs with agreed definitions."),
     ("Not hosted online; hosting and support costs not estimated.", "Host it and get quotes to complete the organization-scale budget."),
 ]
 

@@ -4,7 +4,7 @@
 
 Routes:
     GET  /api/health                     model name and whether the API key is configured
-    GET  /api/project                    the demo inputs for the form, pathways, and the scoring rubric
+    GET  /api/project                    the demo inputs, the input presets (fictional demo, literature reference), pathways, rubric
     GET  /api/evidence                   the evidence library
     POST /api/preview                    validate inputs and return the deterministic profile and economics (no model)
     POST /api/runs                       start the four-agent workflow on the inputs (202); one run at a time
@@ -89,6 +89,13 @@ async def health() -> dict:
             "active_run": app.state.active_run, "run_config": default_run_config().name}
 
 
+def _preset(project_file: str, preset_id: str, label: str) -> dict:
+    p = data.project(project_file)
+    manifest = data.raw(project_file)
+    return {"id": preset_id, "label": label, "name": p.name, "feedstock": data.raw(manifest["feedstock_file"]),
+            "economic_assumptions": {k: v.model_dump(mode="json", exclude_none=True) for k, v in p.economic_assumptions.items()}}
+
+
 @app.get("/api/project")
 async def project() -> dict:
     demo = data.project()
@@ -96,6 +103,8 @@ async def project() -> dict:
     feedstock.pop("about", None)
     return {
         "name": demo.name,
+        "presets": [_preset(data.DEMO_PROJECT_FILE, "fictional_demo", "Fictional demo mill"),
+                    _preset(data.REFERENCE_PROJECT_FILE, "literature_reference", "Literature-based reference (published data)")],
         "feedstock": feedstock,
         "economic_assumptions": {k: v.model_dump(mode="json", exclude_none=True) for k, v in demo.economic_assumptions.items()},
         "pathways": [demo.evidence.pathway(pid).model_dump() for pid in demo.pathway_ids],

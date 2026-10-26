@@ -18,7 +18,7 @@ from pydantic import BaseModel, Field, model_validator
 
 from backend.models import Frozen, LigninProperty
 
-QuantityBasis = Literal["measured", "estimated", "calculated", "fictional_assumption"]
+QuantityBasis = Literal["measured", "estimated", "calculated", "fictional_assumption", "literature"]
 AssetKind = Literal[
     "lignin_precipitation", "washing_and_filtration", "drying", "fractionation", "chemical_modification",
     "packaging_and_storage", "rail_or_port_access", "steam_and_power", "other",
@@ -42,6 +42,7 @@ class Quantity(Frozen):
     high: float | None = None
     method: str = ""  # measurement basis or standard, e.g. what the lignin percentage includes
     note: str = ""
+    source: str = ""  # key into FeedstockProfile.sources; required when basis is "literature"
 
     @model_validator(mode="after")
     def _check(self):
@@ -122,10 +123,28 @@ class DataGap(Frozen):
     next_step: str
 
 
+class LiteratureSource(Frozen):
+    """A published source behind literature-based figures, with the passages that support them (quoted verbatim)."""
+
+    key: str
+    citation: str
+    url: str
+    verified_on: str  # the date the URL was opened and the quotes were checked against the source's own text
+    quotes: tuple[str, ...]
+
+    @model_validator(mode="after")
+    def _check(self):
+        if not self.url.startswith("https://"):
+            raise ValueError(f"source {self.key}: url must be https")
+        if not self.quotes or not all(q.strip() for q in self.quotes):
+            raise ValueError(f"source {self.key}: at least one verbatim quote is required")
+        return self
+
+
 class FeedstockProfile(Frozen):
     id: str
     name: str
-    data_status: Literal["fictional_demo", "measured", "mixed"]
+    data_status: Literal["fictional_demo", "measured", "mixed", "literature_reference"]
     disclaimer: str
     feedstock_type: str
     wood_type: Literal["softwood", "hardwood", "mixed"]
@@ -138,6 +157,7 @@ class FeedstockProfile(Frozen):
     infrastructure: tuple[ProcessingAsset, ...]
     geographic_market: GeographicMarket
     data_gaps: tuple[DataGap, ...] = ()
+    sources: tuple[LiteratureSource, ...] = ()  # for literature-based figures
 
     @model_validator(mode="after")
     def _check(self):
@@ -177,6 +197,20 @@ class FeedstockProfile(Frozen):
                 raise ValueError("a fictional demo profile's disclaimer must say it is fictional")
         if self.data_status == "measured" and "fictional_assumption" in bases:
             raise ValueError("a measured profile can't contain fictional assumptions")
+
+        keys = [src.key for src in self.sources]
+        if len(keys) != len(set(keys)):
+            raise ValueError("source keys must be unique")
+        for path, q in quantities.items():
+            if q.basis == "literature" and q.value is not None and not q.source:
+                raise ValueError(f"{path} is a literature value and needs a source")
+            if q.source and q.source not in keys:
+                raise ValueError(f"{path} cites source '{q.source}', which is not in the profile's sources")
+        if self.data_status == "literature_reference":
+            if bases & {"fictional_assumption", "measured"}:
+                raise ValueError("a literature-based profile can't contain fictional or measured figures")
+            if "literature" not in self.disclaimer.lower():
+                raise ValueError("a literature-based profile's disclaimer must say it is literature-based")
         return self
 
     @staticmethod

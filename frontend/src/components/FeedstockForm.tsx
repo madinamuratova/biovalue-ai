@@ -1,7 +1,7 @@
 import type { ChangeEvent } from 'react'
 import type { EconomicAssumptions, Feedstock, FieldError, Pathway, Quantity, ScenarioInput } from '../types.ts'
 import { COMPOSITION_FIELDS, ECONOMIC_FIELDS, errorsFor } from '../validate.ts'
-import { setIn } from '../format.ts'
+import { getIn, setIn } from '../format.ts'
 
 const USER_NOTE = 'Entered in the BioValue AI dashboard.'
 
@@ -28,7 +28,16 @@ export function FeedstockForm({ feedstock, assumptions, pathways, errors, dryMat
   dryMatter: string | null
   onChange: (feedstock: Feedstock, assumptions: EconomicAssumptions) => void
 }) {
-  const set = (path: string, value: unknown) => onChange(setIn(feedstock, path, value), assumptions)
+  const set = (path: string, value: unknown) => {
+    let next = setIn(feedstock, path, value)
+    // Editing a published (literature) figure makes it the user's own estimate: drop its citation, as the server does.
+    const figure = path.match(/^(.*)\.(value|low|high|unit)$/)?.[1]
+    const q = figure ? (getIn(next, figure) as Quantity | undefined) : undefined
+    if (figure && q?.basis === 'literature') next = setIn(setIn(next, `${figure}.basis`, 'estimated'), `${figure}.source`, '')
+    onChange(next, assumptions)
+  }
+  const cite = (q?: Quantity) => (q?.basis === 'literature' && q.source
+    ? <span className="chip plain" title="Published value; see Published sources below">{q.source}</span> : null)
   const quantityRow = (path: string, label: string, q: Quantity, unitControl?: React.ReactNode) => {
     const msgs = errorsFor(errors, `feedstock.${path}`)
     return (
@@ -39,7 +48,7 @@ export function FeedstockForm({ feedstock, assumptions, pathways, errors, dryMat
           <NumberInput label={`${label} low`} value={q.low} invalid={msgs.length > 0} onChange={(v) => set(`${path}.low`, v)} />
           <NumberInput label={`${label} high`} value={q.high} invalid={msgs.length > 0} onChange={(v) => set(`${path}.high`, v)} />
         </div>
-        <span className="hint">Value · low · high (expected range over a year){unitControl ? '' : ` · ${q.unit}`}</span>
+        <span className="hint">Value · low · high (expected range over a year){unitControl ? '' : ` · ${q.unit}`} {cite(q)}</span>
         {unitControl}
         <Errors messages={msgs} />
       </div>
@@ -83,6 +92,7 @@ export function FeedstockForm({ feedstock, assumptions, pathways, errors, dryMat
               <option value="fictional_demo">Fictional demo values</option>
               <option value="measured">Mill measurements</option>
               <option value="mixed">Mixed or estimated</option>
+              <option value="literature_reference">Published literature values (cited)</option>
             </select>
           </label>
         </div>
@@ -121,7 +131,7 @@ export function FeedstockForm({ feedstock, assumptions, pathways, errors, dryMat
                     <td><NumberInput label={`${f.label} low`} value={q.low} invalid={msgs.length > 0} onChange={(v) => set(`${path}.low`, v)} /></td>
                     <td><NumberInput label={`${f.label} high`} value={q.high} invalid={msgs.length > 0} onChange={(v) => set(`${path}.high`, v)} /></td>
                     <td className="ink-2 small">{f.unit}</td>
-                    <td className="small ink-2">{q.value === null ? <span className="badge warning"><span className="dot" />missing</span> : (q.method || '–')}</td>
+                    <td className="small ink-2">{q.value === null ? <span className="badge warning"><span className="dot" />missing</span> : (q.method || '–')} {cite(q)}</td>
                   </tr>
                 )
               })}
@@ -213,6 +223,24 @@ export function FeedstockForm({ feedstock, assumptions, pathways, errors, dryMat
           </details>
         ))}
       </fieldset>
+      {feedstock.data_status === 'literature_reference' && (feedstock.sources?.length ?? 0) > 0 && (
+        <fieldset className="span-2 sources">
+          <legend>Published sources</legend>
+          <p className="hint">Each figure tagged with a source key is a published value. The passages below are quoted verbatim and were
+            checked against each source. Figures you edit become your own estimates and lose their tag. Blank figures are not published.</p>
+          <ul className="plain">
+            {feedstock.sources!.map((src) => (
+              <li key={src.key}>
+                <span className="chip plain">{src.key}</span> {src.citation} <a href={src.url} target="_blank" rel="noreferrer">Open source</a>
+                <span className="hint"> · checked {src.verified_on}</span>
+                <details><summary className="small">{src.quotes.length} quoted passage(s)</summary>
+                  <ul className="small ink-2">{src.quotes.map((q, i) => <li key={i}>“{q}”</li>)}</ul>
+                </details>
+              </li>
+            ))}
+          </ul>
+        </fieldset>
+      )}
     </form>
   )
 }

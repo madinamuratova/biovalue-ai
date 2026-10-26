@@ -286,3 +286,8 @@ body {
 .tabs button { white-space: nowrap; }
 .topbar .meta { flex: none; white-space: nowrap; }
 .topbar .btn { flex: none; }
+
+/* Published sources panel (literature-based reference preset) */
+.sources ul.plain > li { margin: 10px 0; line-height: 1.5; }
+.sources details { margin-top: 4px; }
+.sources details ul { margin: 6px 0 0; padding-left: 18px; }

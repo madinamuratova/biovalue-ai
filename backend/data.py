@@ -18,6 +18,14 @@ DEMO_PROJECT_FILE = "demo_project.json"
 SCORING_FILE = "scoring_config.json"
 
 
+REFERENCE_PROJECT_FILE = "reference_project.json"
+
+
+def raw(name: str) -> dict:
+    """A data file as plain JSON (without its "about" note), e.g. to send a preset to the dashboard."""
+    return _read(name)
+
+
 def _read(name: str) -> dict:
     data = json.loads((DATA_DIR / name).read_text(encoding="utf-8"))
     data.pop("about", None)

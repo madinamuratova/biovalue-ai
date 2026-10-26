@@ -9,6 +9,7 @@ self-contained HTML files (images embedded). Data sources are listed in scripts/
 from report_data import BASE_CSS, ROOT
 from report_s1 import motivation, title, whats_new
 from report_s2 import agents
+from report_s2b import reference_stream
 from report_s3 import safety, tokenomics
 from report_s4 import appendix, impact, limits
 from report_slides import slides_html
@@ -51,7 +52,8 @@ ol.steps li { margin: 4px 0; }
   .page-break { break-before: page; }
   h2 { margin-top: 18px; }
   h2, h3 { break-after: avoid; }
-  figure, table, .diagram, .tiles, svg { break-inside: avoid; }
+  figure, .diagram, .tiles, svg { break-inside: avoid; }
+  table { break-inside: auto; } thead { display: table-header-group; }
   tr { break-inside: avoid; }
   a { color: inherit; text-decoration: none; }
 }
@@ -60,7 +62,7 @@ ol.steps li { margin: 4px 0; }
 
 def report_html() -> str:
     # The eight sections required by the project page, in its order.
-    body = "".join(f() for f in (title, motivation, whats_new, agents, tokenomics, safety, impact, limits, appendix))
+    body = "".join(f() for f in (title, motivation, whats_new, agents, reference_stream, tokenomics, safety, impact, limits, appendix))
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BioValue AI · MGT 409 final project report</title>

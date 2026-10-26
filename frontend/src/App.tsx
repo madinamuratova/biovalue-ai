@@ -145,9 +145,10 @@ export default function App() {
     }
   }
 
-  function resetToDemo() {
-    if (!project) return
-    setFeedstock(project.feedstock); setAssumptions(project.economic_assumptions)
+  function loadPreset(id: string) {
+    const preset = project?.presets.find((p) => p.id === id)
+    if (!preset) return
+    setFeedstock(preset.feedstock); setAssumptions(preset.economic_assumptions)
   }
 
   const pendingEvidenceScroll = useRef(false)
@@ -240,7 +241,7 @@ export default function App() {
           </div>
 
           <Section id="input" number={1} title="Feedstock input"
-            intro="Edit the stream below. It starts with the fictional kraft lignin demo. Every change is checked and the profile below updates; run the assessment to send the inputs to the four agents.">
+            intro="Edit the stream below. It starts with the fictional kraft lignin demo; load the literature reference to start from published, cited values instead. Every change is checked and the profile below updates; run the assessment to send the inputs to the four agents.">
             <FeedstockForm feedstock={feedstock} assumptions={assumptions} pathways={project.pathways} errors={errors}
               dryMatter={preview ? `${num(preview.feedstock.normalized.dry_mass_t_per_yr)} t/yr` : null}
               onChange={(f, a) => { setFeedstock(f); setAssumptions(a) }} />
@@ -248,7 +249,9 @@ export default function App() {
               <button className="btn primary" onClick={() => void startRun()} disabled={running || starting}>
                 {running ? 'Assessment running…' : result ? 'Rerun assessment with these inputs' : 'Run assessment'}
               </button>
-              <button className="btn" onClick={resetToDemo} disabled={running}>Reset to demo values</button>
+              <button className="btn" onClick={() => loadPreset('fictional_demo')} disabled={running}>Load fictional demo</button>
+              <button className="btn" onClick={() => loadPreset('literature_reference')} disabled={running}
+                title="Published, cited values for a commercial LignoBoost softwood kraft lignin (BioChoice); unpublished figures stay blank">Load literature reference</button>
               {errors.length > 0 && <span className="field-error">{errors.length} input problem(s) to fix</span>}
               {previewing && <span className="hint"><span className="spinner" /> checking…</span>}
             </div>
