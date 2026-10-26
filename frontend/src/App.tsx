@@ -14,6 +14,7 @@ import { CommercialAssessment } from './components/CommercialAssessment.tsx'
 import { RecommendedActions } from './components/RecommendedActions.tsx'
 import { EvidenceExplorer } from './components/EvidenceExplorer.tsx'
 import { ExecutionTrace } from './components/ExecutionTrace.tsx'
+import { About } from './components/About.tsx'
 
 const SECTIONS = [
   ['input', 'Feedstock input'], ['profile', 'Feedstock profile'], ['comparison', 'Opportunity comparison'],
@@ -24,6 +25,8 @@ const SECTIONS = [
 const POLL_MS = 1500
 const keyOf = (feedstock: Feedstock | null, assumptions: EconomicAssumptions) => JSON.stringify({ feedstock, economic_assumptions: assumptions })
 const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+type View = 'assessment' | 'about'
+const initialView = (): View => (new URLSearchParams(window.location.search).get('tab') === 'about' ? 'about' : 'assessment')
 
 export default function App() {
   const [health, setHealth] = useState<Health | null>(null)
@@ -44,6 +47,7 @@ export default function App() {
   const [runError, setRunError] = useState<string | null>(null)
   const [starting, setStarting] = useState(false)
   const [focus, setFocus] = useState<{ ref: string; nonce: number } | null>(null)
+  const [view, setView] = useState<View>(initialView)
   const previewRequest = useRef(0)
 
   // --- Initial load ---------------------------------------------------------------------------------
@@ -146,10 +150,35 @@ export default function App() {
     setFeedstock(project.feedstock); setAssumptions(project.economic_assumptions)
   }
 
+  const pendingEvidenceScroll = useRef(false)
+  const switchView = useCallback((next: View) => {
+    setView(next)
+    const url = new URL(window.location.href)
+    if (next === 'about') url.searchParams.set('tab', 'about')
+    else url.searchParams.delete('tab')
+    window.history.replaceState(null, '', url.pathname + url.search + url.hash)
+  }, [])
+  const showView = useCallback((next: View) => {
+    switchView(next)
+    window.scrollTo({ top: 0 })
+  }, [switchView])
+
   const openEvidence = useCallback((ref: string) => {
     setFocus({ ref, nonce: Date.now() })
-    scrollTo('evidence')
-  }, [])
+    if (view === 'assessment') {
+      scrollTo('evidence')
+    } else {
+      pendingEvidenceScroll.current = true // scroll once the Assessment view has rendered (effect below)
+      switchView('assessment')
+    }
+  }, [view, switchView])
+
+  useEffect(() => {
+    if (view === 'assessment' && pendingEvidenceScroll.current) {
+      pendingEvidenceScroll.current = false
+      window.setTimeout(() => document.getElementById('evidence')?.scrollIntoView({ block: 'start' }), 50) // instant after a view switch
+    }
+  }, [view])
 
   // --- Render ---------------------------------------------------------------------------------------------
   if (loadError) {
@@ -181,16 +210,21 @@ export default function App() {
           <h1>BioValue AI</h1>
           <p>Kraft lignin opportunity assessment · {project.name}</p>
         </div>
+        <nav className="tabs" role="tablist" aria-label="Views">
+          <button role="tab" aria-selected={view === 'assessment'} className={view === 'assessment' ? 'active' : ''} onClick={() => showView('assessment')}>Assessment</button>
+          <button role="tab" aria-selected={view === 'about'} className={view === 'about' ? 'active' : ''} onClick={() => showView('about')}>About the tool</button>
+        </nav>
         <div className="spacer" />
         <div className="meta">
           Model {health.model} via Portkey<br />
           {health.api_key_configured ? <StatusBadge status="good" label="API key configured" /> : <StatusBadge status="critical" label="No API key" />}
         </div>
-        <button className="btn primary" onClick={() => void startRun()} disabled={running || starting}>
+        <button className="btn primary" onClick={() => { showView('assessment'); void startRun() }} disabled={running || starting}>
           {running || starting ? <><span className="spinner" /> Running…</> : result ? 'Rerun assessment' : 'Run assessment'}
         </button>
       </header>
 
+      {view === 'about' ? <About onStart={() => showView('assessment')} /> : (
       <div className="layout">
         <nav className="toc" aria-label="Sections">
           <ol>{SECTIONS.map(([id, title], i) => <li key={id}><a href={`#${id}`}><span>{i + 1}</span>{title}</a></li>)}</ol>
@@ -272,6 +306,7 @@ export default function App() {
           </Section>
         </div>
       </div>
+      )}
     </EvidenceContext.Provider>
   )
 }

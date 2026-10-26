@@ -202,8 +202,8 @@ def agent_diagram() -> str:
                      f'<div class="agent-tools">{"".join(f"<code>{esc(t)}</code>" for t in tools)}</div></div>')
     flow = '<div class="arrow">→</div>'.join(boxes)
     return f"""<div class="diagram">
-  <div class="layer"><div class="layer-label">Dashboard</div><div class="pill">React + Vite · nine sections · input validation</div>
-    <div class="arrow-down">↓ JSON over HTTP</div><div class="pill">FastAPI · size limits · one run at a time · HTML/Markdown export</div></div>
+  <div class="layer"><div class="layer-label">Dashboard</div><div class="pill">React dashboard · About tab and nine-section assessment · input validation</div>
+    <div class="arrow-down">↓ JSON over HTTP</div><div class="pill">FastAPI · serves the dashboard · size limits · one run at a time · HTML/Markdown export</div></div>
   <div class="arrow-down">↓ validated project (feedstock, economic assumptions, evidence library)</div>
   <div class="flow">{flow}</div>
   <div class="arrow-down">↑ every tool call runs tested Python; every answer passes schema validation and guards ↑</div>

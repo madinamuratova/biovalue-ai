@@ -1,6 +1,6 @@
 """Report sections 1 (title and links), 2 (motivation), 3 (what is new)."""
 
-from report_data import A, LINKS, M, UT, check_totals, claim, esc, live_runs, mean_usage, table
+from report_data import A, LINKS, M, UT, check_totals, claim, esc, figure, live_runs, mean_usage, table
 
 KIENBERGER = ("M. Kienberger, S. Maitz, T. Pichler, P. Demmelmayer (2021), “Systematic Review on Isolation Processes for "
               "Technical Lignin”, <em>Processes</em> 9, 804, "
@@ -103,4 +103,5 @@ def whats_new() -> str:
     and cost, and costs under one US cent (USD {lo:.4f}–{hi:.4f} per run in the evaluation), so a mill can rerun the screen
     whenever a lab result arrives.</li>
   </ol>
+  {figure("about_page", "The dashboard's About tab explains in plain words what the tool does, the idea behind it (with sources), and who can benefit. The faint wood motifs in the background are part of the Scandinavian-inspired design; the content sits on solid cards.", width="50%")}
 </section>"""

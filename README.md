@@ -59,7 +59,7 @@ Check the configuration without calling the model: start the app and open http:/
 
 Started as in the quick start, the API serves the dashboard at http://127.0.0.1:8765. To edit the frontend, run the development server instead (needs Node 24): keep the API running, then `npm --prefix frontend install` and `npm --prefix frontend run dev`, and open http://localhost:5173. After editing, rebuild the committed copy with `npm --prefix frontend run build`.
 
-The dashboard opens with the fictional demo feedstock and the latest saved run. Its nine sections:
+The dashboard has two tabs. **About the tool** explains in plain words what you can do with it, the idea behind it (with sources), and who can benefit; link to it directly with `?tab=about`. **Assessment** opens with the fictional demo feedstock and the latest saved run, in nine sections:
 
 1. **Feedstock input:** editable form, checked as you type. A blank figure is recorded as missing data, never as zero. Optional economic assumptions are entered per pathway.
 2. **Feedstock profile:** units, ranges, missing data, and uncertainty for the current inputs (deterministic, no model).

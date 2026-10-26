@@ -356,3 +356,15 @@ None.
 **What was missing after the first prompt:** The official requirements page had not been shared, so the first answer could only check the project against my own earlier prompts.
 
 ---
+
+## Step 11: Wood-themed background and an About tab
+
+### Prompt
+
+> so can you please add some wood icons on the backgroud of the website so that it has somewhat scandi design but with relevant elements. and also can you add a tab that explains simply and shortly the what exactly uou can do with the tool and a bit of the theory behind and who could benefit from it
+
+### Follow-up prompt
+
+None.
+
+---

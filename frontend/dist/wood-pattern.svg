@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360">
+  <!-- Background tile for the dashboard: line drawings of forest and wood motifs (pine, birch log end grain,
+       leaf, split log, wood grain). Very faint on purpose; the content cards sit on solid surfaces above it. -->
+  <g fill="none" stroke="#7a5b3a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.13">
+    <!-- pine -->
+    <path d="M62 18 L46 44 H54 L42 64 H52 L38 88 H86 L72 64 H82 L70 44 H78 Z"/>
+    <path d="M62 88 V102"/>
+    <!-- log end grain (growth rings) -->
+    <circle cx="232" cy="64" r="30"/>
+    <circle cx="234" cy="66" r="22"/>
+    <circle cx="235" cy="67" r="14"/>
+    <circle cx="236" cy="68" r="6"/>
+    <path d="M236 68 L254 46"/>
+    <!-- birch leaf -->
+    <path d="M118 196 C 132 170, 164 166, 176 176 C 170 196, 146 214, 118 196 Z"/>
+    <path d="M118 196 L176 176 M136 190 L146 178 M150 186 L160 176 M128 194 L134 184"/>
+    <!-- split log, side view -->
+    <path d="M222 236 H312 M222 266 H312"/>
+    <ellipse cx="222" cy="251" rx="9" ry="15"/>
+    <path d="M312 236 C 320 240, 320 262, 312 266"/>
+    <path d="M240 246 C 256 242, 276 250, 296 246 M246 256 C 262 260, 282 252, 302 256"/>
+    <!-- small spruce -->
+    <path d="M300 128 L290 146 H296 L288 160 H312 L304 146 H310 Z"/>
+    <path d="M300 160 V168"/>
+    <!-- wood grain lines -->
+    <path d="M24 300 C 54 290, 84 310, 114 300 S 174 290, 204 300"/>
+    <path d="M30 316 C 60 306, 90 326, 120 316 S 180 306, 210 316"/>
+    <path d="M60 300 C 70 296, 76 304, 70 308 C 64 312, 56 306, 60 300 Z"/>
+    <!-- cone -->
+    <path d="M40 186 C 32 198, 34 214, 44 222 C 54 214, 56 198, 48 186 Z"/>
+    <path d="M38 198 L50 196 M36 208 L52 206 M40 216 L48 214"/>
+  </g>
+</svg>
