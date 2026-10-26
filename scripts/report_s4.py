@@ -26,8 +26,9 @@ FINDINGS: list[str] = [
     "appeared in an earlier full evaluation on gpt-5.6-luna (archived), which suggests they come from the rules, not the model.",
 ]
 LIMITS: list[tuple[str, str]] = [
-    ("Usefulness to real users is not yet shown (user test pending; no expert ranking).",
-     "Run the prepared user test; ask a reviewer to fill in the expert-ranking template and report agreement."),
+    (("Usefulness rests on one participant (one chemical engineer, uniform top ratings) and no expert ranking."
+      if UT["conducted"] else "Usefulness to real users is not yet shown (user test pending; no expert ranking)."),
+     "Test with more users from mills and investors; ask a reviewer to fill in the expert-ranking template and report agreement."),
     ("A single low-quality source can set the TRL (S10).", "Use the lowest TRL when sources disagree, or require moderate or high quality for TRL 7+."),
     ("User assumptions can put a pathway first without a flag (S08).", "Mark rankings whose order depends on assumption-based criteria."),
     ("Agent judgments vary by a point between runs.", "Take the median of several judgment samples; add evidence-count rules to the rubric."),
@@ -40,6 +41,11 @@ LIMITS: list[tuple[str, str]] = [
     ("Not hosted online; hosting and support costs not estimated.", "Host it and get quotes to complete the organization-scale budget."),
 ]
 
+if UT["conducted"] and UT["missing_considerations"]:
+    LIMITS.insert(1, ("The user-test participant named gaps the tool does not model: "
+                      + "; ".join(x[0].lower() + x[1:] for x in UT["missing_considerations"]) + ".",
+                      "Add supply-risk inputs (planned and unplanned outages, minimum guaranteed volumes) and show their effect on available volume."))
+
 
 def _status(passed, total):
     return f'<span class="{"pass" if passed == total else "fail"}">{passed:,}/{total:,}</span>'
@@ -51,18 +57,40 @@ def _user_test() -> str:
   no user impact. The test is ready (<code>output/user_test_questionnaire.md</code>): one industry or climate-tech professional screens two
   comparable fictional feedstocks, one with their normal workflow and one with BioValue AI, timed live, then rates usefulness and clarity
   and names missing considerations. Results go in <code>output/user_test_results.json</code> and appear here when the report is rebuilt.</div>"""
-    r = UT["ratings_1_to_5"]
-    rated = [f"{k.split('_', 1)[0]} {k.split('_', 1)[1].replace('_', ' ')}: {v}" for k, v in r.items() if v is not None]
-    quote = (f'<blockquote>“{esc(UT["quote"])}” — {esc(UT["participant_role"] or "participant")}</blockquote>'
-             if UT.get("quote") and UT.get("consent_to_quote") else "")
-    return f"""<h3>Real-user test ({esc(UT["date"] or "")})</h3>
-  {table(["", "Normal workflow", "BioValue AI"], [
-        ["Minutes to a view they would send", str(UT["normal_workflow_minutes"]), str(UT["biovalue_minutes"])],
-        ["Top choice", esc(UT["normal_workflow_top_choice"] or "–"), esc(UT["biovalue_top_choice"] or "–")]])}
-  <p>Participant: {esc(UT["participant_role"] or "–")}. Ratings (1–5): {esc("; ".join(rated)) or "–"}.</p>
+    statements = {
+        "C1": "The result was useful for deciding what to look at next", "C2": "I understood why the pathways were ranked as they were",
+        "C3": "It was clear which statements were facts, assumptions, estimates, or unknowns", "C4": "I could check the sources behind the market statements",
+        "C5": "The tool was honest about what it could not assess", "C6": "The validation steps are ones I would actually take",
+        "C7": "I would trust this output as a first screen, before my own checks", "C8": "Compared with my normal approach, this saved me time"}
+    ratings = "; ".join(f"{k.split('_')[0]} “{statements[k.split('_')[0]]}”: <strong>{v}</strong>"
+                        for k, v in UT["ratings_1_to_5"].items() if v is not None) or "not recorded"
+    quote = (f'<blockquote>“{esc(UT["quote"])}” <br><span class="muted">— {esc(UT["participant_role"] or "participant")}, quoted anonymously '
+             f'with consent</span></blockquote>' if UT.get("quote") and UT.get("consent_to_quote") else "")
+    minutes = lambda v: f"{v} min" if v is not None else "not recorded"
+    saved = ""
+    if UT["normal_workflow_minutes"] and UT["biovalue_minutes"]:
+        diff = UT["normal_workflow_minutes"] - UT["biovalue_minutes"]
+        saved = f" BioValue AI took {UT['biovalue_minutes'] / UT['normal_workflow_minutes']:.0%} of the time ({diff} minutes {'less' if diff > 0 else 'more'})."
+    listed = lambda xs: esc("; ".join(xs)) if xs else ("none" if xs == [] else "not recorded")
+    return f"""<h3>Real-user test ({esc(UT["date"] or "date not recorded")})</h3>
+  <p>One participant, a {esc((UT["participant_role"] or "professional").lower())}, did the first screen twice: once with their normal
+  approach and once with BioValue AI, timed to the point where they had a view they would send to a colleague (including reading time).</p>
+  {table(["", "Normal approach", "BioValue AI"], [
+        ["Minutes to a view they would send", minutes(UT["normal_workflow_minutes"]), minutes(UT["biovalue_minutes"])],
+        ["Top choice", esc(UT["normal_workflow_top_choice"] or "not recorded"), esc(UT["biovalue_top_choice"] or "not recorded")]])}
+  <p>{saved.strip()} Ratings (1 = strongly disagree, 5 = strongly agree): {ratings}.</p>
   {quote}
-  <p>Missing considerations they named: {esc("; ".join(UT["missing_considerations"])) or "none"}. Problems they found:
-  {esc("; ".join(UT["problems_found"])) or "none"}. This is one person's experience, not a general result.</p>"""
+  <p>Missing considerations they named: {listed(UT["missing_considerations"])}. Problems they found: {listed(UT["problems_found"])}.</p>
+  <p class="muted">This is one person's experience, not a general result: one participant, uniform top ratings, and the task order and
+  which feedstock each task used were not recorded. It shows the tool can shorten a first screen for a technical user; it does not show by
+  how much for others.</p>"""
+
+
+def _time_by_hand() -> str:
+    if UT["conducted"] and UT["normal_workflow_minutes"] and UT["biovalue_minutes"]:
+        return (f"In the user test, the whole screen took the participant {UT['biovalue_minutes']} minutes with BioValue AI, including reading, "
+                f"against {UT['normal_workflow_minutes']} minutes with their normal approach (one participant).")
+    return "How long the same screen takes by hand has not been measured yet; the user test above measures it."
 
 
 def impact() -> str:
@@ -94,8 +122,7 @@ def impact() -> str:
   <h3>Time, money, and reach (measured)</h3>
   <ul>
     <li><strong>Time:</strong> a complete first screen of three pathways takes a median of {lat["median"]:.0f} seconds of compute
-    ({m["runs"]["completed"]} of {m["runs"]["live_runs"]} evaluation runs completed). How long the same screen takes by hand has not been
-    measured yet; the user test above measures it.</li>
+    ({m["runs"]["completed"]} of {m["runs"]["live_runs"]} evaluation runs completed). {_time_by_hand()}</li>
     <li><strong>Money:</strong> USD {cost["usd"]:.4f} of model cost per screen, so rerunning after a new lab result costs less than a
     cent. Hosting and people's time were not measured and are not included.</li>
     <li><strong>Reach:</strong> any mill that can isolate lignin is a potential user; only 1–2% of the 50–70 million tonnes of lignin

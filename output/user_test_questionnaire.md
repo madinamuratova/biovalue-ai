@@ -1,7 +1,7 @@
 # BioValue AI user test: questionnaire and recording sheet
 
-**Status: not yet conducted.** This is a blank instrument. No responses have been collected, and nothing in this file is a
-result.
+**Status: conducted once**, on 2026-10-25, with one participant (an anonymous chemical engineer). The answers are recorded
+in `output/user_test_results.json`; this file stays the blank instrument that was used, and nothing in it is a result.
 
 | | |
 |---|---|

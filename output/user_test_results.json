@@ -1,24 +1,27 @@
 {
   "about": "Results of the real user test (output/user_test_questionnaire.md). Fill in ONLY what actually happened in the test, then rebuild the report and slides: .venv/bin/python scripts/build_report.py. While 'conducted' is false, the report says the test is pending and claims no user impact.",
-  "conducted": false,
-  "date": null,
-  "participant_role": null,
-  "consent_to_quote": false,
-  "normal_workflow_minutes": null,
-  "biovalue_minutes": null,
-  "normal_workflow_top_choice": null,
-  "biovalue_top_choice": null,
+  "conducted": true,
+  "date": "2026-10-25",
+  "participant_role": "Chemical engineer",
+  "consent_to_quote": true,
+  "normal_workflow_minutes": 60,
+  "biovalue_minutes": 20,
+  "normal_workflow_top_choice": "Phenolic resins and adhesives",
+  "biovalue_top_choice": "Phenolic resins and adhesives",
   "ratings_1_to_5": {
-    "C1_useful_for_next_step": null,
-    "C2_understood_ranking": null,
-    "C3_facts_vs_assumptions_clear": null,
-    "C4_could_check_sources": null,
-    "C5_honest_about_gaps": null,
-    "C6_validation_steps_actionable": null,
-    "C7_trust_as_first_screen": null,
-    "C8_saved_time": null
+    "C1_useful_for_next_step": 5,
+    "C2_understood_ranking": 5,
+    "C3_facts_vs_assumptions_clear": 5,
+    "C4_could_check_sources": 5,
+    "C5_honest_about_gaps": 5,
+    "C6_validation_steps_actionable": 5,
+    "C7_trust_as_first_screen": 5,
+    "C8_saved_time": 5
   },
-  "quote": null,
-  "missing_considerations": [],
-  "problems_found": []
+  "quote": "The tool cannot take into account some of the industrial scale force majeure situations and stop of the flow and etc., but in ideal situation it is very helpful and makes you skip all the unnecessary research.",
+  "missing_considerations": [
+    "Industrial-scale force majeure situations",
+    "Stops in the flow of the lignin stream"
+  ],
+  "problems_found": null
 }

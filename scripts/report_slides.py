@@ -39,7 +39,8 @@ def _user_line():
     if not UT["conducted"]:
         return "<li><strong>Real-user test:</strong> pending (questionnaire ready); no user impact is claimed yet</li>"
     quote = f' · “{esc(UT["quote"])}”' if UT.get("quote") and UT.get("consent_to_quote") else ""
-    return (f'<li><strong>Real user:</strong> {UT["biovalue_minutes"]} min with BioValue AI vs '
+    who = (UT["participant_role"] or "participant").lower()
+    return (f'<li><strong>Real user</strong> (one {esc(who)}): {UT["biovalue_minutes"]} min with BioValue AI vs '
             f'{UT["normal_workflow_minutes"]} min normally{quote}</li>')
 
 

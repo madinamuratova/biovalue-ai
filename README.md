@@ -127,7 +127,7 @@ This runs all three tiers and writes `output/evaluation/eval_results.json` (mach
 - **Scenarios** (`evals/scenarios.json`): 15 cases, each with its expected behavior written before the first run. Expectations are never edited to fit a result; any change must be logged in `expectation_changes` with a reason, and a test checks that list.
 - **Measures:** gap coverage, reference validity (re-checked independently of the guards), calculation accuracy, agreement with expert rankings, uncertainty handling, run success and latency, and tokens and proxy cost per completed assessment.
 - **Expert agreement** is reported as *not measured* until a reviewer fills in `evals/expert_rankings.json` (copy `evals/expert_rankings_template.json`).
-- **User test:** `output/user_test_questionnaire.md` is a blank instrument for comparing a professional's normal screening with BioValue AI. No user test has been run yet.
+- **User test:** `output/user_test_questionnaire.md` is the instrument for comparing a professional's normal screening with BioValue AI. It was run once, on 2026-10-25, with one participant (an anonymous chemical engineer): 60 minutes with their normal approach against 20 with BioValue AI, the same top choice both times, and 5 of 5 on all eight statements. The answers are in `output/user_test_results.json`. One participant is not a general result.
 
 `--tiers deterministic mock --merge` reruns only the pytest tiers and keeps the saved live results; `--resummarize` recomputes the measures and `EVALUATION.md` from the saved results without running anything.
 
@@ -222,10 +222,10 @@ Attractiveness is the weighted average of the criteria that were assessed. Data 
 | `AI_prompts.md` | Every prompt used with Claude Code, word for word |
 | `output/evaluation/EVALUATION.md`, `eval_results.json`, `FINDINGS.md` | Evaluation summary, machine-readable results, and findings |
 | `output/safety.md`, `output/tokenomics.md`, `output/cost_estimate.json` | Safety testing; token use, configuration comparison, and cost projections |
-| `output/user_test_questionnaire.md` | The user-test instrument (the test itself has not been run yet) |
+| `output/user_test_questionnaire.md` | The user-test instrument (run once, with one participant; results in `output/user_test_results.json`) |
 | `output/screenshots/` | Screenshots of the running dashboard used in the report and slides |
 | `output/submission_links.json` | Repository, app, and video links shown in the report and on the first slide (fill in, then rebuild) |
-| `output/user_test_results.json` | The real user test's results, filled in by hand after the test; the report says "pending" until `conducted` is true (then rebuild) |
+| `output/user_test_results.json` | The real user test's results (one participant, 2026-10-25), entered from the test; the report and slides read them when rebuilt |
 
 `report.html` and `slides.html` are built from the result files by `.venv/bin/python scripts/build_report.py` (self-contained files with the screenshots embedded). The screenshots come from `node scripts/capture_screenshots.mjs` with the API and dashboard running and Google Chrome installed; it only reads the page, so it shows the latest saved run (`--run <run id>` shows an earlier saved run, `--click "<button text>"` presses a button first, `section@800` keeps the top 800 pixels, and `section!` opens every expandable detail).
 

@@ -90,8 +90,11 @@ All three tiers ran:
    - There is one run per scenario.
    - Several uncertainty checks match keywords. For example, "conflicting evidence surfaced" passed on the word
      "conflict".
-7. **Usefulness is unproven.** There is no expert ranking yet, and no user test yet (`output/user_test_questionnaire.md`
-   is ready).
+7. **Usefulness rests on one person.** The user test was run once, on 2026-10-25, with one participant (an anonymous
+   chemical engineer): 60 minutes with their normal approach against 20 with BioValue AI, the same top choice both times,
+   and 5 of 5 on all eight statements (`output/user_test_results.json`). The participant named gaps the tool does not
+   model: industrial-scale force majeure situations and stops in the flow of the lignin stream. There is still no expert
+   ranking. One participant with uniform top ratings is encouraging, not evidence of general impact.
 8. **The evidence library sets the ceiling.** It has 15 records, with no numeric resin or polyurethane specifications
    and no price or yield for any pathway, so those pathways can't be ranked on the demo data.
 

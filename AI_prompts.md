@@ -394,3 +394,19 @@ None.
 None.
 
 ---
+
+## Step 14: Record the real user-test results
+
+### Prompt
+
+> how do i do that Two things only you can add before the deadline: the real user-test results (fill in output/user_test_results.json,
+
+### Follow-up prompt
+
+> can we do it here? you ask me the answer i type it and then you update it?
+
+**What was missing after the first prompt:** The first answer explained how to edit the results file by hand; I preferred to answer the questions in the chat and have the file, report, and slides updated for me.
+
+The answers I typed during this step are not copied here, because they include the participant's name and the participant asked to stay anonymous. What was recorded is in `output/user_test_results.json`.
+
+---
